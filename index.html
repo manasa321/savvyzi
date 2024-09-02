@@ -3,13 +3,84 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>price-pioneer</title>
+    <title>Price Pioneer</title>
     <meta name="description" content="GPT Engineer Generated Project" />
     <meta name="author" content="GPT Engineer" />
     <meta property="og:image" content="/og-image.svg" />
   </head>
   <body>
-    <div id="root"></div>
+    <!-- Navigation Bar -->
+    <nav>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <!-- Header Section -->
+    <header>
+      <h1>Welcome to Price Pioneer</h1>
+      <p>Your one-stop solution for finding the best prices on the market!</p>
+    </header>
+
+    <!-- Main Content Section -->
+    <main>
+      <!-- Search Bar -->
+      <section id="search">
+        <h2>Find Your Product</h2>
+        <input type="text" id="search-input" placeholder="Enter product name" />
+        <button id="search-button">Search</button>
+      </section>
+
+      <!-- Display Results -->
+      <section id="results">
+        <h2>Search Results</h2>
+        <div id="product-list">
+          <!-- Dynamic content will be inserted here by JavaScript -->
+        </div>
+      </section>
+
+      <!-- About Section -->
+      <section id="about">
+        <h2>About Us</h2>
+        <p>
+          Price Pioneer helps you find the best prices for products across various online stores. We provide up-to-date information so you can make informed purchasing decisions.
+        </p>
+      </section>
+
+      <!-- Services Section -->
+      <section id="services">
+        <h2>Our Services</h2>
+        <ul>
+          <li>Price Comparison</li>
+          <li>Product Recommendations</li>
+          <li>Latest Deals and Offers</li>
+        </ul>
+      </section>
+    </main>
+
+    <!-- Contact Section -->
+    <footer>
+      <section id="contact">
+        <h2>Contact Us</h2>
+        <form id="contact-form">
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name" required />
+
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required />
+
+          <label for="message">Message:</label>
+          <textarea id="message" name="message" rows="4" required></textarea>
+
+          <button type="submit">Send Message</button>
+        </form>
+      </section>
+    </footer>
+
+    <!-- JavaScript Files -->
     <script src="/.gpt_engineer/index.js" type="module"></script>
     <script type="module" src="/src/main.jsx"></script>
   </body>

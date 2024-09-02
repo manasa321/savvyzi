@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -10,15 +11,16 @@ const mockFetchProductData = async (productName) => {
   
   // Mock data with image and title
   return [
-    { website: "Amazon", price: Math.floor(Math.random() * 10000) + 1000, image: "https://via.placeholder.com/150", title: `${productName} - Amazon Edition` },
-    { website: "Flipkart", price: Math.floor(Math.random() * 10000) + 1000, image: "https://via.placeholder.com/150", title: `${productName} - Flipkart Special` },
-    { website: "Snapdeal", price: Math.floor(Math.random() * 10000) + 1000, image: "https://via.placeholder.com/150", title: `${productName} - Snapdeal Variant` },
-    { website: "Myntra", price: Math.floor(Math.random() * 10000) + 1000, image: "https://via.placeholder.com/150", title: `${productName} - Myntra Collection` },
+    { id: 1, website: "Amazon", price: Math.floor(Math.random() * 10000) + 1000, image: "https://via.placeholder.com/150", title: `${productName} - Amazon Edition` },
+    { id: 2, website: "Flipkart", price: Math.floor(Math.random() * 10000) + 1000, image: "https://via.placeholder.com/150", title: `${productName} - Flipkart Special` },
+    { id: 3, website: "Snapdeal", price: Math.floor(Math.random() * 10000) + 1000, image: "https://via.placeholder.com/150", title: `${productName} - Snapdeal Variant` },
+    { id: 4, website: "Myntra", price: Math.floor(Math.random() * 10000) + 1000, image: "https://via.placeholder.com/150", title: `${productName} - Myntra Collection` },
   ];
 };
 
 const ProductComparison = () => {
   const [productName, setProductName] = useState("");
+  const navigate = useNavigate();
 
   const { data: productData, refetch, isLoading, isError } = useQuery({
     queryKey: ['productComparison', productName],
@@ -30,6 +32,10 @@ const ProductComparison = () => {
     if (productName.trim()) {
       refetch();
     }
+  };
+
+  const handleProductClick = (productId) => {
+    navigate(`/product/${productId}`);
   };
 
   return (
@@ -51,8 +57,12 @@ const ProductComparison = () => {
       
       {productData && (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          {productData.map((item, index) => (
-            <Card key={index} className="overflow-hidden">
+          {productData.map((item) => (
+            <Card 
+              key={item.id} 
+              className="overflow-hidden cursor-pointer hover:shadow-lg transition-shadow"
+              onClick={() => handleProductClick(item.id)}
+            >
               <CardHeader>
                 <CardTitle className="text-lg">{item.website}</CardTitle>
               </CardHeader>

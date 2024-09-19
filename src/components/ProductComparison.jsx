@@ -36,15 +36,21 @@ const ProductComparison = ({ initialSearch, filters }) => {
   const filterProducts = (products) => {
     if (!products) return [];
     return products.filter(product => {
-      return (
-        (Object.values(filters.brand).every(v => v === false) || filters.brand[product.brand]) &&
-        (Object.values(filters.type).every(v => v === false) || filters.type[product.type]) &&
-        (Object.values(filters.price).every(v => v === false) || 
-          (filters.price['Under ₹10,000'] && product.price < 10000) ||
-          (filters.price['₹10,000 - ₹30,000'] && product.price >= 10000 && product.price < 30000) ||
-          (filters.price['₹30,000 - ₹50,000'] && product.price >= 30000 && product.price < 50000) ||
-          (filters.price['Above ₹50,000'] && product.price >= 50000))
-      );
+      if (!product || typeof product !== 'object') return false;
+      
+      const brandFilter = Object.values(filters.brand).every(v => v === false) || 
+                          (product.brand && filters.brand[product.brand]);
+      
+      const typeFilter = Object.values(filters.type).every(v => v === false) || 
+                         (product.type && filters.type[product.type]);
+      
+      const priceFilter = Object.values(filters.price).every(v => v === false) || 
+        (filters.price['Under ₹10,000'] && product.price < 10000) ||
+        (filters.price['₹10,000 - ₹30,000'] && product.price >= 10000 && product.price < 30000) ||
+        (filters.price['₹30,000 - ₹50,000'] && product.price >= 30000 && product.price < 50000) ||
+        (filters.price['Above ₹50,000'] && product.price >= 50000);
+
+      return brandFilter && typeFilter && priceFilter;
     });
   };
 

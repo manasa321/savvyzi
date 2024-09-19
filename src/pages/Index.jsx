@@ -9,10 +9,10 @@ const Index = () => {
   const searchTerm = searchParams.get('search') || '';
 
   return (
-    <div className="min-h-screen bg-gray-100">
+    <div className="min-h-screen bg-gradient-to-b from-gray-100 to-gray-200">
       <Navbar />
       <div className="container mx-auto py-8 px-4">
-        <h1 className="text-4xl font-bold mb-8 text-center text-gray-800">Product Price Comparison</h1>
+        <h1 className="text-4xl font-bold mb-8 text-center text-indigo-800">Product Price Comparison</h1>
         <ProductComparison initialSearch={searchTerm} />
       </div>
     </div>

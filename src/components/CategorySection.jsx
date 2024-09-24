@@ -19,7 +19,7 @@ const categories = [
       { name: 'Apple', logo: 'https://www.apple.com/ac/structured-data/images/knowledge_graph_logo.png' },
       { name: 'Samsung', logo: 'https://upload.wikimedia.org/wikipedia/commons/2/24/Samsung_Logo.svg' },
       { name: 'Google', logo: 'https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png' },
-      { name: 'OnePlus', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/OnePlus_logo.svg/2560px-OnePlus_logo.svg.png' },
+      { name: 'OnePlus', logo: 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.facebook.com%2Foneplusin%2F&psig=AOvVaw2lUoBrVAPulFIytkpSM6-y&ust=1727253656286000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCKC-9beX24gDFQAAAAAdAAAAABAE' },
       { name: 'Xiaomi', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Xiaomi_logo.svg/2048px-Xiaomi_logo.svg.png' }
     ]
   },

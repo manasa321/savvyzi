@@ -107,6 +107,7 @@ const categories = [
   },
 ];
 
+
 const CategorySection = () => {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -121,10 +122,16 @@ const CategorySection = () => {
           <CardContent className="p-4">
             <div className="grid grid-cols-3 gap-2">
               {category.brands.map((brand) => (
-                <div key={brand.name} className="flex flex-col items-center bg-background rounded-md p-2 hover:bg-accent transition-colors">
+                <a 
+                  key={brand.name} 
+                  href={brand.url} 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="flex flex-col items-center bg-background rounded-md p-2 hover:bg-accent transition-colors"
+                >
                   <img src={brand.logo} alt={brand.name} className="w-10 h-10 object-contain mb-1" />
                   <span className="text-xs font-medium text-center">{brand.name}</span>
-                </div>
+                </a>
               ))}
             </div>
           </CardContent>
@@ -133,5 +140,6 @@ const CategorySection = () => {
     </div>
   );
 };
+
 
 export default CategorySection;

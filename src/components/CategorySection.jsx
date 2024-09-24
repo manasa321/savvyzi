@@ -17,10 +17,11 @@ const categories = [
     icon: Smartphone,
     brands: [
       { name: 'Apple', logo: 'https://www.apple.com/ac/structured-data/images/knowledge_graph_logo.png' },
-      { name: 'Samsung', logo: 'https://upload.wikimedia.org/wikipedia/commons/2/24/Samsung_Logo.svg' },
-      { name: 'OnePlus', logo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKxyMJDTRJRMAOTYgrKR5fslKamX4AUHfbtQ&s' },
+      { name: 'Samsung', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Samsung_Logo.svg/2560px-Samsung_Logo.svg.png' },
+      { name: 'OnePlus', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/OnePlus_logo.svg/2560px-OnePlus_logo.svg.png' },
       { name: 'Xiaomi', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Xiaomi_logo.svg/2048px-Xiaomi_logo.svg.png' },
-      { name: 'Vivo', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Vivo_logo_2019.svg/1200px-Vivo_logo_2019.svg.png' }
+      { name: 'Vivo', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Vivo_logo_2019.svg/1200px-Vivo_logo_2019.svg.png' },
+      { name: 'Oppo', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/OPPO_logo.svg/2560px-OPPO_logo.svg.png' }
     ]
   },
   { 
@@ -29,11 +30,10 @@ const categories = [
     brands: [
       { name: 'LG', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/LG_logo_%282015%29.svg/2560px-LG_logo_%282015%29.svg.png' },
       { name: 'Sony', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Sony_logo.svg/2560px-Sony_logo.svg.png' },
-      { name: 'Samsung', logo: 'https://upload.wikimedia.org/wikipedia/commons/2/24/Samsung_Logo.svg' },
+      { name: 'Samsung', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Samsung_Logo.svg/2560px-Samsung_Logo.svg.png' },
       { name: 'Panasonic', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Panasonic_logo.svg/2560px-Panasonic_logo.svg.png' },
-      { name: 'Haier', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Haier_logo.svg/2560px-Haier_logo.svg.png' },
       { name: 'Mi TV', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Xiaomi_logo.svg/2048px-Xiaomi_logo.svg.png' },
-      { name: 'BPL', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/BPL_Group_logo.svg/1200px-BPL_Group_logo.svg.png' }
+      { name: 'TCL', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/TCL_logo.svg/2560px-TCL_logo.svg.png' }
     ]
   },
   { 
@@ -57,7 +57,7 @@ const categories = [
       { name: 'Boat', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/BoAt_logo.svg/1200px-BoAt_logo.svg.png' },
       { name: 'Noise', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Noise_logo.svg/1200px-Noise_logo.svg.png' },
       { name: 'Redmi', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Xiaomi_logo.svg/2048px-Xiaomi_logo.svg.png' },
-      { name: 'OnePlus', logo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKxyMJDTRJRMAOTYgrKR5fslKamX4AUHfbtQ&s' }
+      { name: 'OnePlus', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/OnePlus_logo.svg/2560px-OnePlus_logo.svg.png' }
     ]
   },
   { 

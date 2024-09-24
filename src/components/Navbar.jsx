@@ -27,7 +27,7 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-16">
           <div className="flex-shrink-0 flex items-center">
             <Compass className="h-8 w-8 mr-2" />
-            <h1 className="text-xl font-bold">Price Pioneer</h1>
+            <h1 className="text-xl font-bold">SavvyZi</h1>
           </div>
           <div className="flex-grow max-w-xl mx-4">
             <form onSubmit={handleSearch} className="relative">

@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { 
   Smartphone, 
   Tv, 
@@ -108,6 +109,12 @@ const categories = [
 ];
 
 const CategorySection = () => {
+  const navigate = useNavigate();
+
+  const handleBrandClick = (category, brand) => {
+    navigate(`/brand/${encodeURIComponent(category)}/${encodeURIComponent(brand)}`);
+  };
+
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
       {categories.map((category) => (
@@ -121,7 +128,11 @@ const CategorySection = () => {
           <CardContent className="p-4">
             <div className="grid grid-cols-3 gap-2">
               {category.brands.map((brand) => (
-                <div key={brand.name} className="flex flex-col items-center bg-background rounded-md p-2 hover:bg-accent transition-colors">
+                <div 
+                  key={brand.name} 
+                  className="flex flex-col items-center bg-background rounded-md p-2 hover:bg-accent transition-colors cursor-pointer"
+                  onClick={() => handleBrandClick(category.name, brand.name)}
+                >
                   <img src={brand.logo} alt={brand.name} className="w-10 h-10 object-contain mb-1" />
                   <span className="text-xs font-medium text-center">{brand.name}</span>
                 </div>

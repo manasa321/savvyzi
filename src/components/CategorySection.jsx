@@ -18,20 +18,22 @@ const categories = [
     brands: [
       { name: 'Apple', logo: 'https://www.apple.com/ac/structured-data/images/knowledge_graph_logo.png' },
       { name: 'Samsung', logo: 'https://upload.wikimedia.org/wikipedia/commons/2/24/Samsung_Logo.svg' },
-      { name: 'Google', logo: 'https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png' },
       { name: 'OnePlus', logo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKxyMJDTRJRMAOTYgrKR5fslKamX4AUHfbtQ&s' },
-      { name: 'Xiaomi', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Xiaomi_logo.svg/2048px-Xiaomi_logo.svg.png' }
+      { name: 'Xiaomi', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Xiaomi_logo.svg/2048px-Xiaomi_logo.svg.png' },
+      { name: 'Vivo', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Vivo_logo_2019.svg/1200px-Vivo_logo_2019.svg.png' }
     ]
   },
   { 
     name: 'TV', 
     icon: Tv,
     brands: [
-      { name: 'Sony', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Sony_logo.svg/2560px-Sony_logo.svg.png' },
       { name: 'LG', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/LG_logo_%282015%29.svg/2560px-LG_logo_%282015%29.svg.png' },
+      { name: 'Sony', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Sony_logo.svg/2560px-Sony_logo.svg.png' },
       { name: 'Samsung', logo: 'https://upload.wikimedia.org/wikipedia/commons/2/24/Samsung_Logo.svg' },
-      { name: 'TCL', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/TCL_Corporation_logo.svg/1200px-TCL_Corporation_logo.svg.png' },
-      { name: 'Vizio', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Vizio_logo.svg/1280px-Vizio_logo.svg.png' }
+      { name: 'Panasonic', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Panasonic_logo.svg/2560px-Panasonic_logo.svg.png' },
+      { name: 'Haier', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Haier_logo.svg/2560px-Haier_logo.svg.png' },
+      { name: 'Mi TV', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Xiaomi_logo.svg/2048px-Xiaomi_logo.svg.png' },
+      { name: 'BPL', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/BPL_Group_logo.svg/1200px-BPL_Group_logo.svg.png' }
     ]
   },
   { 
@@ -42,29 +44,32 @@ const categories = [
       { name: 'HP', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/HP_logo_2012.svg/2048px-HP_logo_2012.svg.png' },
       { name: 'Lenovo', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Lenovo_logo_2015.svg/2560px-Lenovo_logo_2015.svg.png' },
       { name: 'Apple', logo: 'https://www.apple.com/ac/structured-data/images/knowledge_graph_logo.png' },
-      { name: 'Asus', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/ASUS_Logo.svg/2560px-ASUS_Logo.svg.png' }
+      { name: 'Asus', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/ASUS_Logo.svg/2560px-ASUS_Logo.svg.png' },
+      { name: 'Acer', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Acer_2011.svg/2560px-Acer_2011.svg.png' }
     ]
   },
   { 
     name: 'Headphones', 
     icon: Headphones,
     brands: [
-      { name: 'Bose', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Bose_logo.svg/1280px-Bose_logo.svg.png' },
       { name: 'Sony', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Sony_logo.svg/2560px-Sony_logo.svg.png' },
-      { name: 'Sennheiser', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Sennheiser_logo.svg/2560px-Sennheiser_logo.svg.png' },
-      { name: 'JBL', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/JBL_logo.svg/2560px-JBL_logo.svg.png' },
-      { name: 'Beats', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Beats_Electronics_logo.svg/1200px-Beats_Electronics_logo.svg.png' }
+      { name: 'Apple', logo: 'https://www.apple.com/ac/structured-data/images/knowledge_graph_logo.png' },
+      { name: 'Boat', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/BoAt_logo.svg/1200px-BoAt_logo.svg.png' },
+      { name: 'Noise', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Noise_logo.svg/1200px-Noise_logo.svg.png' },
+      { name: 'Redmi', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Xiaomi_logo.svg/2048px-Xiaomi_logo.svg.png' },
+      { name: 'OnePlus', logo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKxyMJDTRJRMAOTYgrKR5fslKamX4AUHfbtQ&s' }
     ]
   },
   { 
     name: 'Gold Schemes', 
     icon: Coins,
     brands: [
-      { name: 'SBI', logo: 'https://upload.wikimedia.org/wikipedia/en/thumb/5/58/State_Bank_of_India_logo.svg/1200px-State_Bank_of_India_logo.svg.png' },
-      { name: 'HDFC', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/HDFC_Bank_Logo.svg/2560px-HDFC_Bank_Logo.svg.png' },
-      { name: 'ICICI', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/ICICI_Bank_Logo.svg/2560px-ICICI_Bank_Logo.svg.png' },
-      { name: 'Axis Bank', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Axis_Bank_logo.svg/1200px-Axis_Bank_logo.svg.png' },
-      { name: 'Punjab National Bank', logo: 'https://upload.wikimedia.org/wikipedia/en/thumb/0/09/Punjab_National_Bank_logo.svg/1200px-Punjab_National_Bank_logo.svg.png' }
+      { name: 'Joyalukkas', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Joyalukkas_Logo.svg/2560px-Joyalukkas_Logo.svg.png' },
+      { name: 'Malabar Gold', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Malabar_Gold_%26_Diamonds_Logo.svg/2560px-Malabar_Gold_%26_Diamonds_Logo.svg.png' },
+      { name: 'Kalyan Jewellers', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Kalyan_Jewellers_Logo.svg/2560px-Kalyan_Jewellers_Logo.svg.png' },
+      { name: 'BlueStone', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/BlueStone_Logo.svg/2560px-BlueStone_Logo.svg.png' },
+      { name: 'Tanishq', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Tanishq_Logo.svg/2560px-Tanishq_Logo.svg.png' },
+      { name: 'Lalitha Jewellery', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Lalitha_Jewellery_Logo.svg/2560px-Lalitha_Jewellery_Logo.svg.png' }
     ]
   },
   { 

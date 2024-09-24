@@ -24,15 +24,15 @@ const Index = () => {
           </p>
         </header>
         
-        <section className="mb-12">
-          <h2 className="text-2xl font-semibold mb-6 text-secondary-foreground">Explore Categories</h2>
-          <CategorySection />
-        </section>
-
-        {searchTerm && (
+        {searchTerm ? (
           <section className="mb-12">
-            <h2 className="text-2xl font-semibold mb-4 text-secondary-foreground">Product Comparison</h2>
-            <ProductComparison initialSearch={searchTerm} />
+            <h2 className="text-2xl font-semibold mb-4 text-secondary-foreground">Search Results for "{searchTerm}"</h2>
+            <ProductComparison searchTerm={searchTerm} />
+          </section>
+        ) : (
+          <section className="mb-12">
+            <h2 className="text-2xl font-semibold mb-6 text-secondary-foreground">Explore Categories</h2>
+            <CategorySection />
           </section>
         )}
 

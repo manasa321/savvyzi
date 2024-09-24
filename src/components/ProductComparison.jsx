@@ -1,33 +1,27 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useQuery } from "@tanstack/react-query";
 import { ShoppingCart, Truck, Star } from 'lucide-react';
 
-const mockFetchProductData = async (productName) => {
+const mockFetchProductData = async (searchTerm) => {
   await new Promise(resolve => setTimeout(resolve, 1000));
   return [
-    { id: 1, website: "Amazon", price: Math.floor(Math.random() * 10000) + 1000, image: "https://via.placeholder.com/150", title: `${productName} - Amazon Edition`, rating: 4.5, delivery: "Free" },
-    { id: 2, website: "Flipkart", price: Math.floor(Math.random() * 10000) + 1000, image: "https://via.placeholder.com/150", title: `${productName} - Flipkart Special`, rating: 4.2, delivery: "₹40" },
-    { id: 3, website: "Snapdeal", price: Math.floor(Math.random() * 10000) + 1000, image: "https://via.placeholder.com/150", title: `${productName} - Snapdeal Variant`, rating: 3.9, delivery: "₹60" },
-    { id: 4, website: "Myntra", price: Math.floor(Math.random() * 10000) + 1000, image: "https://via.placeholder.com/150", title: `${productName} - Myntra Collection`, rating: 4.1, delivery: "Free" },
+    { id: 1, website: "Amazon", price: Math.floor(Math.random() * 10000) + 1000, image: "https://via.placeholder.com/150", title: `${searchTerm} - Amazon Edition`, rating: 4.5, delivery: "Free" },
+    { id: 2, website: "Flipkart", price: Math.floor(Math.random() * 10000) + 1000, image: "https://via.placeholder.com/150", title: `${searchTerm} - Flipkart Special`, rating: 4.2, delivery: "₹40" },
+    { id: 3, website: "Snapdeal", price: Math.floor(Math.random() * 10000) + 1000, image: "https://via.placeholder.com/150", title: `${searchTerm} - Snapdeal Variant`, rating: 3.9, delivery: "₹60" },
+    { id: 4, website: "Myntra", price: Math.floor(Math.random() * 10000) + 1000, image: "https://via.placeholder.com/150", title: `${searchTerm} - Myntra Collection`, rating: 4.1, delivery: "Free" },
   ];
 };
 
-const ProductComparison = ({ initialSearch }) => {
+const ProductComparison = ({ searchTerm }) => {
   const navigate = useNavigate();
 
-  const { data: productData, refetch, isLoading, isError } = useQuery({
-    queryKey: ['productComparison', initialSearch],
-    queryFn: () => mockFetchProductData(initialSearch),
-    enabled: false,
+  const { data: productData, isLoading, isError } = useQuery({
+    queryKey: ['productComparison', searchTerm],
+    queryFn: () => mockFetchProductData(searchTerm),
+    enabled: !!searchTerm,
   });
-
-  useEffect(() => {
-    if (initialSearch) {
-      refetch();
-    }
-  }, [initialSearch, refetch]);
 
   const handleProductClick = (productId) => {
     navigate(`/product/${productId}`);

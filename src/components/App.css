@@ -1,0 +1,10 @@
+.header {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  width: 100px; /* Adjust the width */
+  height: auto; /* Maintain aspect ratio */
+  margin-right: 10px; /* Spacing between logo and text */
+}

@@ -15,7 +15,7 @@ const categories = [
     name: 'Mobile', 
     icon: Smartphone,
     brands: [
-      { name: 'Apple', logo: 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.pngwing.com%2Fen%2Ffree-png-ioulg&psig=AOvVaw1sAQoiKN_0Hk04X_wfkCS0&ust=1727251988727000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCJjXsaGR24gDFQAAAAAdAAAAABAE' },
+      { name: 'Apple', logo: 'https://w7.pngwing.com/pngs/186/863/png-transparent-apple-logo-apple-logo-computer-wallpaper-silhouette.png'},
       { name: 'Samsung', logo: 'https://via.placeholder.com/50?text=Samsung' },
       { name: 'Google', logo: 'https://via.placeholder.com/50?text=Google' },
       { name: 'OnePlus', logo: 'https://via.placeholder.com/50?text=OnePlus' },

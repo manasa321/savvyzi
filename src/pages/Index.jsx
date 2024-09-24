@@ -16,7 +16,7 @@ const Index = () => {
         <h1 className="text-4xl font-bold mb-8 text-center text-indigo-800">Price Pioneer</h1>
         
         <section className="mb-12">
-          <h2 className="text-2xl font-semibold mb-4 text-indigo-700">Categories</h2>
+          <h2 className="text-2xl font-semibold mb-6 text-indigo-700">Categories</h2>
           <CategorySection />
         </section>
 
@@ -28,10 +28,12 @@ const Index = () => {
           </p>
         </section>
 
-        <section>
-          <h2 className="text-2xl font-semibold mb-4 text-indigo-700">Product Comparison</h2>
-          <ProductComparison initialSearch={searchTerm} />
-        </section>
+        {searchTerm && (
+          <section>
+            <h2 className="text-2xl font-semibold mb-4 text-indigo-700">Product Comparison</h2>
+            <ProductComparison initialSearch={searchTerm} />
+          </section>
+        )}
       </div>
     </div>
   );

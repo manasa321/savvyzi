@@ -1,6 +1,4 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { 
   Smartphone, 
   Tv, 
@@ -11,6 +9,7 @@ import {
   Percent, 
   CreditCard 
 } from 'lucide-react';
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 const categories = [
   { 
@@ -19,22 +18,22 @@ const categories = [
     brands: [
       { name: 'Apple', logo: 'https://www.apple.com/ac/structured-data/images/knowledge_graph_logo.png' },
       { name: 'Samsung', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Samsung_Logo.svg/2560px-Samsung_Logo.svg.png' },
-      { name: 'OnePlus', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/OnePlus_logo.svg/2560px-OnePlus_logo.svg.png' },
+      { name: 'OnePlus', logo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKxyMJDTRJRMAOTYgrKR5fslKamX4AUHfbtQ&s' },
       { name: 'Xiaomi', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Xiaomi_logo.svg/2048px-Xiaomi_logo.svg.png' },
-      { name: 'Vivo', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Vivo_logo_2019.svg/1280px-Vivo_logo_2019.svg.png' },
-      { name: 'Oppo', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/OPPO_LOGO_2019.svg/2560px-OPPO_LOGO_2019.svg.png' }
+      { name: 'Vivo', logo: 'https://1000logos.net/wp-content/uploads/2022/02/Vivo-Logo.jpg' },
+      { name: 'Oppo', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/OPPO_Logo_wiki.png/1024px-OPPO_Logo_wiki.png' }
     ]
   },
   { 
     name: 'TV', 
     icon: Tv,
     brands: [
-      { name: 'LG', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/LG_logo_%282015%29.svg/2560px-LG_logo_%282015%29.svg.png' },
-      { name: 'Sony', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Sony_logo.svg/2560px-Sony_logo.svg.png' },
+      { name: 'LG', logo: 'https://images.squarespace-cdn.com/content/v1/502a8efb84ae42cbccf920c4/1585574686746-VCDIHSO21O76WR72WIAD/LG-Logo.png' },
+      { name: 'Sony', logo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_71af1QHWToXD7zD-eRrXfbzq8HuUnQzUWQ&s' },
       { name: 'Samsung', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Samsung_Logo.svg/2560px-Samsung_Logo.svg.png' },
-      { name: 'Panasonic', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Panasonic_logo_%282022%29.svg/2560px-Panasonic_logo_%282022%29.svg.png' },
+      { name: 'Panasonic', logo: 'https://1000logos.net/wp-content/uploads/2017/04/Color-Panasonic-Logo.jpg' },
       { name: 'Mi TV', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Xiaomi_logo.svg/2048px-Xiaomi_logo.svg.png' },
-      { name: 'TCL', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/TCL_logo.svg/2560px-TCL_logo.svg.png' }
+      { name: 'TCL', logo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9OUetTLDhz74L9g3GTIK2OjpWviR9eBaclQ&s' }
     ]
   },
   { 
@@ -53,12 +52,12 @@ const categories = [
     name: 'Headphones', 
     icon: Headphones,
     brands: [
-      { name: 'Sony', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Sony_logo.svg/2560px-Sony_logo.svg.png' },
+      { name: 'Sony', logo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_71af1QHWToXD7zD-eRrXfbzq8HuUnQzUWQ&s' },
       { name: 'Apple', logo: 'https://www.apple.com/ac/structured-data/images/knowledge_graph_logo.png' },
-      { name: 'Boat', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/BoAt_logo.svg/2560px-BoAt_logo.svg.png' },
-      { name: 'Noise', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Noise_%28company%29_logo.svg/2560px-Noise_%28company%29_logo.svg.png' },
+      { name: 'Boat', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Boat_Logo.webp/1200px-Boat_Logo.webp.png' },
+      { name: 'Noise', logo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJ3NT_z01r9hc_vsk2rhzMq1K40I-tC9FvTQ&s' },
       { name: 'Redmi', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Xiaomi_logo.svg/2048px-Xiaomi_logo.svg.png' },
-      { name: 'OnePlus', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/OnePlus_logo.svg/2560px-OnePlus_logo.svg.png' }
+      { name: 'OnePlus', logo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKxyMJDTRJRMAOTYgrKR5fslKamX4AUHfbtQ&s' }
     ]
   },
   { 
@@ -109,12 +108,6 @@ const categories = [
 ];
 
 const CategorySection = () => {
-  const navigate = useNavigate();
-
-  const handleBrandClick = (category, brand) => {
-    navigate(`/search?category=${encodeURIComponent(category)}&brand=${encodeURIComponent(brand)}`);
-  };
-
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
       {categories.map((category) => (
@@ -128,11 +121,7 @@ const CategorySection = () => {
           <CardContent className="p-4">
             <div className="grid grid-cols-3 gap-2">
               {category.brands.map((brand) => (
-                <div 
-                  key={brand.name} 
-                  className="flex flex-col items-center bg-background rounded-md p-2 hover:bg-accent transition-colors cursor-pointer"
-                  onClick={() => handleBrandClick(category.name, brand.name)}
-                >
+                <div key={brand.name} className="flex flex-col items-center bg-background rounded-md p-2 hover:bg-accent transition-colors">
                   <img src={brand.logo} alt={brand.name} className="w-10 h-10 object-contain mb-1" />
                   <span className="text-xs font-medium text-center">{brand.name}</span>
                 </div>

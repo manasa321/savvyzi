@@ -14,42 +14,90 @@ const categories = [
   { 
     name: 'Mobile', 
     icon: Smartphone,
-    brands: ['Apple', 'Samsung', 'Google', 'OnePlus', 'Xiaomi']
+    brands: [
+      { name: 'Apple', logo: 'https://via.placeholder.com/50?text=Apple' },
+      { name: 'Samsung', logo: 'https://via.placeholder.com/50?text=Samsung' },
+      { name: 'Google', logo: 'https://via.placeholder.com/50?text=Google' },
+      { name: 'OnePlus', logo: 'https://via.placeholder.com/50?text=OnePlus' },
+      { name: 'Xiaomi', logo: 'https://via.placeholder.com/50?text=Xiaomi' }
+    ]
   },
   { 
     name: 'TV', 
     icon: Tv,
-    brands: ['Sony', 'LG', 'Samsung', 'TCL', 'Vizio']
+    brands: [
+      { name: 'Sony', logo: 'https://via.placeholder.com/50?text=Sony' },
+      { name: 'LG', logo: 'https://via.placeholder.com/50?text=LG' },
+      { name: 'Samsung', logo: 'https://via.placeholder.com/50?text=Samsung' },
+      { name: 'TCL', logo: 'https://via.placeholder.com/50?text=TCL' },
+      { name: 'Vizio', logo: 'https://via.placeholder.com/50?text=Vizio' }
+    ]
   },
   { 
     name: 'Laptop', 
     icon: Laptop,
-    brands: ['Dell', 'HP', 'Lenovo', 'Apple', 'Asus']
+    brands: [
+      { name: 'Dell', logo: 'https://via.placeholder.com/50?text=Dell' },
+      { name: 'HP', logo: 'https://via.placeholder.com/50?text=HP' },
+      { name: 'Lenovo', logo: 'https://via.placeholder.com/50?text=Lenovo' },
+      { name: 'Apple', logo: 'https://via.placeholder.com/50?text=Apple' },
+      { name: 'Asus', logo: 'https://via.placeholder.com/50?text=Asus' }
+    ]
   },
   { 
     name: 'Headphones', 
     icon: Headphones,
-    brands: ['Bose', 'Sony', 'Sennheiser', 'JBL', 'Beats']
+    brands: [
+      { name: 'Bose', logo: 'https://via.placeholder.com/50?text=Bose' },
+      { name: 'Sony', logo: 'https://via.placeholder.com/50?text=Sony' },
+      { name: 'Sennheiser', logo: 'https://via.placeholder.com/50?text=Sennheiser' },
+      { name: 'JBL', logo: 'https://via.placeholder.com/50?text=JBL' },
+      { name: 'Beats', logo: 'https://via.placeholder.com/50?text=Beats' }
+    ]
   },
   { 
     name: 'Gold Schemes', 
     icon: Coins,
-    brands: ['SBI', 'HDFC', 'ICICI', 'Axis Bank', 'Punjab National Bank']
+    brands: [
+      { name: 'SBI', logo: 'https://via.placeholder.com/50?text=SBI' },
+      { name: 'HDFC', logo: 'https://via.placeholder.com/50?text=HDFC' },
+      { name: 'ICICI', logo: 'https://via.placeholder.com/50?text=ICICI' },
+      { name: 'Axis Bank', logo: 'https://via.placeholder.com/50?text=Axis' },
+      { name: 'Punjab National Bank', logo: 'https://via.placeholder.com/50?text=PNB' }
+    ]
   },
   { 
     name: 'Mutual Funds', 
     icon: TrendingUp,
-    brands: ['HDFC AMC', 'ICICI Prudential', 'SBI Mutual Fund', 'Axis Mutual Fund', 'Aditya Birla Sun Life']
+    brands: [
+      { name: 'HDFC AMC', logo: 'https://via.placeholder.com/50?text=HDFC_AMC' },
+      { name: 'ICICI Prudential', logo: 'https://via.placeholder.com/50?text=ICICI_Pru' },
+      { name: 'SBI Mutual Fund', logo: 'https://via.placeholder.com/50?text=SBI_MF' },
+      { name: 'Axis Mutual Fund', logo: 'https://via.placeholder.com/50?text=Axis_MF' },
+      { name: 'Aditya Birla Sun Life', logo: 'https://via.placeholder.com/50?text=ABSL' }
+    ]
   },
   { 
     name: 'FD Rates', 
     icon: Percent,
-    brands: ['SBI', 'HDFC Bank', 'ICICI Bank', 'Axis Bank', 'Kotak Mahindra Bank']
+    brands: [
+      { name: 'SBI', logo: 'https://via.placeholder.com/50?text=SBI' },
+      { name: 'HDFC Bank', logo: 'https://via.placeholder.com/50?text=HDFC' },
+      { name: 'ICICI Bank', logo: 'https://via.placeholder.com/50?text=ICICI' },
+      { name: 'Axis Bank', logo: 'https://via.placeholder.com/50?text=Axis' },
+      { name: 'Kotak Mahindra Bank', logo: 'https://via.placeholder.com/50?text=Kotak' }
+    ]
   },
   { 
     name: 'Finance Plans', 
     icon: CreditCard,
-    brands: ['Bajaj Finserv', 'HDFC Bank', 'ICICI Bank', 'Tata Capital', 'Mahindra Finance']
+    brands: [
+      { name: 'Bajaj Finserv', logo: 'https://via.placeholder.com/50?text=Bajaj' },
+      { name: 'HDFC Bank', logo: 'https://via.placeholder.com/50?text=HDFC' },
+      { name: 'ICICI Bank', logo: 'https://via.placeholder.com/50?text=ICICI' },
+      { name: 'Tata Capital', logo: 'https://via.placeholder.com/50?text=Tata' },
+      { name: 'Mahindra Finance', logo: 'https://via.placeholder.com/50?text=Mahindra' }
+    ]
   },
 ];
 
@@ -64,8 +112,9 @@ const CategorySection = () => {
           </div>
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4">
             {category.brands.map((brand) => (
-              <div key={brand} className="bg-gray-100 rounded-md p-2 text-center text-sm font-medium text-gray-700 hover:bg-indigo-100 transition-colors">
-                {brand}
+              <div key={brand.name} className="flex flex-col items-center bg-gray-100 rounded-md p-2 hover:bg-indigo-100 transition-colors">
+                <img src={brand.logo} alt={brand.name} className="w-10 h-10 object-contain mb-2" />
+                <span className="text-sm font-medium text-gray-700 text-center">{brand.name}</span>
               </div>
             ))}
           </div>

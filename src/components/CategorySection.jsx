@@ -18,10 +18,10 @@ const categories = [
     brands: [
       { name: 'Apple', logo: 'https://www.apple.com/ac/structured-data/images/knowledge_graph_logo.png' },
       { name: 'Samsung', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Samsung_Logo.svg/2560px-Samsung_Logo.svg.png' },
-      { name: 'OnePlus', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/OnePlus_logo.svg/2560px-OnePlus_logo.svg.png' },
+      { name: 'OnePlus', logo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKxyMJDTRJRMAOTYgrKR5fslKamX4AUHfbtQ&s' },
       { name: 'Xiaomi', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Xiaomi_logo.svg/2048px-Xiaomi_logo.svg.png' },
-      { name: 'Vivo', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Vivo_logo_2019.svg/1200px-Vivo_logo_2019.svg.png' },
-      { name: 'Oppo', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/OPPO_logo.svg/2560px-OPPO_logo.svg.png' }
+      { name: 'Vivo', logo: 'https://1000logos.net/wp-content/uploads/2022/02/Vivo-Logo.jpg' },
+      { name: 'Oppo', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/OPPO_Logo_wiki.png/1024px-OPPO_Logo_wiki.png' }
     ]
   },
   { 

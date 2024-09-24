@@ -52,12 +52,12 @@ const categories = [
     name: 'Headphones', 
     icon: Headphones,
     brands: [
-      { name: 'Sony', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Sony_logo.svg/2560px-Sony_logo.svg.png' },
+      { name: 'Sony', logo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_71af1QHWToXD7zD-eRrXfbzq8HuUnQzUWQ&s' },
       { name: 'Apple', logo: 'https://www.apple.com/ac/structured-data/images/knowledge_graph_logo.png' },
       { name: 'Boat', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/BoAt_logo.svg/1200px-BoAt_logo.svg.png' },
       { name: 'Noise', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Noise_logo.svg/1200px-Noise_logo.svg.png' },
       { name: 'Redmi', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Xiaomi_logo.svg/2048px-Xiaomi_logo.svg.png' },
-      { name: 'OnePlus', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/OnePlus_logo.svg/2560px-OnePlus_logo.svg.png' }
+      { name: 'OnePlus', logo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKxyMJDTRJRMAOTYgrKR5fslKamX4AUHfbtQ&s' }
     ]
   },
   { 

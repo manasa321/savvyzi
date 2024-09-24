@@ -5,6 +5,7 @@ import { Search, Compass, Sun, Moon } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { useTheme } from '@/components/ThemeProvider';
 import logo from '../logo-png.png';
+import './App.css';
 
 const Navbar = () => {
   const [searchTerm, setSearchTerm] = useState('');

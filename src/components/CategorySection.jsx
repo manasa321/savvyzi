@@ -55,7 +55,7 @@ const categories = [
       { name: 'Sony', logo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_71af1QHWToXD7zD-eRrXfbzq8HuUnQzUWQ&s' },
       { name: 'Apple', logo: 'https://www.apple.com/ac/structured-data/images/knowledge_graph_logo.png' },
       { name: 'Boat', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Boat_Logo.webp/1200px-Boat_Logo.webp.png' },
-      { name: 'Noise', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Noise_logo.svg/1200px-Noise_logo.svg.png' },
+      { name: 'Noise', logo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJ3NT_z01r9hc_vsk2rhzMq1K40I-tC9FvTQ&s' },
       { name: 'Redmi', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Xiaomi_logo.svg/2048px-Xiaomi_logo.svg.png' },
       { name: 'OnePlus', logo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKxyMJDTRJRMAOTYgrKR5fslKamX4AUHfbtQ&s' }
     ]

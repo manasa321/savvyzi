@@ -16,14 +16,13 @@ const Index = () => {
       <main className="container mx-auto py-8 px-4">
         <header className="text-center mb-12">
           <h1 className="text-4xl font-bold mb-4 text-primary flex items-center justify-center">
-            <img src="/logo-png.png" alt="Price Pioneer Logo" className="w-10 h-10 mr-2" />
+            <img src="../logo-png.png" alt="Price Pioneer Logo" className="w-10 h-10 mr-2" />
             SavvyZi
           </h1>
           <p className="text-xl text-muted-foreground">
             Your compass for the best deals across the digital marketplace
           </p>
         </header>
-
         
         {searchTerm ? (
           <section className="mb-12">

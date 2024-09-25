@@ -3,7 +3,7 @@ import { useLocation } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import ProductComparison from '../components/ProductComparison';
 import CategorySection from '../components/CategorySection';
-import { Compass } from 'lucide-react';
+import DealOfTheDay from '../components/DealOfTheDay';
 
 const Index = () => {
   const location = useLocation();
@@ -14,15 +14,10 @@ const Index = () => {
     <div className="min-h-screen bg-background text-foreground">
       <Navbar />
       <main className="container mx-auto py-8 px-4">
-        <header className="text-center mb-12">
-          <h1 className="text-4xl font-bold mb-4 text-primary flex items-center justify-center">
-            <Compass className="w-10 h-10 mr-2" />
-            SavvyZi
-          </h1>
-          <p className="text-xl text-muted-foreground">
-            Your compass for the best deals across the digital marketplace
-          </p>
-        </header>
+        <section className="mb-12">
+          <h2 className="text-2xl font-semibold mb-6 text-secondary-foreground">Deals of the Day</h2>
+          <DealOfTheDay />
+        </section>
         
         {searchTerm ? (
           <section className="mb-12">

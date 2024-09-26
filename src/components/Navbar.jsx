@@ -2,15 +2,17 @@ import React, { useState } from 'react';
 import { Input } from "@/components/ui/input";
 import { Search, ShoppingCart, User } from 'lucide-react';
 import { Button } from "@/components/ui/button";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import logo from '../logo-png.png';
 
 const Navbar = ({ onSearch }) => {
-  const [searchTerm, setSearchTerm] = useState('');
+  const [localSearchTerm, setLocalSearchTerm] = useState('');
+  const [localCategory, setLocalCategory] = useState('');
 
   const handleSearch = (e) => {
     e.preventDefault();
-    if (searchTerm.trim() && typeof onSearch === 'function') {
-      onSearch(searchTerm);
+    if (localSearchTerm.trim() && typeof onSearch === 'function') {
+      onSearch(localSearchTerm, localCategory);
     }
   };
 
@@ -26,11 +28,21 @@ const Navbar = ({ onSearch }) => {
               <Input
                 type="text"
                 placeholder="Search for products..."
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full pl-10 pr-4 py-2 rounded-full border-2 border-gray-200 focus:outline-none focus:border-primary"
+                value={localSearchTerm}
+                onChange={(e) => setLocalSearchTerm(e.target.value)}
+                className="w-full pl-10 pr-4 py-2 rounded-l-full border-2 border-gray-200 focus:outline-none focus:border-primary"
               />
-              <Button type="submit" className="absolute right-0 rounded-r-full">
+              <Select onValueChange={setLocalCategory}>
+                <SelectTrigger className="w-[180px] rounded-none border-2 border-l-0 border-gray-200">
+                  <SelectValue placeholder="Category" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="mobile">Mobile</SelectItem>
+                  <SelectItem value="laptop">Laptop</SelectItem>
+                  <SelectItem value="electronics">Electronics</SelectItem>
+                </SelectContent>
+              </Select>
+              <Button type="submit" className="rounded-r-full">
                 <Search className="h-5 w-5" />
               </Button>
             </form>

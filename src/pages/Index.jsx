@@ -7,8 +7,8 @@ import DealOfTheDay from '../components/DealOfTheDay';
 const Index = () => {
   const navigate = useNavigate();
 
-  const handleSearch = (searchTerm) => {
-    navigate(`/search?search=${encodeURIComponent(searchTerm)}`);
+  const handleSearch = (searchTerm, category) => {
+    navigate(`/search?search=${encodeURIComponent(searchTerm)}&category=${encodeURIComponent(category)}`);
   };
 
   return (

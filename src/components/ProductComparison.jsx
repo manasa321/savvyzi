@@ -5,17 +5,17 @@ import { useQuery } from "@tanstack/react-query";
 import { ShoppingCart, Truck, Star } from 'lucide-react';
 import axios from 'axios';
 
-const fetchProductData = async (searchTerm, category) => {
-  const response = await axios.get(`http://localhost:8000/api/products/search/?search=${searchTerm}&category=${category}`);
+const fetchProductData = async (searchTerm) => {
+  const response = await axios.get(`http://localhost:8000/api/products/search/?search=${searchTerm}`);
   return response.data;
 };
 
-const ProductComparison = ({ searchTerm, category }) => {
+const ProductComparison = ({ searchTerm }) => {
   const navigate = useNavigate();
 
   const { data: productData, isLoading, isError } = useQuery({
-    queryKey: ['productComparison', searchTerm, category],
-    queryFn: () => fetchProductData(searchTerm, category),
+    queryKey: ['productComparison', searchTerm],
+    queryFn: () => fetchProductData(searchTerm),
     enabled: !!searchTerm,
   });
 
@@ -64,7 +64,7 @@ const ProductComparison = ({ searchTerm, category }) => {
           </Card>
         ))
       ) : (
-        <p className="text-center mt-8">No products found. Try a different search term or category.</p>
+        <p className="text-center mt-8">No products found. Try a different search term.</p>
       )}
     </div>
   );

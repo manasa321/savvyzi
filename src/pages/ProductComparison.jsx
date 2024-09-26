@@ -1,27 +1,17 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import { useQuery } from '@tanstack/react-query';
 import Navbar from '../components/Navbar';
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-
-const fetchProductDetails = async (productId) => {
-  const response = await fetch(`/api/products/${productId}/`);
-  if (!response.ok) {
-    throw new Error('Network response was not ok');
-  }
-  return response.json();
-};
+import { sampleProducts } from '../data/sampleProducts';
 
 const ProductComparison = () => {
   const { productId } = useParams();
-  const { data: product, isLoading, isError } = useQuery({
-    queryKey: ['productDetails', productId],
-    queryFn: () => fetchProductDetails(productId),
-  });
+  const product = sampleProducts.find(p => p.id === parseInt(productId));
 
-  if (isLoading) return <div className="text-center mt-8">Loading...</div>;
-  if (isError) return <div className="text-center mt-8 text-red-500">Error fetching product details</div>;
+  if (!product) {
+    return <div className="text-center mt-8">Product not found</div>;
+  }
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -81,8 +71,8 @@ const ProductComparison = () => {
             <div>
               <h3 className="text-lg font-semibold">{product.name}</h3>
               <div className="flex items-center mt-2">
-                <span className="text-2xl font-bold text-orange-500 mr-4">₹ {product.best_price.toLocaleString('en-IN')}</span>
-                <span className="text-sm text-gray-500 mr-4">{product.seller_count} Sellers</span>
+                <span className="text-2xl font-bold text-orange-500 mr-4">₹ {product.price.toLocaleString('en-IN')}</span>
+                <span className="text-sm text-gray-500 mr-4">{product.sellers.length} Sellers</span>
                 <Button variant="link" className="text-blue-500">Set Price Alert</Button>
               </div>
             </div>

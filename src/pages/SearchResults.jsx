@@ -1,30 +1,20 @@
 import React from 'react';
 import { useLocation, Link } from 'react-router-dom';
-import { useQuery } from '@tanstack/react-query';
 import Navbar from '../components/Navbar';
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-
-const fetchSearchResults = async (searchTerm) => {
-  const response = await fetch(`/api/products/search/?search=${searchTerm}`);
-  if (!response.ok) {
-    throw new Error('Network response was not ok');
-  }
-  return response.json();
-};
+import { sampleProducts } from '../data/sampleProducts';
 
 const SearchResults = () => {
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
   const searchTerm = searchParams.get('q') || '';
 
-  const { data: products, isLoading, isError } = useQuery({
-    queryKey: ['searchResults', searchTerm],
-    queryFn: () => fetchSearchResults(searchTerm),
-  });
-
-  if (isLoading) return <div className="text-center mt-8">Loading...</div>;
-  if (isError) return <div className="text-center mt-8 text-red-500">Error fetching search results</div>;
+  // Filter products based on the search term
+  const filteredProducts = sampleProducts.filter(product => 
+    product.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    product.description.toLowerCase().includes(searchTerm.toLowerCase())
+  );
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -32,7 +22,7 @@ const SearchResults = () => {
       <main className="container mx-auto py-8 px-4">
         <h2 className="text-2xl font-semibold mb-6">Search Results for "{searchTerm}"</h2>
         <div className="space-y-6">
-          {products.map((product) => (
+          {filteredProducts.map((product) => (
             <Card key={product.id} className="overflow-hidden">
               <CardContent className="p-6 flex">
                 <img src={product.image_url} alt={product.name} className="w-48 h-48 object-contain mr-6" />

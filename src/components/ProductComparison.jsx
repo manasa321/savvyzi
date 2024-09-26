@@ -28,40 +28,44 @@ const ProductComparison = ({ searchTerm }) => {
 
   return (
     <div className="space-y-6">
-      {productData && productData.map((item) => (
-        <Card 
-          key={item.id} 
-          className="overflow-hidden cursor-pointer hover:shadow-xl transition-shadow bg-white"
-          onClick={() => handleProductClick(item.id)}
-        >
-          <div className="flex items-center p-4">
-            <img src={item.image_url} alt={item.name} className="w-32 h-32 object-cover rounded mr-6" />
-            <div className="flex-grow">
-              <CardHeader className="p-0">
-                <CardTitle className="text-xl text-indigo-700">{item.website}</CardTitle>
-              </CardHeader>
-              <CardContent className="p-0 mt-2">
-                <h3 className="font-semibold text-lg mb-2">{item.name}</h3>
-                <p className="text-3xl font-bold text-green-600 mb-2">₹{parseFloat(item.price).toLocaleString('en-IN')}</p>
-                <div className="flex items-center space-x-4 text-sm text-gray-600">
-                  <span className="flex items-center">
-                    <Star className="h-4 w-4 text-yellow-400 mr-1" />
-                    {item.rating}
-                  </span>
-                  <span className="flex items-center">
-                    <Truck className="h-4 w-4 mr-1" />
-                    {item.delivery}
-                  </span>
-                  <span className="flex items-center text-blue-600 hover:underline">
-                    <ShoppingCart className="h-4 w-4 mr-1" />
-                    Add to Cart
-                  </span>
-                </div>
-              </CardContent>
+      {productData && productData.length > 0 ? (
+        productData.map((item) => (
+          <Card 
+            key={item.id} 
+            className="overflow-hidden cursor-pointer hover:shadow-xl transition-shadow bg-white"
+            onClick={() => handleProductClick(item.id)}
+          >
+            <div className="flex items-center p-4">
+              <img src={item.image_url} alt={item.name} className="w-32 h-32 object-cover rounded mr-6" />
+              <div className="flex-grow">
+                <CardHeader className="p-0">
+                  <CardTitle className="text-xl text-indigo-700">{item.website}</CardTitle>
+                </CardHeader>
+                <CardContent className="p-0 mt-2">
+                  <h3 className="font-semibold text-lg mb-2">{item.name}</h3>
+                  <p className="text-3xl font-bold text-green-600 mb-2">₹{parseFloat(item.price).toLocaleString('en-IN')}</p>
+                  <div className="flex items-center space-x-4 text-sm text-gray-600">
+                    <span className="flex items-center">
+                      <Star className="h-4 w-4 text-yellow-400 mr-1" />
+                      {item.rating}
+                    </span>
+                    <span className="flex items-center">
+                      <Truck className="h-4 w-4 mr-1" />
+                      {item.delivery}
+                    </span>
+                    <span className="flex items-center text-blue-600 hover:underline">
+                      <ShoppingCart className="h-4 w-4 mr-1" />
+                      Add to Cart
+                    </span>
+                  </div>
+                </CardContent>
+              </div>
             </div>
-          </div>
-        </Card>
-      ))}
+          </Card>
+        ))
+      ) : (
+        <p className="text-center mt-8">No products found. Try a different search term.</p>
+      )}
     </div>
   );
 };

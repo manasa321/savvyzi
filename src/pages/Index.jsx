@@ -1,18 +1,14 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import CategorySection from '../components/CategorySection';
 import DealOfTheDay from '../components/DealOfTheDay';
 
 const Index = () => {
-  const [searchTerm, setSearchTerm] = useState('');
-  const [category, setCategory] = useState('');
   const navigate = useNavigate();
 
-  const handleSearch = (newSearchTerm, newCategory) => {
-    setSearchTerm(newSearchTerm);
-    setCategory(newCategory);
-    navigate(`/search?search=${encodeURIComponent(newSearchTerm)}&category=${encodeURIComponent(newCategory)}`);
+  const handleSearch = (searchTerm, category) => {
+    navigate(`/search?search=${encodeURIComponent(searchTerm)}&category=${encodeURIComponent(category)}`);
   };
 
   return (

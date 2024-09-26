@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Input } from "@/components/ui/input";
-import { useNavigate } from 'react-router-dom';
 import { Search, ShoppingCart, User } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
@@ -9,13 +8,11 @@ import logo from '../logo-png.png';
 const Navbar = ({ onSearch }) => {
   const [localSearchTerm, setLocalSearchTerm] = useState('');
   const [localCategory, setLocalCategory] = useState('');
-  const navigate = useNavigate();
 
   const handleSearch = (e) => {
     e.preventDefault();
-    if (localSearchTerm.trim()) {
+    if (localSearchTerm.trim() && typeof onSearch === 'function') {
       onSearch(localSearchTerm, localCategory);
-      navigate(`/search?search=${encodeURIComponent(localSearchTerm)}&category=${encodeURIComponent(localCategory)}`);
     }
   };
 

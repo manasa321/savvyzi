@@ -3,20 +3,16 @@ import { Input } from "@/components/ui/input";
 import { useNavigate } from 'react-router-dom';
 import { Search, ShoppingCart, User } from 'lucide-react';
 import { Button } from "@/components/ui/button";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import logo from '../logo-png.png';
 
-const Navbar = ({ onSearch, setSearchTerm, setCategory }) => {
-  const [localSearchTerm, setLocalSearchTerm] = useState('');
-  const [localCategory, setLocalCategory] = useState('');
+const Navbar = () => {
+  const [searchTerm, setSearchTerm] = useState('');
   const navigate = useNavigate();
 
   const handleSearch = (e) => {
     e.preventDefault();
-    if (localSearchTerm.trim()) {
-      setSearchTerm(localSearchTerm);
-      setCategory(localCategory);
-      navigate(`/search?search=${encodeURIComponent(localSearchTerm)}&category=${encodeURIComponent(localCategory)}`);
+    if (searchTerm.trim()) {
+      navigate(`/?search=${encodeURIComponent(searchTerm)}`);
     }
   };
 
@@ -28,27 +24,15 @@ const Navbar = ({ onSearch, setSearchTerm, setCategory }) => {
             <img src={logo} alt="Logo" className="h-8 w-auto"/>
           </div>
           <div className="flex-grow max-w-xl mx-4">
-            <form onSubmit={handleSearch} className="relative flex items-center">
+            <form onSubmit={handleSearch} className="relative">
               <Input
                 type="text"
                 placeholder="Search for products..."
-                value={localSearchTerm}
-                onChange={(e) => setLocalSearchTerm(e.target.value)}
-                className="w-full pl-10 pr-4 py-2 rounded-l-full border-2 border-gray-200 focus:outline-none focus:border-primary"
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                className="w-full pl-10 pr-4 py-2 rounded-full border-2 border-gray-200 focus:outline-none focus:border-primary"
               />
-              <Select onValueChange={setLocalCategory}>
-                <SelectTrigger className="w-[180px] rounded-none border-2 border-l-0 border-gray-200">
-                  <SelectValue placeholder="Category" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="mobile">Mobile</SelectItem>
-                  <SelectItem value="laptop">Laptop</SelectItem>
-                  <SelectItem value="electronics">Electronics</SelectItem>
-                </SelectContent>
-              </Select>
-              <Button type="submit" className="rounded-r-full">
-                <Search className="h-5 w-5" />
-              </Button>
+              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
             </form>
           </div>
           <div className="flex items-center">

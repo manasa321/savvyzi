@@ -6,7 +6,6 @@ import { ThemeProvider } from "./components/ThemeProvider";
 import Index from "./pages/Index";
 import CategoryPage from "./pages/CategoryPage";
 import ProductDetails from "./pages/ProductDetails";
-import SearchResults from "./pages/SearchResults";
 
 const queryClient = new QueryClient();
 
@@ -20,7 +19,6 @@ const App = () => (
             <Route path="/" element={<Index />} />
             <Route path="/category/:category" element={<CategoryPage />} />
             <Route path="/product/:productId" element={<ProductDetails />} />
-            <Route path="/search" element={<SearchResults />} />
           </Routes>
         </BrowserRouter>
       </TooltipProvider>

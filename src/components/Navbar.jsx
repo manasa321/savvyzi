@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import logo from '../logo-png.png';
 
-const Navbar = ({ onSearch, setSearchTerm, setCategory }) => {
+const Navbar = ({ onSearch }) => {
   const [localSearchTerm, setLocalSearchTerm] = useState('');
   const [localCategory, setLocalCategory] = useState('');
   const navigate = useNavigate();
@@ -14,8 +14,7 @@ const Navbar = ({ onSearch, setSearchTerm, setCategory }) => {
   const handleSearch = (e) => {
     e.preventDefault();
     if (localSearchTerm.trim()) {
-      setSearchTerm(localSearchTerm);
-      setCategory(localCategory);
+      onSearch(localSearchTerm, localCategory);
       navigate(`/search?search=${encodeURIComponent(localSearchTerm)}&category=${encodeURIComponent(localCategory)}`);
     }
   };

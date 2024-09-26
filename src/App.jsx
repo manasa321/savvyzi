@@ -5,8 +5,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ThemeProvider } from "./components/ThemeProvider";
 import Index from "./pages/Index";
 import CategoryPage from "./pages/CategoryPage";
-import ProductDetails from "./pages/ProductDetails";
 import SearchResults from "./pages/SearchResults";
+import ProductComparison from "./pages/ProductComparison";
 
 const queryClient = new QueryClient();
 
@@ -19,8 +19,8 @@ const App = () => (
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/category/:category" element={<CategoryPage />} />
-            <Route path="/product/:productId" element={<ProductDetails />} />
             <Route path="/search" element={<SearchResults />} />
+            <Route path="/product/:productId" element={<ProductComparison />} />
           </Routes>
         </BrowserRouter>
       </TooltipProvider>

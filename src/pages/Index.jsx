@@ -9,15 +9,16 @@ const Index = () => {
   const [category, setCategory] = useState('');
   const navigate = useNavigate();
 
-  const handleSearch = (newSearchTerm, newCategory) => {
-    setSearchTerm(newSearchTerm);
-    setCategory(newCategory);
-    navigate(`/search?search=${encodeURIComponent(newSearchTerm)}&category=${encodeURIComponent(newCategory)}`);
+  const handleSearch = (e) => {
+    e.preventDefault();
+    if (searchTerm.trim()) {
+      navigate(`/search?search=${encodeURIComponent(searchTerm)}&category=${encodeURIComponent(category)}`);
+    }
   };
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <Navbar onSearch={handleSearch} />
+      <Navbar onSearch={handleSearch} setSearchTerm={setSearchTerm} setCategory={setCategory} />
       <main className="container mx-auto py-8 px-4">
         <section className="mb-8">
           <h2 className="text-xl font-semibold mb-4 text-gray-800">Explore Categories</h2>

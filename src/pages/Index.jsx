@@ -1,18 +1,24 @@
-import React from 'react';
-import { useLocation } from 'react-router-dom';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Navbar from '../components/Navbar';
-import ProductComparison from '../components/ProductComparison';
 import CategorySection from '../components/CategorySection';
 import DealOfTheDay from '../components/DealOfTheDay';
 
 const Index = () => {
-  const location = useLocation();
-  const searchParams = new URLSearchParams(location.search);
-  const searchTerm = searchParams.get('search') || '';
+  const [searchTerm, setSearchTerm] = useState('');
+  const [category, setCategory] = useState('');
+  const navigate = useNavigate();
+
+  const handleSearch = (e) => {
+    e.preventDefault();
+    if (searchTerm.trim()) {
+      navigate(`/search?search=${encodeURIComponent(searchTerm)}&category=${encodeURIComponent(category)}`);
+    }
+  };
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <Navbar />
+      <Navbar onSearch={handleSearch} setSearchTerm={setSearchTerm} setCategory={setCategory} />
       <main className="container mx-auto py-8 px-4">
         <section className="mb-8">
           <h2 className="text-xl font-semibold mb-4 text-gray-800">Explore Categories</h2>
@@ -23,13 +29,6 @@ const Index = () => {
           <h2 className="text-xl font-semibold mb-4 text-gray-800">Deals of the Day</h2>
           <DealOfTheDay />
         </section>
-        
-        {searchTerm && (
-          <section className="mb-8">
-            <h2 className="text-xl font-semibold mb-4 text-gray-800">Search Results for "{searchTerm}"</h2>
-            <ProductComparison searchTerm={searchTerm} />
-          </section>
-        )}
       </main>
     </div>
   );

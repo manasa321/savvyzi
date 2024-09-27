@@ -40,8 +40,8 @@ const SearchResults = () => {
         <div className="space-y-6">
           {randomProducts.map((product) => (
             <Card key={product.id} className="overflow-hidden">
-              <CardContent className="p-6 flex">
-                <img src={product.image_url} alt={product.name} className="w-48 h-48 object-contain mr-6" />
+              <CardContent className="p-6 flex flex-col sm:flex-row">
+                <img src={product.image_url} alt={product.name} className="w-full sm:w-48 h-48 object-contain mb-4 sm:mb-0 sm:mr-6" />
                 <div className="flex-grow">
                   <h3 className="text-xl font-semibold mb-2">{product.name}</h3>
                   <p className="mb-4">{product.description}</p>
@@ -54,11 +54,11 @@ const SearchResults = () => {
                       <li>Operating System: {product.operating_system}</li>
                     </ul>
                   </div>
-                  <div className="flex justify-between items-center">
+                  <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center">
                     <Link to={`/product/${product.id}`}>
                       <Button variant="link">View More</Button>
                     </Link>
-                    <span className="text-2xl font-bold text-orange-500">₹ {product.price.toLocaleString('en-IN')}</span>
+                    <span className="text-2xl font-bold text-orange-500 mt-2 sm:mt-0">₹ {product.price.toLocaleString('en-IN')}</span>
                   </div>
                 </div>
               </CardContent>

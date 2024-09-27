@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import { Input } from "@/components/ui/input";
 import { useNavigate } from 'react-router-dom';
-import { Search, Gift } from 'lucide-react';
+import { Search, Menu } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import logo from '../logo-png.png';
 
 const Navbar = () => {
   const [searchTerm, setSearchTerm] = useState('');
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navigate = useNavigate();
 
   const handleSearch = (e) => {
@@ -19,12 +20,15 @@ const Navbar = () => {
   return (
     <nav className="bg-white shadow-md">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
-          <div className="flex-shrink-0 flex items-center">
-            <img src={logo} alt="Dealzy" className="h-8 w-auto"/>
+        <div className="flex flex-col sm:flex-row items-center justify-between py-4">
+          <div className="flex items-center w-full sm:w-auto justify-between">
+            <img src={logo} alt="Dealzy" className="h-12 sm:h-16 w-auto"/>
+            <Button variant="ghost" className="sm:hidden" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+              <Menu className="h-6 w-6" />
+            </Button>
           </div>
-          <div className="flex-grow max-w-xl mx-4">
-            <form onSubmit={handleSearch} className="relative">
+          <div className={`${isMenuOpen ? 'block' : 'hidden'} sm:block w-full sm:w-auto mt-4 sm:mt-0`}>
+            <form onSubmit={handleSearch} className="relative w-full sm:w-64 md:w-96">
               <Input
                 type="text"
                 placeholder="Search for your favorite brands..."
@@ -35,12 +39,8 @@ const Navbar = () => {
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
             </form>
           </div>
-          <div className="flex items-center space-x-4">
-            <Button variant="ghost" className="text-primary flex items-center">
-              <Gift className="h-5 w-5 mr-2" />
-              What is a gift card?
-            </Button>
-            <Button variant="primary" className="bg-black text-white hover:bg-gray-800">
+          <div className={`${isMenuOpen ? 'block' : 'hidden'} sm:block mt-4 sm:mt-0`}>
+            <Button variant="primary" className="bg-black text-white hover:bg-gray-800 w-full sm:w-auto">
               Login/Sign up
             </Button>
           </div>

@@ -8,7 +8,15 @@ import { useQuery } from "@tanstack/react-query";
 const fetchSearchResults = async (searchTerm) => {
   const response = await fetch(`/api/search/?search=${encodeURIComponent(searchTerm)}`);
   if (!response.ok) {
-    throw new Error('Failed to fetch search results');
+    const text = await response.text();
+    try {
+      // Try to parse as JSON
+      const errorData = JSON.parse(text);
+      throw new Error(errorData.error || 'An error occurred while fetching search results');
+    } catch (e) {
+      // If parsing fails, it's likely HTML
+      throw new Error('Received unexpected response from server. Please try again later.');
+    }
   }
   return response.json();
 };

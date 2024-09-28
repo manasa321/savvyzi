@@ -4,6 +4,7 @@ from .models import Product, Category
 from .serializers import ProductSerializer, CategorySerializer
 from django.contrib.postgres.search import SearchQuery, SearchRank
 from django.db.models import F
+from rest_framework import status
 
 class ProductSearchView(APIView):
     def get(self, request):
@@ -11,7 +12,7 @@ class ProductSearchView(APIView):
         category = request.query_params.get('category', '')
 
         if not search_term:
-            return Response({"error": "Search term is required"}, status=400)
+            return Response({"error": "Search term is required"}, status=status.HTTP_400_BAD_REQUEST)
 
         query = SearchQuery(search_term)
         products = Product.objects.annotate(
@@ -38,4 +39,4 @@ class ProductDetailView(APIView):
             serializer = ProductSerializer(product)
             return Response(serializer.data)
         except Product.DoesNotExist:
-            return Response({"error": "Product not found"}, status=404)
+            return Response({"error": "Product not found"}, status=status.HTTP_404_NOT_FOUND)

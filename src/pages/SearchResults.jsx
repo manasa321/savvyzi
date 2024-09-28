@@ -6,19 +6,20 @@ import { Button } from "@/components/ui/button";
 import { useQuery } from "@tanstack/react-query";
 
 const fetchSearchResults = async (searchTerm) => {
-  const response = await fetch(`/api/search/?search=${encodeURIComponent(searchTerm)}`);
-  if (!response.ok) {
+  try {
+    const response = await fetch(`/api/search/?search=${encodeURIComponent(searchTerm)}`);
     const contentType = response.headers.get("content-type");
     if (contentType && contentType.indexOf("application/json") !== -1) {
-      const errorData = await response.json();
-      throw new Error(errorData.error || 'An error occurred while fetching search results');
+      return response.json();
     } else {
       const text = await response.text();
       console.error("Received non-JSON response:", text);
       throw new Error('Received unexpected response from server. Please try again later.');
     }
+  } catch (error) {
+    console.error("Error fetching search results:", error);
+    throw error;
   }
-  return response.json();
 };
 
 const SearchResults = () => {

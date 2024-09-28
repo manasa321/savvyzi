@@ -53,20 +53,18 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'price_pioneer_backend.wsgi.application'
 
-
+import os
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'price_pioneer',
-        'USER': 'your_postgres_username',
-        'PASSWORD': 'your_postgres_password',
-        'HOST': 'localhost',
-        'PORT': '5432',
+        'NAME': os.getenv('DB_NAME', 'price_pioneer'),
+        'USER': os.getenv('DB_USER', 'postgres'),
+        'PASSWORD': os.getenv('DB_PASSWORD', 'u123'),
+        'HOST': os.getenv('DB_HOST', 'localhost'),
+        'PORT': os.getenv('DB_PORT', '5433'),
     }
 }
-
-
 
 AUTH_PASSWORD_VALIDATORS = [
     {

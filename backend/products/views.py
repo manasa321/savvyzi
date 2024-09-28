@@ -14,17 +14,20 @@ class ProductSearchView(APIView):
         if not search_term:
             return Response({"error": "Search term is required"}, status=status.HTTP_400_BAD_REQUEST)
 
-        query = SearchQuery(search_term)
-        products = Product.objects.annotate(
-            rank=SearchRank(F('search_vector'), query)
-        ).filter(search_vector=query)
+        try:
+            query = SearchQuery(search_term)
+            products = Product.objects.annotate(
+                rank=SearchRank(F('search_vector'), query)
+            ).filter(search_vector=query)
 
-        if category:
-            products = products.filter(category__name__iexact=category)
+            if category:
+                products = products.filter(category__name__iexact=category)
 
-        products = products.order_by('-rank')
-        serializer = ProductSerializer(products, many=True)
-        return Response(serializer.data)
+            products = products.order_by('-rank')
+            serializer = ProductSerializer(products, many=True)
+            return Response(serializer.data)
+        except Exception as e:
+            return Response({"error": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
 class CategoryListView(APIView):
     def get(self, request):
@@ -40,3 +43,5 @@ class ProductDetailView(APIView):
             return Response(serializer.data)
         except Product.DoesNotExist:
             return Response({"error": "Product not found"}, status=status.HTTP_404_NOT_FOUND)
+        except Exception as e:
+            return Response({"error": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)

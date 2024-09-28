@@ -8,6 +8,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -19,6 +20,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'products',
 ]
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -52,6 +54,7 @@ TEMPLATES = [
 WSGI_APPLICATION = 'price_pioneer_backend.wsgi.application'
 
 
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
@@ -62,6 +65,7 @@ DATABASES = {
         'PORT': '5432',
     }
 }
+
 
 
 AUTH_PASSWORD_VALIDATORS = [

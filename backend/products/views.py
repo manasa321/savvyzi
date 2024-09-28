@@ -10,6 +10,9 @@ class ProductSearchView(APIView):
         search_term = request.query_params.get('search', '')
         category = request.query_params.get('category', '')
 
+        if not search_term:
+            return Response({"error": "Search term is required"}, status=400)
+
         query = SearchQuery(search_term)
         products = Product.objects.annotate(
             rank=SearchRank(F('search_vector'), query)

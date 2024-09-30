@@ -8,6 +8,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+
 REST_FRAMEWORK = {
     'DEFAULT_RENDERER_CLASSES': [
         'rest_framework.renderers.JSONRenderer',
@@ -17,6 +18,7 @@ REST_FRAMEWORK = {
     ],
     'EXCEPTION_HANDLER': 'price_pioneer_backend.utils.custom_exception_handler',
 }
+
 
 INSTALLED_APPS = [
     'django.contrib.admin',

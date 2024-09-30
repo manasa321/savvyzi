@@ -7,13 +7,23 @@ import { useQuery } from "@tanstack/react-query";
 
 const fetchSearchResults = async (searchTerm) => {
   try {
+    // For debugging, use the sample data endpoint
+    // const response = await fetch(`/api/sample-data/`);
     const response = await fetch(`/api/search/?search=${encodeURIComponent(searchTerm)}`);
+    
     if (!response.ok) {
-      const errorText = await response.text();
-      throw new Error(`HTTP error! status: ${response.status}, message: ${errorText}`);
+      const contentType = response.headers.get("content-type");
+      if (contentType && contentType.includes("application/json")) {
+        const errorData = await response.json();
+        throw new Error(errorData.error || `HTTP error! status: ${response.status}`);
+      } else {
+        const errorText = await response.text();
+        throw new Error(`Received non-JSON response: ${errorText}`);
+      }
     }
+    
     const contentType = response.headers.get("content-type");
-    if (contentType && contentType.indexOf("application/json") !== -1) {
+    if (contentType && contentType.includes("application/json")) {
       return response.json();
     } else {
       throw new Error(`Received non-JSON response from server: ${await response.text()}`);

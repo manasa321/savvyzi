@@ -1,10 +1,10 @@
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from .models import Product, Category
-from .serializers import ProductSerializer, CategorySerializer
+from rest_framework import status
 from django.contrib.postgres.search import SearchQuery, SearchRank
 from django.db.models import F
-from rest_framework import status
+from .models import Product, Category
+from .serializers import ProductSerializer, CategorySerializer
 
 class ProductSearchView(APIView):
     def get(self, request):
@@ -27,6 +27,7 @@ class ProductSearchView(APIView):
             serializer = ProductSerializer(products, many=True)
             return Response(serializer.data)
         except Exception as e:
+            # Return a JSON response even for errors
             return Response({"error": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
 class CategoryListView(APIView):
@@ -35,13 +36,27 @@ class CategoryListView(APIView):
         serializer = CategorySerializer(categories, many=True)
         return Response(serializer.data)
 
-class ProductDetailView(APIView):
-    def get(self, request, product_id):
-        try:
-            product = Product.objects.get(id=product_id)
-            serializer = ProductSerializer(product)
-            return Response(serializer.data)
-        except Product.DoesNotExist:
-            return Response({"error": "Product not found"}, status=status.HTTP_404_NOT_FOUND)
-        except Exception as e:
-            return Response({"error": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+# Add a new view for sample data
+class SampleDataView(APIView):
+    def get(self, request):
+        sample_data = [
+            {
+                "id": 1,
+                "name": "iPhone 13",
+                "description": "Latest Apple smartphone with A15 Bionic chip",
+                "price": 79900,
+                "image_url": "https://example.com/iphone13.jpg",
+                "category": "Mobile",
+                "processor": "A15 Bionic",
+                "capacity": "128GB",
+                "display_size": "6.1 inches",
+                "operating_system": "iOS 15",
+                "sellers": [
+                    {"name": "Amazon", "logo": "https://example.com/amazon-logo.png", "price": 79900, "in_stock": True},
+                    {"name": "Flipkart", "logo": "https://example.com/flipkart-logo.png", "price": 79999, "in_stock": True},
+                    {"name": "Croma", "logo": "https://example.com/croma-logo.png", "price": 80000, "in_stock": False}
+                ]
+            },
+            # Add more sample products as needed
+        ]
+        return Response(sample_data)

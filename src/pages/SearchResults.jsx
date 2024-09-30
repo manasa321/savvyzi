@@ -9,13 +9,14 @@ const fetchSearchResults = async (searchTerm) => {
   try {
     const response = await fetch(`/api/search/?search=${encodeURIComponent(searchTerm)}`);
     if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
+      const errorText = await response.text();
+      throw new Error(`HTTP error! status: ${response.status}, message: ${errorText}`);
     }
     const contentType = response.headers.get("content-type");
     if (contentType && contentType.indexOf("application/json") !== -1) {
       return response.json();
     } else {
-      throw new Error("Received non-JSON response from server");
+      throw new Error(`Received non-JSON response from server: ${await response.text()}`);
     }
   } catch (error) {
     console.error("Error fetching search results:", error);

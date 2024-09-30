@@ -27,7 +27,6 @@ class ProductSearchView(APIView):
             serializer = ProductSerializer(products, many=True)
             return Response(serializer.data)
         except Exception as e:
-            # Return a JSON response even for errors
             return Response({"error": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
 class CategoryListView(APIView):
@@ -36,7 +35,6 @@ class CategoryListView(APIView):
         serializer = CategorySerializer(categories, many=True)
         return Response(serializer.data)
 
-# Add a new view for sample data
 class SampleDataView(APIView):
     def get(self, request):
         sample_data = [

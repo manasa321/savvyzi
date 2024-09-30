@@ -8,6 +8,15 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+REST_FRAMEWORK = {
+    'DEFAULT_RENDERER_CLASSES': [
+        'rest_framework.renderers.JSONRenderer',
+    ],
+    'DEFAULT_PARSER_CLASSES': [
+        'rest_framework.parsers.JSONParser',
+    ],
+    'EXCEPTION_HANDLER': 'price_pioneer_backend.utils.custom_exception_handler',
+}
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -20,7 +29,6 @@ INSTALLED_APPS = [
     'corsheaders',
     'products',
 ]
-
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

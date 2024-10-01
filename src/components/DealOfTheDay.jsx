@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Card, CardContent } from "@/components/ui/card";
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
@@ -6,10 +6,13 @@ const deals = [
   { id: 1, image: "https://via.placeholder.com/800x400?text=Deal+1", title: "50% Off on Electronics", url: "https://example.com/deal1" },
   { id: 2, image: "https://via.placeholder.com/800x400?text=Deal+2", title: "Buy 1 Get 1 Free on Clothing", url: "https://example.com/deal2" },
   { id: 3, image: "https://via.placeholder.com/800x400?text=Deal+3", title: "Free Shipping on Orders Over $50", url: "https://example.com/deal3" },
+  { id: 4, image: "https://via.placeholder.com/800x400?text=Deal+4", title: "20% Off on Home Decor", url: "https://example.com/deal4" },
+  { id: 5, image: "https://via.placeholder.com/800x400?text=Deal+5", title: "Flash Sale: Up to 70% Off", url: "https://example.com/deal5" },
 ];
 
 const DealOfTheDay = () => {
   const [currentDeal, setCurrentDeal] = useState(0);
+  const scrollRef = useRef(null);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -27,29 +30,31 @@ const DealOfTheDay = () => {
     setCurrentDeal((prevDeal) => (prevDeal + 1) % deals.length);
   };
 
+  const handleDealClick = (url) => {
+    window.open(url, '_blank');
+  };
+
   return (
     <Card className="overflow-hidden relative">
       <CardContent className="p-0">
-        <div className="relative h-[300px] sm:h-[400px]">
+        <div ref={scrollRef} className="flex overflow-x-auto snap-x snap-mandatory scrollbar-hide">
           {deals.map((deal, index) => (
-            <a
+            <div
               key={deal.id}
-              href={deal.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`absolute top-0 left-0 w-full h-full transition-opacity duration-500 ${
-                index === currentDeal ? 'opacity-100' : 'opacity-0'
+              className={`w-full flex-shrink-0 snap-center cursor-pointer transition-opacity duration-500 ${
+                index === currentDeal ? 'opacity-100' : 'opacity-50'
               }`}
+              onClick={() => handleDealClick(deal.url)}
             >
               <img
                 src={deal.image}
                 alt={deal.title}
-                className="w-full h-full object-cover"
+                className="w-full h-[300px] sm:h-[400px] object-cover"
               />
               <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 text-white p-4">
                 <h3 className="text-xl font-semibold">{deal.title}</h3>
               </div>
-            </a>
+            </div>
           ))}
         </div>
         <button

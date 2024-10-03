@@ -1,11 +1,11 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
+import { useQuery } from "@tanstack/react-query";
 import Navbar from '../components/Navbar';
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Heart, Bell, BarChart2 } from 'lucide-react';
-import { useQuery } from "@tanstack/react-query";
 
 const fetchProductDetails = async (productId) => {
   const response = await fetch(`/api/products/${productId}/`);

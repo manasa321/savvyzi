@@ -15,15 +15,25 @@ const queryClient = new QueryClient();
 
 const App = () => {
   const [user, setUser] = useState(null);
+  const [users, setUsers] = useState([]); // This would typically be stored in a database
 
   const handleLogin = (email, password) => {
-    // Simulating login process
-    setUser({ email, balance: 1000 }); // Mock wallet balance
+    const foundUser = users.find(u => u.email === email && u.password === password);
+    if (foundUser) {
+      setUser(foundUser);
+    } else {
+      alert("Invalid credentials");
+    }
   };
 
   const handleSignup = (email, password) => {
-    // Simulating signup process
-    setUser({ email, balance: 0 });
+    if (users.some(u => u.email === email)) {
+      alert("User already exists");
+    } else {
+      const newUser = { email, password };
+      setUsers([...users, newUser]);
+      setUser(newUser);
+    }
   };
 
   const handleLogout = () => {

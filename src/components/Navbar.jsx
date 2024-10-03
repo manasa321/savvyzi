@@ -6,12 +6,14 @@ import { Button } from "@/components/ui/button";
 import logo from '../logo-png.png';
 import WalletModal from './WalletModal';
 import LoginModal from './LoginModal';
+import SignupModal from './SignupModal';
 
 const Navbar = ({ user, onLogin, onSignup, onLogout }) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isWalletOpen, setIsWalletOpen] = useState(false);
   const [isLoginOpen, setIsLoginOpen] = useState(false);
+  const [isSignupOpen, setIsSignupOpen] = useState(false);
   const navigate = useNavigate();
 
   const handleSearch = (e) => {
@@ -42,17 +44,20 @@ const Navbar = ({ user, onLogin, onSignup, onLogout }) => {
             </form>
           </div>
           <div className="hidden sm:flex items-center space-x-4">
+            <Button variant="ghost" onClick={() => setIsWalletOpen(true)}>
+              <Wallet className="h-5 w-5 mr-2" />
+              Wallet
+            </Button>
             {user ? (
               <>
-                <Button variant="ghost" onClick={() => setIsWalletOpen(true)}>
-                  <Wallet className="h-5 w-5 mr-2" />
-                  ₹{user.balance}
-                </Button>
                 <span>Welcome, {user.email}</span>
                 <Button variant="primary" onClick={onLogout}>Logout</Button>
               </>
             ) : (
-              <Button variant="primary" onClick={() => setIsLoginOpen(true)}>Login / Sign up</Button>
+              <>
+                <Button variant="outline" onClick={() => setIsLoginOpen(true)}>Login</Button>
+                <Button variant="primary" onClick={() => setIsSignupOpen(true)}>Sign up</Button>
+              </>
             )}
           </div>
           <div className="sm:hidden">
@@ -73,23 +78,27 @@ const Navbar = ({ user, onLogin, onSignup, onLogout }) => {
               />
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
             </form>
+            <Button variant="ghost" onClick={() => setIsWalletOpen(true)} className="w-full mt-4">
+              <Wallet className="h-5 w-5 mr-2" />
+              Wallet
+            </Button>
             {user ? (
               <>
-                <Button variant="ghost" onClick={() => setIsWalletOpen(true)} className="w-full mt-4">
-                  <Wallet className="h-5 w-5 mr-2" />
-                  ₹{user.balance}
-                </Button>
                 <span className="block mt-4">Welcome, {user.email}</span>
                 <Button variant="primary" onClick={onLogout} className="w-full mt-4">Logout</Button>
               </>
             ) : (
-              <Button variant="primary" onClick={() => setIsLoginOpen(true)} className="w-full mt-4">Login / Sign up</Button>
+              <>
+                <Button variant="outline" onClick={() => setIsLoginOpen(true)} className="w-full mt-4">Login</Button>
+                <Button variant="primary" onClick={() => setIsSignupOpen(true)} className="w-full mt-4">Sign up</Button>
+              </>
             )}
           </div>
         )}
       </div>
-      {user && <WalletModal isOpen={isWalletOpen} onClose={() => setIsWalletOpen(false)} balance={user.balance} />}
-      <LoginModal isOpen={isLoginOpen} onClose={() => setIsLoginOpen(false)} onLogin={onLogin} onSignup={onSignup} />
+      <WalletModal isOpen={isWalletOpen} onClose={() => setIsWalletOpen(false)} />
+      <LoginModal isOpen={isLoginOpen} onClose={() => setIsLoginOpen(false)} onLogin={onLogin} />
+      <SignupModal isOpen={isSignupOpen} onClose={() => setIsSignupOpen(false)} onSignup={onSignup} />
     </nav>
   );
 };

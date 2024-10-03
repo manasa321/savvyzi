@@ -14,22 +14,40 @@ const DealOfTheDay = () => {
   const [currentDeal, setCurrentDeal] = useState(0);
   const scrollRef = useRef(null);
 
+  // Auto-scroll through deals every 10 seconds
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentDeal((prevDeal) => (prevDeal + 1) % deals.length);
-    }, 5000);
+      scrollToDeal((currentDeal + 1) % deals.length);
+    }, 10000); // 10 seconds interval
 
-    return () => clearInterval(timer);
-  }, []);
+    return () => clearInterval(timer); // Clean up interval on unmount
+  }, [currentDeal]);
 
+  // Scroll to the selected deal
+  const scrollToDeal = (index) => {
+    const dealWidth = scrollRef.current.scrollWidth / deals.length;
+    scrollRef.current.scrollTo({
+      left: dealWidth * index,
+      behavior: 'smooth',
+    });
+  };
+
+  // Manually scroll to previous deal
   const handlePrevDeal = () => {
-    setCurrentDeal((prevDeal) => (prevDeal - 1 + deals.length) % deals.length);
+    const prevDeal = (currentDeal - 1 + deals.length) % deals.length;
+    setCurrentDeal(prevDeal);
+    scrollToDeal(prevDeal);
   };
 
+  // Manually scroll to next deal
   const handleNextDeal = () => {
-    setCurrentDeal((prevDeal) => (prevDeal + 1) % deals.length);
+    const nextDeal = (currentDeal + 1) % deals.length;
+    setCurrentDeal(nextDeal);
+    scrollToDeal(nextDeal);
   };
 
+  // Open deal URL in a new tab
   const handleDealClick = (url) => {
     window.open(url, '_blank');
   };
@@ -41,9 +59,7 @@ const DealOfTheDay = () => {
           {deals.map((deal, index) => (
             <div
               key={deal.id}
-              className={`w-full flex-shrink-0 snap-center cursor-pointer transition-opacity duration-500 ${
-                index === currentDeal ? 'opacity-100' : 'opacity-50'
-              }`}
+              className={`w-full flex-shrink-0 snap-center cursor-pointer transition-opacity duration-500 ${index === currentDeal ? 'opacity-100' : 'opacity-50'}`}
               onClick={() => handleDealClick(deal.url)}
             >
               <img

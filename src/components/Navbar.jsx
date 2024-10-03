@@ -22,6 +22,10 @@ const Navbar = ({ user, onLogin, onSignup, onLogout }) => {
     }
   };
 
+  const handleLoginClick = () => {
+    setIsLoginOpen(true);
+  };
+
   return (
     <nav className="bg-white shadow-md">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -52,7 +56,7 @@ const Navbar = ({ user, onLogin, onSignup, onLogout }) => {
                 <Button variant="primary" onClick={onLogout}>Logout</Button>
               </>
             ) : (
-              <Button variant="primary" onClick={() => setIsLoginOpen(true)}>Login / Sign up</Button>
+              <Button variant="primary" onClick={handleLoginClick}>Login / Sign up</Button>
             )}
           </div>
           <div className="sm:hidden">
@@ -83,13 +87,18 @@ const Navbar = ({ user, onLogin, onSignup, onLogout }) => {
                 <Button variant="primary" onClick={onLogout} className="w-full mt-4">Logout</Button>
               </>
             ) : (
-              <Button variant="primary" onClick={() => setIsLoginOpen(true)} className="w-full mt-4">Login / Sign up</Button>
+              <Button variant="primary" onClick={handleLoginClick} className="w-full mt-4">Login / Sign up</Button>
             )}
           </div>
         )}
       </div>
       {user && <WalletModal isOpen={isWalletOpen} onClose={() => setIsWalletOpen(false)} balance={user.balance} />}
-      <LoginModal isOpen={isLoginOpen} onClose={() => setIsLoginOpen(false)} onLogin={onLogin} onSignup={onSignup} />
+      <LoginModal 
+        isOpen={isLoginOpen} 
+        onClose={() => setIsLoginOpen(false)} 
+        onLogin={onLogin} 
+        onSignup={onSignup} 
+      />
     </nav>
   );
 };

@@ -5,11 +5,15 @@ import { Search, Menu, X, Wallet } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import logo from '../logo-png.png';
 import WalletModal from './WalletModal';
+import LoginModal from './LoginModal';
+import SignupModal from './SignupModal';
 
-const Navbar = () => {
+const Navbar = ({ user, onLogin, onSignup, onLogout }) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isWalletOpen, setIsWalletOpen] = useState(false);
+  const [isLoginOpen, setIsLoginOpen] = useState(false);
+  const [isSignupOpen, setIsSignupOpen] = useState(false);
   const navigate = useNavigate();
 
   const handleSearch = (e) => {
@@ -44,9 +48,17 @@ const Navbar = () => {
               <Wallet className="h-5 w-5 mr-2" />
               Wallet
             </Button>
-            <Button variant="primary" className="bg-black text-white hover:bg-gray-800">
-              Login/Sign up
-            </Button>
+            {user ? (
+              <>
+                <span>Welcome, {user.email}</span>
+                <Button variant="primary" onClick={onLogout}>Logout</Button>
+              </>
+            ) : (
+              <>
+                <Button variant="outline" onClick={() => setIsLoginOpen(true)}>Login</Button>
+                <Button variant="primary" onClick={() => setIsSignupOpen(true)}>Sign up</Button>
+              </>
+            )}
           </div>
           <div className="sm:hidden">
             <Button variant="ghost" onClick={() => setIsMenuOpen(!isMenuOpen)}>
@@ -70,13 +82,23 @@ const Navbar = () => {
               <Wallet className="h-5 w-5 mr-2" />
               Wallet
             </Button>
-            <Button variant="primary" className="bg-black text-white hover:bg-gray-800 w-full mt-4">
-              Login/Sign up
-            </Button>
+            {user ? (
+              <>
+                <span className="block mt-4">Welcome, {user.email}</span>
+                <Button variant="primary" onClick={onLogout} className="w-full mt-4">Logout</Button>
+              </>
+            ) : (
+              <>
+                <Button variant="outline" onClick={() => setIsLoginOpen(true)} className="w-full mt-4">Login</Button>
+                <Button variant="primary" onClick={() => setIsSignupOpen(true)} className="w-full mt-4">Sign up</Button>
+              </>
+            )}
           </div>
         )}
       </div>
       <WalletModal isOpen={isWalletOpen} onClose={() => setIsWalletOpen(false)} />
+      <LoginModal isOpen={isLoginOpen} onClose={() => setIsLoginOpen(false)} onLogin={onLogin} />
+      <SignupModal isOpen={isSignupOpen} onClose={() => setIsSignupOpen(false)} onSignup={onSignup} />
     </nav>
   );
 };

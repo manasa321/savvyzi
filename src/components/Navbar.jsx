@@ -1,16 +1,22 @@
 import React, { useState } from 'react';
 import { Input } from "@/components/ui/input";
 import { useNavigate } from 'react-router-dom';
-import { Search, Menu, X, Wallet } from 'lucide-react';
+import { Search, Menu, X, User } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import logo from '../logo-png.png';
-import WalletModal from './WalletModal';
 import LoginModal from './LoginModal';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 const Navbar = ({ user, onLogin, onSignup, onLogout }) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isWalletOpen, setIsWalletOpen] = useState(false);
   const [isLoginOpen, setIsLoginOpen] = useState(false);
   const navigate = useNavigate();
 
@@ -47,14 +53,22 @@ const Navbar = ({ user, onLogin, onSignup, onLogout }) => {
           </div>
           <div className="hidden sm:flex items-center space-x-4">
             {user ? (
-              <>
-                <Button variant="ghost" onClick={() => setIsWalletOpen(true)}>
-                  <Wallet className="h-5 w-5 mr-2" />
-                  ₹{user.balance}
-                </Button>
-                <span>Welcome, {user.email}</span>
-                <Button variant="primary" onClick={onLogout}>Logout</Button>
-              </>
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button variant="ghost" className="flex items-center">
+                    <User className="h-5 w-5 mr-2" />
+                    {user.email}
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent>
+                  <DropdownMenuLabel>My Account</DropdownMenuLabel>
+                  <DropdownMenuSeparator />
+                  <DropdownMenuItem>
+                    Wallet Balance: ₹{user.balance}
+                  </DropdownMenuItem>
+                  <DropdownMenuItem onClick={onLogout}>Logout</DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
             ) : (
               <Button variant="primary" onClick={handleLoginClick}>Login / Sign up</Button>
             )}
@@ -79,11 +93,7 @@ const Navbar = ({ user, onLogin, onSignup, onLogout }) => {
             </form>
             {user ? (
               <>
-                <Button variant="ghost" onClick={() => setIsWalletOpen(true)} className="w-full mt-4">
-                  <Wallet className="h-5 w-5 mr-2" />
-                  ₹{user.balance}
-                </Button>
-                <span className="block mt-4">Welcome, {user.email}</span>
+                <p className="mt-4">Wallet Balance: ₹{user.balance}</p>
                 <Button variant="primary" onClick={onLogout} className="w-full mt-4">Logout</Button>
               </>
             ) : (
@@ -92,7 +102,6 @@ const Navbar = ({ user, onLogin, onSignup, onLogout }) => {
           </div>
         )}
       </div>
-      {user && <WalletModal isOpen={isWalletOpen} onClose={() => setIsWalletOpen(false)} balance={user.balance} />}
       <LoginModal 
         isOpen={isLoginOpen} 
         onClose={() => setIsLoginOpen(false)} 

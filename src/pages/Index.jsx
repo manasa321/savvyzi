@@ -1,9 +1,8 @@
-// Index.jsx
 import React from 'react';
 import Navbar from '../components/Navbar';
 import CategorySection from '../components/CategorySection';
-import DealOfTheDay from '../components/DealOfTheDay';
-import GiftCards from '../components/GiftCards';  // Import GiftCards component
+import DealOfTheDay from '../components/DealOfTheDay';  // Import the DealOfTheDay component
+import GiftCards from '../components/GiftCards';  // Import the GiftCards component
 
 const Index = () => {
   return (
@@ -17,8 +16,8 @@ const Index = () => {
         </section>
         
         {/* Gift Cards Section */}
-        <GiftCards />  {/* Using the GiftCards component */}
-
+        <GiftCards />  {/* Integrating the GiftCards component */}
+        
         {/* Categories Section */}
         <section className="mb-8">
           <h2 className="text-2xl font-semibold mb-4">Explore Categories</h2>
@@ -26,8 +25,4 @@ const Index = () => {
         </section>
 
       </main>
-    </div>
-  );
-};
-
-export default Index;
+   

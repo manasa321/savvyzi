@@ -37,12 +37,7 @@ const App = () => {
           <TooltipProvider>
             <Toaster />
             <BrowserRouter>
-              <Navbar 
-                user={user} 
-                onLogin={handleLogin} 
-                onSignup={handleSignup} 
-                onLogout={handleLogout} 
-              />
+              <Navbar user={user} onLogin={handleLogin} onSignup={handleSignup} onLogout={handleLogout} />
               <Routes>
                 <Route path="/" element={<Index />} />
                 <Route path="/category/:category" element={<CategoryPage />} />

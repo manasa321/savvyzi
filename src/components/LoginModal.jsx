@@ -10,21 +10,13 @@ const LoginModal = ({ isOpen, onClose, onLogin, onSignup }) => {
 
   const handleLogin = (e) => {
     e.preventDefault();
-    if (typeof onLogin === 'function') {
-      onLogin(email, password);
-    } else {
-      console.error('onLogin is not a function');
-    }
+    onLogin(email, password);
     onClose();
   };
 
   const handleSignup = (e) => {
     e.preventDefault();
-    if (typeof onSignup === 'function') {
-      onSignup(email, password);
-    } else {
-      console.error('onSignup is not a function');
-    }
+    onSignup(email, password);
     onClose();
   };
 

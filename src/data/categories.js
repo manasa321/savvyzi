@@ -3,7 +3,7 @@ import { Smartphone, Tv, Laptop, Headphones, Coins, TrendingUp, Percent, CreditC
 export const categories = [
   { 
     name: 'Mobile', 
-    icon: Smartphone,
+    image: 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80',
     brands: [
       { name: 'Apple', logo: 'https://www.apple.com/ac/structured-data/images/knowledge_graph_logo.png', url: '/category/mobile/apple' },
       { name: 'Samsung', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Samsung_Logo.svg/2560px-Samsung_Logo.svg.png', url: '/category/mobile/samsung' },
@@ -15,7 +15,7 @@ export const categories = [
   },
   { 
     name: 'TV', 
-    icon: Tv,
+    image: 'https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80',
     brands: [
       { name: 'LG', logo: 'https://images.squarespace-cdn.com/content/v1/502a8efb84ae42cbccf920c4/1585574686746-VCDIHSO21O76WR72WIAD/LG-Logo.png', url: '/category/tv/lg' },
       { name: 'Sony', logo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_71af1QHWToXD7zD-eRrXfbzq8HuUnQzUWQ&s', url: '/category/tv/sony' },
@@ -27,7 +27,7 @@ export const categories = [
   },
   { 
     name: 'Laptop', 
-    icon: Laptop,
+    image: 'https://images.unsplash.com/photo-1496181133206-80ce9b88a853?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80',
     brands: [
       { name: 'Dell', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Dell_Logo.png/1200px-Dell_Logo.png', url: '/category/laptop/dell' },
       { name: 'HP', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/HP_logo_2012.svg/2048px-HP_logo_2012.svg.png', url: '/category/laptop/hp' },
@@ -39,7 +39,7 @@ export const categories = [
   },
   { 
     name: 'Headphones', 
-    icon: Headphones,
+    image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80',
     brands: [
       { name: 'Sony', logo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_71af1QHWToXD7zD-eRrXfbzq8HuUnQzUWQ&s', url: '/category/headphones/sony' },
       { name: 'Apple', logo: 'https://www.apple.com/ac/structured-data/images/knowledge_graph_logo.png', url: '/category/headphones/apple' },
@@ -51,7 +51,7 @@ export const categories = [
   },
   { 
     name: 'Gold Schemes', 
-    icon: Coins,
+    image: 'https://images.unsplash.com/photo-1610375461246-83df859d849d?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80',
     brands: [
       { name: 'Joyalukkas', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Joyalukkas_Logo.svg/2560px-Joyalukkas_Logo.svg.png', url: '/category/gold-schemes/joyalukkas' },
       { name: 'Malabar Gold', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Malabar_Gold_%26_Diamonds_Logo.svg/2560px-Malabar_Gold_%26_Diamonds_Logo.svg.png', url: '/category/gold-schemes/malabar-gold' },
@@ -63,7 +63,7 @@ export const categories = [
   },
   { 
     name: 'Mutual Funds', 
-    icon: TrendingUp,
+    image: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80',
     brands: [
       { name: 'HDFC AMC', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/HDFC_Bank_Logo.svg/2560px-HDFC_Bank_Logo.svg.png', url: '/category/mutual-funds/hdfc-amc' },
       { name: 'ICICI Prudential', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/ICICI_Bank_Logo.svg/2560px-ICICI_Bank_Logo.svg.png', url: '/category/mutual-funds/icici-prudential' },
@@ -74,7 +74,7 @@ export const categories = [
   },
   { 
     name: 'FD Rates', 
-    icon: Percent,
+    image: 'https://images.unsplash.com/photo-1621981386829-9b458a2cddde?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80',
     brands: [
       { name: 'SBI', logo: 'https://upload.wikimedia.org/wikipedia/en/thumb/5/58/State_Bank_of_India_logo.svg/1200px-State_Bank_of_India_logo.svg.png', url: '/category/fd-rates/sbi' },
       { name: 'HDFC Bank', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/HDFC_Bank_Logo.svg/2560px-HDFC_Bank_Logo.svg.png', url: '/category/fd-rates/hdfc-bank' },
@@ -85,7 +85,7 @@ export const categories = [
   },
   { 
     name: 'Finance Plans', 
-    icon: CreditCard,
+    image: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80',
     brands: [
       { name: 'Bajaj Finserv', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Bajaj_Finserv_Logo.svg/2560px-Bajaj_Finserv_Logo.svg.png', url: '/category/finance-plans/bajaj-finserv' },
       { name: 'HDFC Bank', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/HDFC_Bank_Logo.svg/2560px-HDFC_Bank_Logo.svg.png', url: '/category/finance-plans/hdfc-bank' },

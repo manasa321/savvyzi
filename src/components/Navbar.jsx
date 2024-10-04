@@ -1,16 +1,20 @@
 import React, { useState } from 'react';
 import { Input } from "@/components/ui/input";
 import { useNavigate } from 'react-router-dom';
-import { Search, Menu, X, Wallet } from 'lucide-react';
+import { Search, Menu, X, Wallet, User } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import logo from '../logo-png.png';
 import WalletModal from './WalletModal';
+import LoginModal from './LoginModal';
+import { useAuth } from '../hooks/useAuth';
 
 const Navbar = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isWalletOpen, setIsWalletOpen] = useState(false);
+  const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
   const navigate = useNavigate();
+  const { user, logout } = useAuth();
 
   const handleSearch = (e) => {
     e.preventDefault();
@@ -40,13 +44,25 @@ const Navbar = () => {
             </form>
           </div>
           <div className="hidden sm:flex items-center space-x-4">
-            <Button variant="ghost" onClick={() => setIsWalletOpen(true)}>
-              <Wallet className="h-5 w-5 mr-2" />
-              Wallet
-            </Button>
-            <Button variant="primary" className="bg-black text-white hover:bg-gray-800">
-              Login/Sign up
-            </Button>
+            {user ? (
+              <>
+                <Button variant="ghost" onClick={() => setIsWalletOpen(true)}>
+                  <Wallet className="h-5 w-5 mr-2" />
+                  Wallet
+                </Button>
+                <Button variant="ghost" onClick={() => navigate('/account')}>
+                  <User className="h-5 w-5 mr-2" />
+                  Account
+                </Button>
+                <Button variant="outline" onClick={logout}>
+                  Logout
+                </Button>
+              </>
+            ) : (
+              <Button variant="primary" className="bg-black text-white hover:bg-gray-800" onClick={() => setIsLoginModalOpen(true)}>
+                Login/Sign up
+              </Button>
+            )}
           </div>
           <div className="sm:hidden">
             <Button variant="ghost" onClick={() => setIsMenuOpen(!isMenuOpen)}>
@@ -66,17 +82,30 @@ const Navbar = () => {
               />
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
             </form>
-            <Button variant="ghost" onClick={() => setIsWalletOpen(true)} className="w-full mt-4">
-              <Wallet className="h-5 w-5 mr-2" />
-              Wallet
-            </Button>
-            <Button variant="primary" className="bg-black text-white hover:bg-gray-800 w-full mt-4">
-              Login/Sign up
-            </Button>
+            {user ? (
+              <>
+                <Button variant="ghost" onClick={() => setIsWalletOpen(true)} className="w-full mt-4">
+                  <Wallet className="h-5 w-5 mr-2" />
+                  Wallet
+                </Button>
+                <Button variant="ghost" onClick={() => navigate('/account')} className="w-full mt-4">
+                  <User className="h-5 w-5 mr-2" />
+                  Account
+                </Button>
+                <Button variant="outline" onClick={logout} className="w-full mt-4">
+                  Logout
+                </Button>
+              </>
+            ) : (
+              <Button variant="primary" className="bg-black text-white hover:bg-gray-800 w-full mt-4" onClick={() => setIsLoginModalOpen(true)}>
+                Login/Sign up
+              </Button>
+            )}
           </div>
         )}
       </div>
       <WalletModal isOpen={isWalletOpen} onClose={() => setIsWalletOpen(false)} />
+      <LoginModal isOpen={isLoginModalOpen} onClose={() => setIsLoginModalOpen(false)} />
     </nav>
   );
 };

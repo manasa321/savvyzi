@@ -3,12 +3,11 @@ from rest_framework.response import Response
 from rest_framework import status
 from django.contrib.postgres.search import SearchQuery, SearchRank
 from django.db.models import F
-from .models import Product
-from .serializers import ProductSerializer
+from .models import Product, Category
+from .serializers import ProductSerializer, CategorySerializer
 
 class ProductSearchView(APIView):
     def get(self, request):
-        print("Entered Product search")
         search_term = request.query_params.get('search', '')
         category = request.query_params.get('category', '')
 
@@ -26,7 +25,6 @@ class ProductSearchView(APIView):
 
             products = products.order_by('-rank')
             serializer = ProductSerializer(products, many=True)
-            print(serializer.data)
             return Response(serializer.data)
         except Exception as e:
             return Response({"error": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)

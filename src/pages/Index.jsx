@@ -14,14 +14,14 @@ const Index = () => {
           <DealOfTheDay />
         </section>
         
-        {/* Gift Cards Section */}
-        <GiftCards />
-        
         {/* Categories Section */}
         <section className="mb-8">
           <h2 className="text-2xl font-semibold mb-4">Explore Categories</h2>
           <CategorySection />
         </section>
+        
+        {/* Gift Cards Section */}
+        <GiftCards />
       </main>
     </div>
   );

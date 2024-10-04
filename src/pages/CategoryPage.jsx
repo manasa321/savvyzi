@@ -1,6 +1,7 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
+import BackButton from '../components/BackButton';
 import { Card, CardContent } from "@/components/ui/card";
 import { categories } from '../data/categories';
 
@@ -15,6 +16,7 @@ const CategoryPage = () => {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <Navbar />
+      <BackButton />
       <main className="container mx-auto py-8 px-4">
         <h1 className="text-3xl font-bold mb-6 text-secondary-foreground capitalize">{selectedCategory.name} Brands</h1>
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">

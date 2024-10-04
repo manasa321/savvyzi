@@ -2,6 +2,7 @@ import React from 'react';
 import { useSearchParams, Link } from 'react-router-dom';
 import { useQuery } from "@tanstack/react-query";
 import Navbar from '../components/Navbar';
+import BackButton from '../components/BackButton';
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ChevronRight } from 'lucide-react';
@@ -30,6 +31,7 @@ const SearchResults = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
+      <BackButton />
       <main className="container mx-auto py-8 px-4">
         <h1 className="text-3xl font-bold mb-6">Search Results for "{query}"</h1>
         {searchResults && searchResults.length > 0 ? (

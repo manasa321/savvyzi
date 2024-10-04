@@ -23,7 +23,6 @@ const DealOfTheDay = () => {
     return () => clearInterval(timer); // Clean up interval on unmount
   }, [currentDeal]);
 
-  // Scroll to the selected deal
   const scrollToDeal = (index) => {
     const dealWidth = scrollRef.current.scrollWidth / deals.length;
     scrollRef.current.scrollTo({
@@ -32,21 +31,18 @@ const DealOfTheDay = () => {
     });
   };
 
-  // Manually scroll to previous deal
   const handlePrevDeal = () => {
     const prevDeal = (currentDeal - 1 + deals.length) % deals.length;
     setCurrentDeal(prevDeal);
     scrollToDeal(prevDeal);
   };
 
-  // Manually scroll to next deal
   const handleNextDeal = () => {
     const nextDeal = (currentDeal + 1) % deals.length;
     setCurrentDeal(nextDeal);
     scrollToDeal(nextDeal);
   };
 
-  // Open deal URL in a new tab
   const handleDealClick = (url) => {
     window.open(url, '_blank');
   };
@@ -61,28 +57,30 @@ const DealOfTheDay = () => {
               className={`w-full flex-shrink-0 snap-center cursor-pointer transition-opacity duration-500 ${index === currentDeal ? 'opacity-100' : 'opacity-50'}`}
               onClick={() => handleDealClick(deal.url)}
             >
-              <img
-                src={deal.image}
-                alt={deal.title}
-                className="w-full h-auto object-cover"
-              />
-              <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 text-white p-4">
-                <h3 className="text-xl font-semibold">{deal.title}</h3>
+              <div className="relative w-full h-0 pb-[16.875%] md:pb-[16.875%]"> {/* 16.875% maintains the 1600x270 aspect ratio */}
+                <img
+                  src={deal.image}
+                  alt={deal.title}
+                  className="absolute top-0 left-0 w-full h-full object-cover"
+                />
+                <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 text-white p-2 md:p-4">
+                  <h3 className="text-sm md:text-xl font-semibold truncate">{deal.title}</h3>
+                </div>
               </div>
             </div>
           ))}
         </div>
         <button
           onClick={handlePrevDeal}
-          className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-black bg-opacity-50 text-white rounded-full p-2 hover:bg-opacity-75 transition-colors"
+          className="absolute top-1/2 left-2 md:left-4 transform -translate-y-1/2 bg-black bg-opacity-50 text-white rounded-full p-1 md:p-2 hover:bg-opacity-75 transition-colors"
         >
-          <ChevronLeft className="w-6 h-6" />
+          <ChevronLeft className="w-4 h-4 md:w-6 md:h-6" />
         </button>
         <button
           onClick={handleNextDeal}
-          className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-black bg-opacity-50 text-white rounded-full p-2 hover:bg-opacity-75 transition-colors"
+          className="absolute top-1/2 right-2 md:right-4 transform -translate-y-1/2 bg-black bg-opacity-50 text-white rounded-full p-1 md:p-2 hover:bg-opacity-75 transition-colors"
         >
-          <ChevronRight className="w-6 h-6" />
+          <ChevronRight className="w-4 h-4 md:w-6 md:h-6" />
         </button>
       </CardContent>
     </Card>

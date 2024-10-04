@@ -10,6 +10,7 @@ import CategoryPage from "./pages/CategoryPage";
 import SearchResults from "./pages/SearchResults";
 import ProductDetail from "./pages/ProductDetail";
 import ProductComparison from "./pages/ProductComparison";
+import Footer from "./components/Footer";
 
 const queryClient = new QueryClient();
 
@@ -21,13 +22,18 @@ const App = () => (
           <TooltipProvider>
             <Toaster />
             <BrowserRouter>
-              <Routes>
-                <Route path="/" element={<Index />} />
-                <Route path="/category/:category" element={<CategoryPage />} />
-                <Route path="/search" element={<SearchResults />} />
-                <Route path="/product/:productId" element={<ProductDetail />} />
-                <Route path="/compare/:productId" element={<ProductComparison />} />
-              </Routes>
+              <div className="flex flex-col min-h-screen">
+                <div className="flex-grow">
+                  <Routes>
+                    <Route path="/" element={<Index />} />
+                    <Route path="/category/:category" element={<CategoryPage />} />
+                    <Route path="/search" element={<SearchResults />} />
+                    <Route path="/product/:productId" element={<ProductDetail />} />
+                    <Route path="/compare/:productId" element={<ProductComparison />} />
+                  </Routes>
+                </div>
+                <Footer />
+              </div>
             </BrowserRouter>
           </TooltipProvider>
         </AuthProvider>

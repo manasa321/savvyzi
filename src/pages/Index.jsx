@@ -8,16 +8,15 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       <Navbar />
-      <main className="container mx-auto py-8 px-4">
+      <main className="container mx-auto py-4 px-4">
+        {/* Categories Section */}
+        <section className="mb-6">
+          <CategorySection />
+        </section>
+        
         {/* Deal of the Day Carousel */}
         <section className="mb-8">
           <DealOfTheDay />
-        </section>
-        
-        {/* Categories Section */}
-        <section className="mb-8">
-          <h2 className="text-2xl font-semibold mb-4">Explore Categories</h2>
-          <CategorySection />
         </section>
         
         {/* Gift Cards Section */}

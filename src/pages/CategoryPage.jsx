@@ -21,7 +21,7 @@ const CategoryPage = () => {
         <h1 className="text-3xl font-bold mb-6 text-secondary-foreground capitalize">{selectedCategory.name} Brands</h1>
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
           {selectedCategory.brands.map((brand) => (
-            <Link to={brand.url} key={brand.name}>
+            <a href={brand.url} key={brand.name} target="_blank" rel="noopener noreferrer">
               <Card className="overflow-hidden hover:shadow-lg transition-shadow">
                 <CardContent className="p-4">
                   <div className="flex flex-col items-center">
@@ -32,7 +32,7 @@ const CategoryPage = () => {
                   </div>
                 </CardContent>
               </Card>
-            </Link>
+            </a>
           ))}
         </div>
       </main>

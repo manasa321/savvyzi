@@ -11,6 +11,7 @@ export const categories = [
       { name: 'Xiaomi', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Xiaomi_logo.svg/2048px-Xiaomi_logo.svg.png', url: '/category/mobile/xiaomi' },
       { name: 'Vivo', logo: 'https://1000logos.net/wp-content/uploads/2022/02/Vivo-Logo.jpg', url: '/category/mobile/vivo' },
       { name: 'Oppo', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/OPPO_Logo_wiki.png/1024px-OPPO_Logo_wiki.png', url: '/category/mobile/oppo' }
+      { name: 'Daily Objects', logo: 'https://images.dailyobjects.com/marche/icons/logo_named.png?tr=cm-pad_resize,v-3,w-135,h-27,dpr-2,q-60', url:'https://track.vcommission.com/click?campaign_id=11432&pub_id=117026' }
     ]
   },
   { 

@@ -18,8 +18,18 @@ export const categories = [
     name : 'Beauty',
     image : '',
     brands : [
-      { name: 'Smytten', logo: 'https://smytten.com/images/smyttenlogo.svg', url:'https://track.vcommission.com/click?campaign_id=11421&pub_id=117026' }
+      { name: 'Smytten', logo: 'https://smytten.com/images/smyttenlogo.svg', url:'https://track.vcommission.com/click?campaign_id=11421&pub_id=117026' },
+      { name: 'ClickOnCare', logo: 'https://www.clickoncare.com/cdn/shop/files/coc_512.png?v=1683519914&width=480', url:'https://track.vcommission.com/click?campaign_id=11417&pub_id=117026' }
+      
     ] 
+  },
+
+  {
+    name: 'Wellness',
+    image : '',
+    brands:[
+      { name: 'Nutrabay', logo: '', url : 'https://track.vcommission.com/click?campaign_id=11355&pub_id=117026' }
+    ]
   },
   
   { 

@@ -1,4 +1,4 @@
-import { Smartphone, Tv, Laptop, Headphones, Coins, TrendingUp, Percent, CreditCard } from 'lucide-react';
+import { Smartphone, Tv, Laptop, Headphones, Coins, TrendingUp, Percent, CreditCard, ShoppingBag } from 'lucide-react';
 
 export const categories = [
   { 
@@ -68,6 +68,45 @@ export const categories = [
       { name: 'OnePlus', logo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKxyMJDTRJRMAOTYgrKR5fslKamX4AUHfbtQ&s', url: '/category/headphones/oneplus' }
     ]
   },
+
+  { 
+    name: 'Fashion', 
+    image: 'https://images.unsplash.com/photo-1490481651871-ab68de25d43d?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80',
+    icon: ShoppingBag,
+    subcategories: [
+      { 
+        name: 'Clothing',
+        brands: [
+          { name: 'H&M', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/H%26M-Logo.svg/2560px-H%26M-Logo.svg.png', url: 'https://www2.hm.com/' },
+          { name: 'Zara', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Zara_Logo.svg/2560px-Zara_Logo.svg.png', url: 'https://www.zara.com/' },
+          { name: 'Uniqlo', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/UNIQLO_logo.svg/2560px-UNIQLO_logo.svg.png', url: 'https://www.uniqlo.com/' },
+          { name: 'Nike', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Logo_NIKE.svg/2560px-Logo_NIKE.svg.png', url: 'https://www.nike.com/' },
+          { name: 'Adidas', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Adidas_Logo.svg/2560px-Adidas_Logo.svg.png', url: 'https://www.adidas.com/' },
+        ]
+      },
+      {
+        name: 'Footwear',
+        brands: [
+          { name: 'Nike', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Logo_NIKE.svg/2560px-Logo_NIKE.svg.png', url: 'https://www.nike.com/' },
+          { name: 'Adidas', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Adidas_Logo.svg/2560px-Adidas_Logo.svg.png', url: 'https://www.adidas.com/' },
+          { name: 'Puma', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Puma_logo.svg/2560px-Puma_logo.svg.png', url: 'https://us.puma.com/' },
+          { name: 'Reebok', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Reebok_2019_logo.svg/2560px-Reebok_2019_logo.svg.png', url: 'https://www.reebok.com/' },
+          { name: 'Vans', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Vans-logo.svg/2560px-Vans-logo.svg.png', url: 'https://www.vans.com/' },
+        ]
+      },
+      {
+        name: 'Makeup',
+        brands: [
+          { name: 'MAC', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/MAC_Cosmetics_logo.svg/2560px-MAC_Cosmetics_logo.svg.png', url: 'https://www.maccosmetics.com/' },
+          { name: 'Maybelline', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Maybelline_Logo.svg/2560px-Maybelline_Logo.svg.png', url: 'https://www.maybelline.com/' },
+          { name: 'L\'Oréal', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/L%27Or%C3%A9al_logo.svg/2560px-L%27Or%C3%A9al_logo.svg.png', url: 'https://www.loreal-paris.co.uk/' },
+          { name: 'Sephora', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Sephora_logo.svg/2560px-Sephora_logo.svg.png', url: 'https://www.sephora.com/' },
+          { name: 'Fenty Beauty', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Fenty_Beauty_logo.svg/2560px-Fenty_Beauty_logo.svg.png', url: 'https://fentybeauty.com/' },
+        ]
+      }
+    ]
+  },
+
   { 
     name: 'Gold Schemes', 
     image: 'https://images.unsplash.com/photo-1610375461246-83df859d849d?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80',

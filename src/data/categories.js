@@ -28,7 +28,7 @@ export const categories = [
     name: 'Wellness',
     image : '',
     brands:[
-      { name: 'Nutrabay', logo: '', url : 'https://track.vcommission.com/click?campaign_id=11355&pub_id=117026' }
+      { name: 'Nutrabay', logo: '', url : 'https://track.vcommission.com/click?campaign_id=11392&pub_id=117026' }
     ]
   },
   

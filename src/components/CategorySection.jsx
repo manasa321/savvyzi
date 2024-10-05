@@ -6,7 +6,7 @@ const CategorySection = () => {
   const [showMobileBrands, setShowMobileBrands] = useState(false);
 
   const handleCategoryClick = (category) => {
-    if (category.toLowerCase() === 'mobile') {
+    if (category.name.toLowerCase() === 'mobile') {
       setShowMobileBrands(!showMobileBrands);
     }
   };

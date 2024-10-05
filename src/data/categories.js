@@ -14,6 +14,14 @@ export const categories = [
       { name: 'Daily Objects', logo: 'https://images.dailyobjects.com/marche/icons/logo_named.png?tr=cm-pad_resize,v-3,w-135,h-27,dpr-2,q-60', url:'https://track.vcommission.com/click?campaign_id=11432&pub_id=117026' }
     ]
   },
+  {
+    name : 'Beauty',
+    image : '',
+    brands : [
+      { name: 'Smytten', logo: 'https://smytten.com/images/smyttenlogo.svg', url:'https://track.vcommission.com/click?campaign_id=11421&pub_id=117026' }
+    ] 
+  },
+  
   { 
     name: 'TV', 
     image: 'https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80',

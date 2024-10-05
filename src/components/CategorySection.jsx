@@ -1,19 +1,18 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 import { categories } from '../data/categories';
 
 const CategorySection = () => {
-  const [showMobileBrands, setShowMobileBrands] = useState(false);
+  const [expandedCategory, setExpandedCategory] = useState(null);
 
-  const handleCategoryClick = (category) => {
-    if (category.name.toLowerCase() === 'mobile') {
-      setShowMobileBrands(!showMobileBrands);
-    }
+  const handleCategoryClick = (categoryName) => {
+    setExpandedCategory(expandedCategory === categoryName ? null : categoryName);
   };
 
   const handleBrandClick = (url) => {
     window.open(url, '_blank');
   };
+
+  const expandableCategories = ['Mobile', 'TV', 'Laptop', 'Headphones'];
 
   return (
     <div className="overflow-x-auto">
@@ -22,7 +21,7 @@ const CategorySection = () => {
           <div key={category.name} className="flex flex-col items-center">
             <div
               className="flex flex-col items-center flex-shrink-0 w-16 cursor-pointer"
-              onClick={() => handleCategoryClick(category)}
+              onClick={() => handleCategoryClick(category.name)}
             >
               <div className="w-12 h-12 mb-1 overflow-hidden rounded-full">
                 <img
@@ -33,7 +32,7 @@ const CategorySection = () => {
               </div>
               <span className="text-xs text-center whitespace-nowrap">{category.name}</span>
             </div>
-            {category.name.toLowerCase() === 'mobile' && showMobileBrands && (
+            {expandableCategories.includes(category.name) && expandedCategory === category.name && (
               <div className="mt-2 grid grid-cols-3 gap-2">
                 {category.brands.map((brand) => (
                   <div

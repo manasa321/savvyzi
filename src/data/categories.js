@@ -87,7 +87,7 @@ export const categories = [
     ])
   },
   {
-    name: 'Home Decor',
+    name: 'Home & Kitchen',
     image: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80',
     brands: addSampleDiscount([
       { name: 'Ugaoo', logo: 'https://www.ugaoo.com/cdn/shop/files/Logo-website-header-01.png?height=116&v=1725347801', url: 'https://track.vcommission.com/click?campaign_id=11223&pub_id=117026' }

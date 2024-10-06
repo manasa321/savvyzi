@@ -24,8 +24,8 @@ const CategoryPage = () => {
                   <img src={brand.logo} alt={brand.name} className="max-w-full max-h-full object-contain" />
                 </div>
                 <h2 className="text-sm font-semibold text-center">{brand.name}</h2>
-                {brand.cashback && (
-                  <p className="text-xs text-green-600 mt-1">Up to {brand.cashback}% Cashback</p>
+                {brand.discount && (
+                  <p className="text-xs text-green-600 mt-1">{brand.discount}</p>
                 )}
               </div>
             </CardContent>

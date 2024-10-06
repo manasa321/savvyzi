@@ -7,7 +7,7 @@ export const beautyBrands = [
   { name: 'Sephora', logo: 'https://m.economictimes.com/thumb/msid-62384305,width-1200,height-900,resizemode-4,imgsize-13996/sephora.jpg', url: 'https://www.sephora.com/' },
   { name: 'Fenty Beauty', logo: 'https://logowik.com/content/uploads/images/fenty-beauty9929.logowik.com.webp', url: 'https://fentybeauty.com/' },
   { name: 'Salty', logo: '', url: 'https://track.vcommission.com/click?campaign_id=11241&pub_id=117026' },
-  { name: 'Swiss Beauty', logo: '', url: 'https://track.vcommission.com/click?campaign_id=11097&pub_id=117026' },
+  { name: 'Swiss Beauty', logo: '', url: 'https://swissbeauty.in/cdn/shop/files/Asset_1500.074_150x44_8135c643-c678-4656-be55-84f7a44a38b1_280x@2x.jpg?v=1701432150' },
   { name: 'foxtale', logo: '', url: 'https://track.vcommission.com/click?campaign_id=10994&pub_id=117026' },
   { name: 'BeMinimalist', logo: '', url: 'https://track.vcommission.com/click?campaign_id=10971&pub_id=117026' },
   { name: 'Beardo', logo: '', url: 'https://track.vcommission.com/click?campaign_id=10691&pub_id=117026' },

@@ -2,6 +2,7 @@ import React from 'react';
 import Navbar from '../components/Navbar';
 import CategorySection from '../components/CategorySection';
 import DealOfTheDay from '../components/DealOfTheDay';
+import PopularStores from '../components/PopularStores';
 import GiftCards from '../components/GiftCards';
 
 const Index = () => {
@@ -18,6 +19,9 @@ const Index = () => {
         <section className="mb-8">
           <DealOfTheDay />
         </section>
+        
+        {/* Popular Stores Section */}
+        <PopularStores />
         
         {/* Gift Cards Section */}
         <GiftCards />

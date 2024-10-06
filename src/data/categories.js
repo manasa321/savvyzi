@@ -83,14 +83,14 @@ export const categories = [
     name: 'Insurance',
     image: 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80',
     brands: addSampleDiscount([
-      { name: 'Nivabupa', logo: '', url: 'https://track.vcommission.com/click?campaign_id=11195&pub_id=117026' }
+      { name: 'Nivabupa', logo: 'https://www.nivabupa.com/content/dam/nivabupa/Image/logos/NivaLogo324x180.png', url: 'https://track.vcommission.com/click?campaign_id=11195&pub_id=117026' }
     ])
   },
   {
     name: 'Home Decor',
     image: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80',
     brands: addSampleDiscount([
-      { name: 'Ugaoo', logo: '', url: 'https://track.vcommission.com/click?campaign_id=11223&pub_id=117026' }
+      { name: 'Ugaoo', logo: 'https://www.ugaoo.com/cdn/shop/files/Logo-website-header-01.png?height=116&v=1725347801', url: 'https://track.vcommission.com/click?campaign_id=11223&pub_id=117026' }
     ])
   },
 ];

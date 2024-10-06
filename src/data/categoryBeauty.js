@@ -4,7 +4,7 @@ export const beautyBrands = [
   { name: 'MAC', logo: 'https://i.pinimg.com/736x/20/c7/ca/20c7ca578ceb91b448c76e845e252a57.jpg', url: 'https://www.maccosmetics.com/' },
   { name: 'Maybelline', logo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKpbDuD0udNzWWJ8EwqXaAzPmvnxTskWv1xQ&s', url: 'https://www.maybelline.com/' },
   { name: 'L\'Oréal', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/L%27Or%C3%A9al_logo.svg/2560px-L%27Or%C3%A9al_logo.svg.png', url: 'https://www.loreal-paris.co.uk/' },
-  { name: 'Sephora', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Sephora_logo.svg/2560px-Sephora_logo.svg.png', url: 'https://www.sephora.com/' },
+  { name: 'Sephora', logo: 'https://m.economictimes.com/thumb/msid-62384305,width-1200,height-900,resizemode-4,imgsize-13996/sephora.jpg', url: 'https://www.sephora.com/' },
   { name: 'Fenty Beauty', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Fenty_Beauty_logo.svg/2560px-Fenty_Beauty_logo.svg.png', url: 'https://fentybeauty.com/' },
   { name: 'Salty', logo: '', url: 'https://track.vcommission.com/click?campaign_id=11241&pub_id=117026' },
   { name: 'Swiss Beauty', logo: '', url: 'https://track.vcommission.com/click?campaign_id=11097&pub_id=117026' },

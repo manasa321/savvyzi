@@ -12,6 +12,6 @@ export const beautyBrands = [
   { name: 'BeMinimalist', logo: 'https://sfycdn.speedsize.com/56385b25-4e17-4a9a-9bec-c421c18686fb/https://beminimalist.co/cdn/shop/files/Minimalist-Logo-PNG-Mid.png?v=1712743274', url: 'https://track.vcommission.com/click?campaign_id=10971&pub_id=117026' },
   { name: 'Beardo', logo: 'https://beardo.in/cdn/shop/files/beardo_logo_white_png_1.png?v=1679998281&width=500', url: 'https://track.vcommission.com/click?campaign_id=10691&pub_id=117026' },
   { name: 'Kiro Beauty', logo: 'https://kirobeauty.com/cdn/shop/t/475/assets/kiro-clean-beauty.png?v=111008318495277832341727420287', url: 'https://track.vcommission.com/click?campaign_id=10503&pub_id=117026' },
-  { name: 'The Derma Co', logo: '', url: 'https://track.vcommission.com/click?campaign_id=10247&pub_id=117026' },
-  { name: 'Mamaearth', logo: '', url: 'https://track.vcommission.com/click?campaign_id=10158&pub_id=117026' },
+  { name: 'The Derma Co', logo: 'https://images.thedermaco.com/TheDermaCoLogo2-min.png', url: 'https://track.vcommission.com/click?campaign_id=10247&pub_id=117026' },
+  { name: 'Mamaearth', logo: 'https://images.mamaearth.in/wysiwyg/mamaearth-logo.png?format=auto&fit=scale', url: 'https://track.vcommission.com/click?campaign_id=10158&pub_id=117026' },
 ];

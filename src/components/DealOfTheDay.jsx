@@ -9,7 +9,7 @@ const deals = [
     title: "Up to 80% Off",
     subtitle: "10% Instant Discount with SBI Card",
     saleStatus: "SALE LIVE NOW",
-    reward: "+ UP TO 5% CK REWARDS",
+    reward: "",
     bgColor: "bg-gradient-to-r from-pink-500 to-orange-500",
     url: "https://www.amazon.in/"
   },
@@ -20,7 +20,7 @@ const deals = [
     title: "50-90% Off",
     subtitle: "Across Categories",
     saleStatus: "SALE ENDS TONIGHT",
-    reward: "+ UP TO 7% CK REWARDS",
+    reward: "",
     bgColor: "bg-gradient-to-r from-purple-500 to-indigo-500",
     url: "https://www.flipkart.com/"
   },
@@ -31,7 +31,7 @@ const deals = [
     title: "50 - 90% Off",
     subtitle: "Across Categories",
     saleStatus: "1.5% EXTRA BONUS CASHBACK",
-    reward: "UP TO 8% CASHBACK",
+    reward: "",
     bgColor: "bg-gradient-to-r from-red-500 to-yellow-500",
     url: "https://www.myntra.com/"
   },

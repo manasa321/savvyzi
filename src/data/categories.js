@@ -20,18 +20,38 @@ export const categories = [
     brands : [
       { name: 'Smytten', logo: 'https://smytten.com/images/smyttenlogo.svg', url:'https://track.vcommission.com/click?campaign_id=11421&pub_id=117026' },
       { name: 'ClickOnCare', logo: 'https://www.clickoncare.com/cdn/shop/files/coc_512.png?v=1683519914&width=480', url:'https://track.vcommission.com/click?campaign_id=11417&pub_id=117026' }
-      
+      { name: 'Pantaloons', logo: '', url: 'https://track.vcommission.com/click?campaign_id=11287&pub_id=117026' },
+      { name: 'MAC', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/MAC_Cosmetics_logo.svg/2560px-MAC_Cosmetics_logo.svg.png', url: 'https://www.maccosmetics.com/' },
+      { name: 'Maybelline', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Maybelline_Logo.svg/2560px-Maybelline_Logo.svg.png', url: 'https://www.maybelline.com/' },
+      { name: 'L\'Oréal', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/L%27Or%C3%A9al_logo.svg/2560px-L%27Or%C3%A9al_logo.svg.png', url: 'https://www.loreal-paris.co.uk/' },
+      { name: 'Sephora', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Sephora_logo.svg/2560px-Sephora_logo.svg.png', url: 'https://www.sephora.com/' },
+      { name: 'Fenty Beauty', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Fenty_Beauty_logo.svg/2560px-Fenty_Beauty_logo.svg.png', url: 'https://fentybeauty.com/' },
+      { name: 'Salty', logo: '', url: 'https://track.vcommission.com/click?campaign_id=11241&pub_id=117026' },
+      { name: 'Swiss Beauty', logo: '', url: 'https://track.vcommission.com/click?campaign_id=11097&pub_id=117026' },
+      { name: 'foxtale', logo: '', url: 'https://track.vcommission.com/click?campaign_id=10994&pub_id=117026' },
+      { name: 'BeMinimalist', logo: '', url: 'https://track.vcommission.com/click?campaign_id=10971&pub_id=117026' },
+      { name: 'Beardo', logo: '', url: 'https://track.vcommission.com/click?campaign_id=10691&pub_id=117026' },
+      { name: 'Kiro Beauty', logo: '', url: 'https://track.vcommission.com/click?campaign_id=10503&pub_id=117026' },
+      { name: 'The Derma Co', logo: '', url: 'https://track.vcommission.com/click?campaign_id=10247&pub_id=117026' },
+      { name: 'Mamaearth', logo: '', url: 'https://track.vcommission.com/click?campaign_id=10158&pub_id=117026' },
     ] 
   },
-
   {
-    name: 'Wellness',
+    name: 'Wellness & Kids',
     image : '',
     brands:[
       { name: 'Nutrabay', logo: '', url : 'https://track.vcommission.com/click?campaign_id=11392&pub_id=117026' }
+      { name: 'Super Bottoms', logo: '', url: 'https://track.vcommission.com/click?campaign_id=10930&pub_id=117026' },
+      { name: 'MyMuse', logo: '', url: 'https://track.vcommission.com/click?campaign_id=10666&pub_id=117026' },
+      { name: 'Healthmug', logo: '', url: 'https://track.vcommission.com/click?campaign_id=10645&pub_id=117026' },
+      { name: 'Setu', logo: '', url: 'https://track.vcommission.com/click?campaign_id=10617&pub_id=117026' },
+      { name: 'Krishna Ayurved', logo: '', url: 'https://track.vcommission.com/click?campaign_id=10600&pub_id=117026' },
+      { name: 'MuscleBlaze', logo: '', url: 'https://track.vcommission.com/click?campaign_id=10169&pub_id=117026' },
+      { name: 'Kapiva', logo: '', url: 'https://track.vcommission.com/click?campaign_id=10126&pub_id=117026' },
+      { name: 'Kama Ayurveda', logo: '', url: 'https://track.vcommission.com/click?campaign_id=10125&pub_id=117026' },
+      { name: 'HealthKart', logo: '', url: 'https://track.vcommission.com/click?campaign_id=10109&pub_id=117026' },
     ]
   },
-  
   { 
     name: 'TV', 
     image: 'https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80',
@@ -63,7 +83,7 @@ export const categories = [
       { name: 'Sony', logo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_71af1QHWToXD7zD-eRrXfbzq8HuUnQzUWQ&s', url: '/category/headphones/sony' },
       { name: 'Apple', logo: 'https://www.apple.com/ac/structured-data/images/knowledge_graph_logo.png', url: '/category/headphones/apple' },
       { name: 'Boat', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Boat_Logo.webp/1200px-Boat_Logo.webp.png', url: '/category/headphones/boat' },
-      { name: 'Noise', logo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJ3NT_z01r9hc_vsk2rhzMq1K40I-tC9FvTQ&s', url: '/category/headphones/noise' },
+      { name: 'Noise', logo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJ3NT_z01r9hc_vsk2rhzMq1K40I-tC9FvTQ&s', url: 'https://track.vcommission.com/click?campaign_id=10320&pub_id=117026' },
       { name: 'Redmi', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Xiaomi_logo.svg/2048px-Xiaomi_logo.svg.png', url: '/category/headphones/redmi' },
       { name: 'OnePlus', logo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKxyMJDTRJRMAOTYgrKR5fslKamX4AUHfbtQ&s', url: '/category/headphones/oneplus' }
     ]
@@ -83,6 +103,12 @@ export const categories = [
           { name: 'Uniqlo', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/UNIQLO_logo.svg/2560px-UNIQLO_logo.svg.png', url: 'https://www.uniqlo.com/' },
           { name: 'Nike', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Logo_NIKE.svg/2560px-Logo_NIKE.svg.png', url: 'https://www.nike.com/' },
           { name: 'Adidas', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Adidas_Logo.svg/2560px-Adidas_Logo.svg.png', url: 'https://www.adidas.com/' },
+          { name: 'Pantaloons', logo: '', url: 'https://track.vcommission.com/click?campaign_id=11287&pub_id=117026' },
+          { name: 'Wildcraft', logo: '', url: 'https://track.vcommission.com/click?campaign_id=11277&pub_id=117026' },
+          { name: 'Snitch', logo: '', url: 'https://track.vcommission.com/click?campaign_id=10803&pub_id=117026' },
+          { name: 'Mufti', logo: '', url: 'https://track.vcommission.com/click?campaign_id=10712&pub_id=117026' },
+          { name: 'Blackberrys', logo: '', url: 'https://track.vcommission.com/click?campaign_id=10604&pub_id=117026' },
+          { name: 'UNIQLO', logo: '', url: 'https://track.vcommission.com/click?campaign_id=10258&pub_id=117026' },
         ]
       },
       {
@@ -94,24 +120,24 @@ export const categories = [
           { name: 'Puma', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Puma_logo.svg/2560px-Puma_logo.svg.png', url: 'https://us.puma.com/' },
           { name: 'Reebok', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Reebok_2019_logo.svg/2560px-Reebok_2019_logo.svg.png', url: 'https://www.reebok.com/' },
           { name: 'Vans', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Vans-logo.svg/2560px-Vans-logo.svg.png', url: 'https://www.vans.com/' },
+          { name: 'Wildcraft', logo: '', url: 'https://track.vcommission.com/click?campaign_id=11277&pub_id=117026' },
+          { name: 'Neemans', logo: '', url: 'https://track.vcommission.com/click?campaign_id=11043&pub_id=117026' },
+          { name: 'Converse', logo: '', url: 'https://track.vcommission.com/click?campaign_id=10326&pub_id=117026' },
         ]
       },
-      {
-        name: 'Makeup',
+       {
+        name: 'Watches',
         image: '',
         brands: [
-          { name: 'MAC', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/MAC_Cosmetics_logo.svg/2560px-MAC_Cosmetics_logo.svg.png', url: 'https://www.maccosmetics.com/' },
-          { name: 'Maybelline', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Maybelline_Logo.svg/2560px-Maybelline_Logo.svg.png', url: 'https://www.maybelline.com/' },
-          { name: 'L\'Oréal', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/L%27Or%C3%A9al_logo.svg/2560px-L%27Or%C3%A9al_logo.svg.png', url: 'https://www.loreal-paris.co.uk/' },
-          { name: 'Sephora', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Sephora_logo.svg/2560px-Sephora_logo.svg.png', url: 'https://www.sephora.com/' },
-          { name: 'Fenty Beauty', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Fenty_Beauty_logo.svg/2560px-Fenty_Beauty_logo.svg.png', url: 'https://fentybeauty.com/' },
+          { name: 'Sonata', logo: '', url: 'https://track.vcommission.com/click?campaign_id=10743&pub_id=117026' },
+          { name: 'Fastrack', logo: '', url: 'https://track.vcommission.com/click?campaign_id=10742&pub_id=117026' },
+          { name: 'Titan', logo: '', url: 'https://track.vcommission.com/click?campaign_id=10741&pub_id=117026' },
         ]
-      }
+      },
     ]
   },
-
   { 
-    name: 'Gold Schemes', 
+    name: 'Jewellery', 
     image: 'https://images.unsplash.com/photo-1610375461246-83df859d849d?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80',
     brands: [
       { name: 'Joyalukkas', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Joyalukkas_Logo.svg/2560px-Joyalukkas_Logo.svg.png', url: '/category/gold-schemes/joyalukkas' },
@@ -120,6 +146,7 @@ export const categories = [
       { name: 'BlueStone', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/BlueStone_Logo.svg/2560px-BlueStone_Logo.svg.png', url: '/category/gold-schemes/bluestone' },
       { name: 'Tanishq', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Tanishq_Logo.svg/2560px-Tanishq_Logo.svg.png', url: '/category/gold-schemes/tanishq' },
       { name: 'Lalitha Jewellery', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Lalitha_Jewellery_Logo.svg/2560px-Lalitha_Jewellery_Logo.svg.png', url: '/category/gold-schemes/lalitha-jewellery' }
+      { name: 'GIVA', logo: '', url: 'https://track.vcommission.com/click?campaign_id=10097&pub_id=117026' },
     ]
   },
   { 
@@ -155,4 +182,20 @@ export const categories = [
       { name: 'Mahindra Finance', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Mahindra_and_Mahindra_Logo.svg/2560px-Mahindra_and_Mahindra_Logo.svg.png', url: '/category/finance-plans/mahindra-finance' }
     ]
   },
+  {
+    name: Insurance',
+    image : '',
+    brands:[
+      { name: 'Nivabupa', logo: '', url : 'https://track.vcommission.com/click?campaign_id=11195&pub_id=117026' }
+      
+    ]
+  }, 
+  {
+    name: 'Home Decor & Essentials',
+    image : '',
+    brands:[
+      { name: 'Ugaoo', logo: '', url : 'https://track.vcommission.com/click?campaign_id=11223&pub_id=117026' }
+      
+    ]
+  }, 
 ];

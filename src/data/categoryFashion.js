@@ -8,7 +8,6 @@ export const fashionSubcategories = [
       { name: 'Uniqlo', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/UNIQLO_logo.svg/2560px-UNIQLO_logo.svg.png', url: 'https://www.uniqlo.com/' },
       { name: 'Nike', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Logo_NIKE.svg/2560px-Logo_NIKE.svg.png', url: 'https://www.nike.com/' },
       { name: 'Adidas', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Adidas_Logo.svg/2560px-Adidas_Logo.svg.png', url: 'https://www.adidas.com/' },
-      { name: 'Pantaloons', logo: '', url: 'https://track.vcommission.com/click?campaign_id=11287&pub_id=117026' },
       { name: 'Wildcraft', logo: '', url: 'https://track.vcommission.com/click?campaign_id=11277&pub_id=117026' },
       { name: 'Snitch', logo: '', url: 'https://track.vcommission.com/click?campaign_id=10803&pub_id=117026' },
       { name: 'Mufti', logo: '', url: 'https://track.vcommission.com/click?campaign_id=10712&pub_id=117026' },

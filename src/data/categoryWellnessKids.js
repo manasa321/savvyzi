@@ -1,7 +1,7 @@
 export const wellnessKidsBrands = [
   { name: 'Nutrabay', logo: 'https://cdn-magazine.nutrabay.com/wp-content/uploads/2023/12/Nutrabay-top-logo-blue.png', url : 'https://track.vcommission.com/click?campaign_id=11392&pub_id=117026' },
   { name: 'Super Bottoms', logo: 'https://superbottoms.com/cdn/shop/files/Main-logo-dec_fe2c3657-79ca-4a37-9faf-aeb6c7732808.png?v=1702290796&width=240', url: 'https://track.vcommission.com/click?campaign_id=10930&pub_id=117026' },
-  { name: 'MyMuse', logo: 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.amazon.in%2Fstores%2FMyMuse%2FMassagers%2Fpage%2F311F1F5A-2A32-4DA5-A509-8514659427F0&psig=AOvVaw0go_MH47FaFGBb5OgNGM1E&ust=1728284906471000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCPjW6qSZ-YgDFQAAAAAdAAAAABAI', url: 'https://track.vcommission.com/click?campaign_id=10666&pub_id=117026' },
+  { name: 'MyMuse', logo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLSmcpOKBSBLB-3AmKyydkh-O3yLQQ8UKLEATQy6Z2gtn7-XvPogQeUPyJ5MHPjqjGpdg&usqp=CAU', url: 'https://track.vcommission.com/click?campaign_id=10666&pub_id=117026' },
   { name: 'Healthmug', logo: 'https://images.crunchbase.com/image/upload/c_pad,f_auto,q_auto:eco,dpr_1/rezxwkqz8p1p6tefaylm', url: 'https://track.vcommission.com/click?campaign_id=10645&pub_id=117026' },
   { name: 'Setu', logo: 'https://setu.in/cdn/shop/t/195/assets/setu-logo-black.svg?v=154313092900134682901706160953', url: 'https://track.vcommission.com/click?campaign_id=10617&pub_id=117026' },
   { name: 'Krishna Ayurved', logo: 'https://krishnaayurved.com/cdn/shop/files/krishna-ayurved-logo-600_1bf8ccb3-7b82-4ba4-9c27-db11b390df23_170x@2x.png?v=1649532988', url: 'https://track.vcommission.com/click?campaign_id=10600&pub_id=117026' },

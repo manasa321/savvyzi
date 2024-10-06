@@ -1,5 +1,7 @@
 import React from 'react';
 import { Facebook, Twitter, Instagram, Linkedin } from 'lucide-react';
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
 
 const Footer = () => {
   return (
@@ -31,10 +33,12 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-semibold mb-4">Newsletter</h3>
             <p className="text-gray-400 mb-4">Subscribe to our newsletter for the latest deals and price comparisons.</p>
-            <div className="flex">
-              <input type="email" placeholder="Your email" className="flex-grow px-4 py-2 rounded-l-md focus:outline-none text-gray-800" />
-              <button className="bg-primary text-white px-4 py-2 rounded-r-md hover:bg-primary/90 transition-colors">Subscribe</button>
-            </div>
+            <form className="flex flex-col sm:flex-row gap-2">
+              <Input type="email" placeholder="Your email" className="flex-grow px-4 py-2 rounded-md focus:outline-none text-gray-800" />
+              <Button type="submit" className="bg-primary text-white px-4 py-2 rounded-md hover:bg-primary/90 transition-colors">
+                Subscribe
+              </Button>
+            </form>
           </div>
         </div>
         <div className="mt-8 pt-8 border-t border-gray-700 flex flex-col sm:flex-row justify-between items-center">

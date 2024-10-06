@@ -1,6 +1,5 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React from 'react';
 import { Card, CardContent } from "@/components/ui/card";
-import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 const deals = [
   {
@@ -39,91 +38,41 @@ const deals = [
 ];
 
 const DealOfTheDay = () => {
-  const [currentDeal, setCurrentDeal] = useState(0);
-  const scrollRef = useRef(null);
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentDeal((prevDeal) => (prevDeal + 1) % deals.length);
-      scrollToDeal((currentDeal + 1) % deals.length);
-    }, 10000); // 10 seconds interval
-
-    return () => clearInterval(timer); // Clean up interval on unmount
-  }, [currentDeal]);
-
-  const scrollToDeal = (index) => {
-    const dealWidth = scrollRef.current.scrollWidth / deals.length;
-    scrollRef.current.scrollTo({
-      left: dealWidth * index,
-      behavior: 'smooth',
-    });
-  };
-
-  const handlePrevDeal = () => {
-    const prevDeal = (currentDeal - 1 + deals.length) % deals.length;
-    setCurrentDeal(prevDeal);
-    scrollToDeal(prevDeal);
-  };
-
-  const handleNextDeal = () => {
-    const nextDeal = (currentDeal + 1) % deals.length;
-    setCurrentDeal(nextDeal);
-    scrollToDeal(nextDeal);
-  };
-
   const handleDealClick = (url) => {
     window.open(url, '_blank');
   };
 
   return (
-    <Card className="overflow-hidden relative">
-      <CardContent className="p-0">
-        <div ref={scrollRef} className="flex overflow-x-auto snap-x snap-mandatory scrollbar-hide">
-          {deals.map((deal, index) => (
-            <div
-              key={deal.id}
-              className={`w-full flex-shrink-0 snap-center cursor-pointer transition-opacity duration-500 ${index === currentDeal ? 'opacity-100' : 'opacity-50'}`}
-              onClick={() => handleDealClick(deal.url)}
-            >
-              <div className={`relative w-full h-64 ${deal.bgColor}`}>
-                <img
-                  src={deal.image}
-                  alt={deal.title}
-                  className="w-full h-full object-cover mix-blend-overlay"
-                />
-                <div className="absolute inset-0 flex flex-col justify-between p-6">
-                  <div className="flex justify-between items-start">
-                    <img src={deal.logo} alt={`${deal.title} logo`} className="h-8 object-contain" />
-                    <span className="bg-red-600 text-white px-2 py-1 text-xs font-bold rounded">
-                      {deal.saleStatus}
-                    </span>
-                  </div>
-                  <div className="text-white">
-                    <h3 className="text-4xl font-bold mb-2">{deal.title}</h3>
-                    <p className="text-xl mb-2">{deal.subtitle}</p>
-                    <span className="bg-blue-600 text-white px-2 py-1 text-sm font-semibold rounded">
-                      {deal.reward}
-                    </span>
-                  </div>
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+      {deals.map((deal) => (
+        <Card key={deal.id} className="overflow-hidden cursor-pointer" onClick={() => handleDealClick(deal.url)}>
+          <CardContent className="p-0">
+            <div className={`relative w-full h-48 ${deal.bgColor}`}>
+              <img
+                src={deal.image}
+                alt={deal.title}
+                className="w-full h-full object-cover mix-blend-overlay"
+              />
+              <div className="absolute inset-0 flex flex-col justify-between p-4">
+                <div className="flex justify-between items-start">
+                  <img src={deal.logo} alt={`${deal.title} logo`} className="h-6 object-contain" />
+                  <span className="bg-red-600 text-white px-2 py-1 text-xs font-bold rounded">
+                    {deal.saleStatus}
+                  </span>
+                </div>
+                <div className="text-white">
+                  <h3 className="text-2xl font-bold mb-1">{deal.title}</h3>
+                  <p className="text-sm mb-1">{deal.subtitle}</p>
+                  <span className="bg-blue-600 text-white px-2 py-1 text-xs font-semibold rounded">
+                    {deal.reward}
+                  </span>
                 </div>
               </div>
             </div>
-          ))}
-        </div>
-        <button
-          onClick={handlePrevDeal}
-          className="absolute top-1/2 left-2 md:left-4 transform -translate-y-1/2 bg-black bg-opacity-50 text-white rounded-full p-1 md:p-2 hover:bg-opacity-75 transition-colors"
-        >
-          <ChevronLeft className="w-4 h-4 md:w-6 md:h-6" />
-        </button>
-        <button
-          onClick={handleNextDeal}
-          className="absolute top-1/2 right-2 md:right-4 transform -translate-y-1/2 bg-black bg-opacity-50 text-white rounded-full p-1 md:p-2 hover:bg-opacity-75 transition-colors"
-        >
-          <ChevronRight className="w-4 h-4 md:w-6 md:h-6" />
-        </button>
-      </CardContent>
-    </Card>
+          </CardContent>
+        </Card>
+      ))}
+    </div>
   );
 };
 

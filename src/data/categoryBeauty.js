@@ -2,7 +2,7 @@ export const beautyBrands = [
   { name: 'Smytten', logo: 'https://smytten.com/images/smyttenlogo.svg', url:'https://track.vcommission.com/click?campaign_id=11421&pub_id=117026' },
   { name: 'ClickOnCare', logo: 'https://www.clickoncare.com/cdn/shop/files/coc_512.png?v=1683519914&width=480', url:'https://track.vcommission.com/click?campaign_id=11417&pub_id=117026' },
   { name: 'MAC', logo: 'https://i.pinimg.com/736x/20/c7/ca/20c7ca578ceb91b448c76e845e252a57.jpg', url: 'https://www.maccosmetics.com/' },
-  { name: 'Maybelline', logo: 'https://www.maybelline.com/-/media/project/loreal/brand-sites/mny/master/demo/logos-logo-small.svg?rev=-1', url: 'https://www.maybelline.com/' },
+  { name: 'Maybelline', logo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKpbDuD0udNzWWJ8EwqXaAzPmvnxTskWv1xQ&s', url: 'https://www.maybelline.com/' },
   { name: 'L\'Oréal', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/L%27Or%C3%A9al_logo.svg/2560px-L%27Or%C3%A9al_logo.svg.png', url: 'https://www.loreal-paris.co.uk/' },
   { name: 'Sephora', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Sephora_logo.svg/2560px-Sephora_logo.svg.png', url: 'https://www.sephora.com/' },
   { name: 'Fenty Beauty', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Fenty_Beauty_logo.svg/2560px-Fenty_Beauty_logo.svg.png', url: 'https://fentybeauty.com/' },

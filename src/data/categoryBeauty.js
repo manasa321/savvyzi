@@ -7,7 +7,7 @@ export const beautyBrands = [
   { name: 'Sephora', logo: 'https://m.economictimes.com/thumb/msid-62384305,width-1200,height-900,resizemode-4,imgsize-13996/sephora.jpg', url: 'https://www.sephora.com/' },
   { name: 'Fenty Beauty', logo: 'https://w7.pngwing.com/pngs/48/979/png-transparent-fenty-beauty-fb-logo-shop-logos-thumbnail.png', url: 'https://fentybeauty.com/' },
   { name: 'Salty', logo: 'https://media.licdn.com/dms/image/v2/D560BAQEpkwYxhsNI-A/company-logo_200_200/company-logo_200_200/0/1720074027162/saltystore_logo?e=2147483647&v=beta&t=pVUTDqwc6oU0Zy29mKiWijQqrVewPNHDAfStSzPv2Sk', url: 'https://track.vcommission.com/click?campaign_id=11241&pub_id=117026' },
-  { name: 'Swiss Beauty', logo: '', url: 'https://swissbeauty.in/cdn/shop/files/Asset_1500.074_150x44_8135c643-c678-4656-be55-84f7a44a38b1_280x@2x.jpg?v=1701432150' },
+  { name: 'Swiss Beauty', logo: 'https://swissbeauty.in/cdn/shop/files/Asset_1500.074_150x44_8135c643-c678-4656-be55-84f7a44a38b1_280x@2x.jpg?v=1701432150', url: 'https://track.vcommission.com/click?campaign_id=11097&pub_id=117026' },
   { name: 'foxtale', logo: '', url: 'https://track.vcommission.com/click?campaign_id=10994&pub_id=117026' },
   { name: 'BeMinimalist', logo: '', url: 'https://track.vcommission.com/click?campaign_id=10971&pub_id=117026' },
   { name: 'Beardo', logo: '', url: 'https://track.vcommission.com/click?campaign_id=10691&pub_id=117026' },

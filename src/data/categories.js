@@ -19,12 +19,12 @@ export const categories = [
   },
   {
     name: 'Beauty',
-    image: '',
+    image: 'https://images.unsplash.com/photo-1596462502278-27bfdc403348?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80',
     brands: beautyBrands
   },
   {
     name: 'Wellness & Kids',
-    image: '',
+    image: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80',
     brands: wellnessKidsBrands
   },
   { 
@@ -70,14 +70,14 @@ export const categories = [
   },
   {
     name: 'Insurance',
-    image: '',
+    image: 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80',
     brands: [
       { name: 'Nivabupa', logo: '', url: 'https://track.vcommission.com/click?campaign_id=11195&pub_id=117026' }
     ]
   },
   {
     name: 'Home Decor & Essentials',
-    image: '',
+    image: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80',
     brands: [
       { name: 'Ugaoo', logo: '', url: 'https://track.vcommission.com/click?campaign_id=11223&pub_id=117026' }
     ]

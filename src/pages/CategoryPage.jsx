@@ -24,6 +24,9 @@ const CategoryPage = () => {
                   <img src={brand.logo} alt={brand.name} className="max-w-full max-h-full object-contain" />
                 </div>
                 <h2 className="text-sm font-semibold text-center">{brand.name}</h2>
+                {brand.cashback && (
+                  <p className="text-xs text-green-600 mt-1">Up to {brand.cashback}% Cashback</p>
+                )}
               </div>
             </CardContent>
           </Card>
@@ -49,9 +52,11 @@ const CategoryPage = () => {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <Navbar />
-      <BackButton />
-      <main className="container mx-auto py-8 px-4">
-        <h1 className="text-3xl font-bold mb-6 text-secondary-foreground capitalize">{selectedCategory.name}</h1>
+      <div className="container mx-auto py-8 px-4">
+        <div className="flex items-center mb-6">
+          <BackButton />
+          <h1 className="text-3xl font-bold text-secondary-foreground capitalize ml-4">{selectedCategory.name}</h1>
+        </div>
         {selectedCategory.subcategories ? (
           subcategory ? (
             <>
@@ -64,7 +69,7 @@ const CategoryPage = () => {
         ) : (
           renderBrands(selectedCategory.brands)
         )}
-      </main>
+      </div>
     </div>
   );
 };

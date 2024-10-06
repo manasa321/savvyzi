@@ -10,7 +10,7 @@ const BackButton = () => {
     <Button
       variant="ghost"
       onClick={() => navigate(-1)}
-      className="absolute top-4 left-4 p-2"
+      className="p-2"
     >
       <ChevronLeft className="h-6 w-6" />
     </Button>

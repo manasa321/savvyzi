@@ -2,13 +2,13 @@ import React from 'react';
 import { Card, CardContent } from "@/components/ui/card";
 
 const giftCards = [
-  { id: 1, name: "Swiggy", logo: "https://via.placeholder.com/100?text=Swiggy", category: "Food & Drinks", discount: "4% Off" },
-  { id: 2, name: "Ajio", logo: "https://via.placeholder.com/100?text=Ajio", category: "Shopping", discount: "7% Off" },
-  { id: 3, name: "Nykaa", logo: "https://via.placeholder.com/100?text=Nykaa", category: "Shopping", discount: "8% Off" },
-  { id: 4, name: "Myntra", logo: "https://via.placeholder.com/100?text=Myntra", category: "Shopping", discount: "7% Off" },
-  { id: 5, name: "Cult.fit", logo: "https://via.placeholder.com/100?text=Cult.fit", category: "Lifestyle", discount: "9% Off" },
-  { id: 6, name: "Tata CliQ", logo: "https://via.placeholder.com/100?text=Tata+CliQ", category: "Shopping", discount: "7% Off" },
-  { id: 7, name: "Healthkart", logo: "https://via.placeholder.com/100?text=Healthkart", category: "Shopping", discount: "13% Off" },
+  { id: 1, name: "Swiggy", logo: "https://via.placeholder.com/100?text=Swiggy", category: "Food & Drinks", discount: "Up to 4% Cashback" },
+  { id: 2, name: "Ajio", logo: "https://via.placeholder.com/100?text=Ajio", category: "Shopping", discount: "Up to 7% Cashback" },
+  { id: 3, name: "Nykaa", logo: "https://via.placeholder.com/100?text=Nykaa", category: "Shopping", discount: "Up to 8% Cashback" },
+  { id: 4, name: "Myntra", logo: "https://via.placeholder.com/100?text=Myntra", category: "Shopping", discount: "Up to 7% Cashback" },
+  { id: 5, name: "Cult.fit", logo: "https://via.placeholder.com/100?text=Cult.fit", category: "Lifestyle", discount: "Up to 9% Cashback" },
+  { id: 6, name: "Tata CliQ", logo: "https://via.placeholder.com/100?text=Tata+CliQ", category: "Shopping", discount: "Up to 7% Cashback" },
+  { id: 7, name: "Healthkart", logo: "https://via.placeholder.com/100?text=Healthkart", category: "Shopping", discount: "Up to 13% Cashback" },
 ];
 
 const GiftCards = () => {

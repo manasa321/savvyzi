@@ -8,5 +8,5 @@ export const wellnessKidsBrands = [
   { name: 'MuscleBlaze', logo: '', url: 'https://track.vcommission.com/click?campaign_id=10169&pub_id=117026' },
   { name: 'Kapiva', logo: '', url: 'https://track.vcommission.com/click?campaign_id=10126&pub_id=117026' },
   { name: 'Kama Ayurveda', logo: '', url: 'https://track.vcommission.com/click?campaign_id=10125&pub_id=117026' },
-  { name: 'HealthKart', logo: 'https://www.healthkart.com/', url: 'https://track.vcommission.com/click?campaign_id=10109&pub_id=117026' },
+  { name: 'HealthKart', logo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQSIAcekgFLorPlIijE7KQQKVPMJshzazy7D3TDIhy52-1FiLvxtIoTT17scfFAzja3A&usqp=CAU', url: 'https://track.vcommission.com/click?campaign_id=10109&pub_id=117026' },
 ];

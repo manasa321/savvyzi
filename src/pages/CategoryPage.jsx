@@ -1,5 +1,5 @@
 import React from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useNavigate } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import BackButton from '../components/BackButton';
 import { Card, CardContent } from "@/components/ui/card";
@@ -7,6 +7,7 @@ import { categories } from '../data/categories';
 
 const CategoryPage = () => {
   const { category, subcategory } = useParams();
+  const navigate = useNavigate();
   const selectedCategory = categories.find(c => c.name.toLowerCase() === category.toLowerCase());
 
   if (!selectedCategory) {
@@ -54,7 +55,7 @@ const CategoryPage = () => {
       <Navbar />
       <div className="container mx-auto py-8 px-4">
         <div className="flex items-center mb-8">
-          <BackButton />
+          <BackButton onClick={() => navigate('/')} />
           <h1 className="text-3xl font-bold text-secondary-foreground capitalize ml-4">{selectedCategory.name}</h1>
         </div>
         {selectedCategory.subcategories ? (

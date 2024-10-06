@@ -1,7 +1,6 @@
 export const beautyBrands = [
   { name: 'Smytten', logo: 'https://smytten.com/images/smyttenlogo.svg', url:'https://track.vcommission.com/click?campaign_id=11421&pub_id=117026' },
   { name: 'ClickOnCare', logo: 'https://www.clickoncare.com/cdn/shop/files/coc_512.png?v=1683519914&width=480', url:'https://track.vcommission.com/click?campaign_id=11417&pub_id=117026' },
-  { name: 'Pantaloons', logo: '', url: 'https://track.vcommission.com/click?campaign_id=11287&pub_id=117026' },
   { name: 'MAC', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/MAC_Cosmetics_logo.svg/2560px-MAC_Cosmetics_logo.svg.png', url: 'https://www.maccosmetics.com/' },
   { name: 'Maybelline', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Maybelline_Logo.svg/2560px-Maybelline_Logo.svg.png', url: 'https://www.maybelline.com/' },
   { name: 'L\'Oréal', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/L%27Or%C3%A9al_logo.svg/2560px-L%27Or%C3%A9al_logo.svg.png', url: 'https://www.loreal-paris.co.uk/' },

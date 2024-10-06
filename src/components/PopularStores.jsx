@@ -6,9 +6,12 @@ const popularStores = [
   { id: 2, name: "Flipkart", logo: "https://static-assets-web.flixcart.com/fk-p-linchpin-web/fk-cp-zion/img/flipkart-plus_8d85f4.png", url: "https://www.flipkart.com/" },
   { id: 3, name: "Myntra", logo: "https://upload.wikimedia.org/wikipedia/commons/d/d5/Myntra_logo.png", url: "https://www.myntra.com/" },
   { id: 4, name: "Nykaa", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Nykaa_Logo.png/800px-Nykaa_Logo.png", url: "https://www.nykaa.com/" },
-  { id: 5, name: "Ajio", logo: "https://assets.ajio.com/static/img/Ajio-Logo.svg", url: "https://www.ajio.com/" },
-  { id: 6, name: "Tata CLiQ", logo: "https://d2xamzlzrdbdbn.cloudfront.net/brands/tata_cliq_120x120.jpg", url: "https://www.tatacliq.com/" },
+  { id: 5, name: "Ajio", logo: "https://assets.ajio.com/static/img/Ajio-Logo.svg", url: "https://track.vcommission.com/click?campaign_id=10364&pub_id=117026" },
+  { id: 6, name: "Tata CLiQ", logo: "https://d2xamzlzrdbdbn.cloudfront.net/brands/tata_cliq_120x120.jpg", url: "https://track.vcommission.com/click?campaign_id=10240&pub_id=117026" },
   { id: 7, name: "Reliance Digital", logo: "https://www.reliancedigital.in/build/client/images/loaders/rd_logo.svg", url: "https://www.reliancedigital.in/" },
+  { id: 8, name: "FirstCry", logo: "https://cdn.fcglcdn.com/brainbees/images/n/fc_logo.png", url: "https://track.vcommission.com/click?campaign_id=10081&pub_id=117026" },
+  { id: 9, name: "Pantaloons", logo: "https://cdn-clabkjb.nitrocdn.com/plOmBgbYRKFaljxjoMMvTFNKXzWnOrzB/assets/images/optimized/rev-fa911e3/www.infinitimall.com/wp-content/uploads/2022/03/Pantaloons-Logo-Infiniti-Mall-.jpg", url: "https://track.vcommission.com/click?campaign_id=11287&pub_id=117026" },
+  { id: 10, name: "Daily Objects", logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR22LONdDw5JeFHwMugbfhZbtMzEd35OmvA7Q&s", url: "https://track.vcommission.com/click?campaign_id=11432&pub_id=117026" },
 ];
 
 const PopularStores = () => {

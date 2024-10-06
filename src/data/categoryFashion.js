@@ -13,7 +13,6 @@ export const fashionSubcategories = [
       { name: 'Mufti', logo: '', url: 'https://track.vcommission.com/click?campaign_id=10712&pub_id=117026' },
       { name: 'Blackberrys', logo: '', url: 'https://track.vcommission.com/click?campaign_id=10604&pub_id=117026' },
       { name: 'UNIQLO', logo: '', url: 'https://track.vcommission.com/click?campaign_id=10258&pub_id=117026' },
-      { name: 'Pantaloons', logo: '', url: 'https://track.vcommission.com/click?campaign_id=10257&pub_id=117026' },
     ]
   },
   {

@@ -25,7 +25,7 @@ const creditCards = [
       "Movie ticket discounts and buy-one-get-one offers"
     ]
   },
-  // ... Add other credit card details here
+  // Add other credit card details here
 ];
 
 const CreditCardDetail = () => {
@@ -40,15 +40,15 @@ const CreditCardDetail = () => {
       <Button onClick={() => navigate(-1)} className="mb-4">Go Back</Button>
       <Card className="w-full mb-6">
         <CardContent className="p-0 relative">
-          <img src={card.image} alt={card.name} className="w-full h-64 object-cover" />
+          <img src={card.image} alt={card.name} className="w-full h-64 object-cover rounded-t-lg" />
           <div className="absolute top-4 left-4 bg-white rounded-full p-2">
             <img src={`https://example.com/${card.name.split(' ')[0].toLowerCase()}-logo.png`} alt={`${card.name.split(' ')[0]} logo`} className="w-12 h-12" />
           </div>
-          <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-70 text-white p-6">
-            <h3 className="text-2xl font-semibold mb-2">{card.name}</h3>
-            <p className="text-3xl font-bold">{card.benefits}</p>
-            <p className="text-xl">{card.subBenefits}</p>
-            <p className="text-lg font-medium text-blue-400 mt-2">{card.rewards}</p>
+          <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-70 text-white p-4 rounded-b-lg">
+            <h3 className="text-2xl font-semibold mb-1">{card.name}</h3>
+            <p className="text-xl font-bold truncate">{card.benefits}</p>
+            <p className="text-md font-light truncate">{card.subBenefits}</p>
+            <p className="text-lg font-medium text-yellow-400 mt-2 truncate">{card.rewards}</p>
           </div>
         </CardContent>
       </Card>

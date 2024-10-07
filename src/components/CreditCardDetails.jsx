@@ -1,10 +1,8 @@
 import React from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
-import { Button } from "@/components/ui/button";
+import { useRouter } from 'next/router';
 import { Card, CardContent } from "@/components/ui/card";
-import BackButton from './BackButton';
+import { Button } from "@/components/ui/button";
 
-// Example credit card data
 const creditCards = [
   {
     id: 1,
@@ -15,37 +13,46 @@ const creditCards = [
     rewards: "+ Flat ₹500 Rewards",
     applyLink: "https://example.com/apply-indusind-tiger-card"
   },
-  // Add other credit cards here
+  {
+    id: 2,
+    name: "HSBC Platinum Card",
+    image: "https://example.com/hsbc-platinum-card.jpg",
+    benefits: "Upto 5X Rewards",
+    subBenefits: "& Exclusive Privileges",
+    rewards: "+ Flat ₹2200 Rewards",
+    applyLink: "https://example.com/apply-hsbc-platinum-card",
+    tag: "JUST ARRIVED"
+  },
+  // Add other credit card details
 ];
 
-const CreditCardDetails = () => {
-  const { id } = useParams();  // Get the card id from the URL
-  const navigate = useNavigate(); // Navigate back to the homepage
-  const card = creditCards.find((card) => card.id === parseInt(id)); // Find the selected card by id
+const CreditCardDetail = () => {
+  const router = useRouter();
+  const { id } = router.query;
+  const card = creditCards.find((card) => card.id === parseInt(id));
 
-  if (!card) {
-    return <div>Card not found</div>;
-  }
-
-  const handleApplyNow = () => {
-    window.open(card.applyLink, '_blank'); // Open the apply link in a new tab
-  };
+  if (!card) return <p>Card not found</p>;
 
   return (
-    <div className="p-4">
-      <BackButton onClick={() => navigate('/')} /> {/* Back button to return */}
-      <Card className="mt-4">
+    <div className="container mx-auto py-6">
+      <Button onClick={() => router.back()} className="mb-4">Go Back</Button>
+      <Card className="w-full">
         <CardContent className="p-4">
-          <img src={card.image} alt={card.name} className="w-full h-96 object-cover mb-4" />
-          <h2 className="text-3xl font-bold mb-2">{card.name}</h2>
-          <p className="text-lg mb-2">{card.benefits}</p>
-          <p className="text-md mb-2">{card.subBenefits}</p>
-          <p className="text-md mb-4">{card.rewards}</p>
-          <Button className="w-full" onClick={handleApplyNow}>Apply Now</Button>
+          <img src={card.image} alt={card.name} className="w-full h-48 object-cover mb-4" />
+          <h3 className="text-xl font-bold">{card.name}</h3>
+          <p className="text-lg">{card.benefits}</p>
+          <p className="text-sm text-gray-600">{card.subBenefits}</p>
+          <p className="text-sm font-medium text-blue-600">{card.rewards}</p>
+          <Button 
+            className="mt-4 w-full" 
+            onClick={() => window.open(card.applyLink, '_blank')}
+          >
+            APPLY NOW
+          </Button>
         </CardContent>
       </Card>
     </div>
   );
 };
 
-export default CreditCardDetails;
+export default CreditCardDetail;

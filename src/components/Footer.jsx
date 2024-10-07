@@ -10,7 +10,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>
             <h3 className="text-lg font-semibold mb-4">About Us</h3>
-            <p className="text-gray-400">Price Pioneer is your go-to platform for comparing prices and finding the best deals across multiple e-commerce platforms.</p>
+            <p className="text-gray-400">SavvyZi is your go-to platform for finding the best deals across multiple e-commerce platforms and receive cashbacks.</p>
           </div>
           <div>
             <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
@@ -42,7 +42,7 @@ const Footer = () => {
           </div>
         </div>
         <div className="mt-8 pt-8 border-t border-gray-700 flex flex-col sm:flex-row justify-between items-center">
-          <p className="text-gray-400">&copy; 2023 Price Pioneer. All rights reserved.</p>
+          <p className="text-gray-400">&copy; 2024 SavvyZi. All rights reserved.</p>
           <div className="flex space-x-4 mt-4 sm:mt-0">
             <a href="#" className="text-gray-400 hover:text-white"><Facebook size={20} /></a>
             <a href="#" className="text-gray-400 hover:text-white"><Twitter size={20} /></a>

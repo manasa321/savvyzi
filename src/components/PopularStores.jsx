@@ -7,7 +7,7 @@ const popularStores = [
   { id: 3, name: "Myntra", logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ72deXSuQEm4biPFKNe9_sGv1eBgujn2tmoA&s", url: "https://www.myntra.com/" },
   { id: 4, name: "Nykaa", logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdsRx67JH7YLuELiekQL1RMptStEUKqWAd5g&s", url: "https://www.nykaa.com/" },
   { id: 5, name: "Ajio", logo: "https://assets.ajio.com/static/img/Ajio-Logo.svg", url: "https://track.vcommission.com/click?campaign_id=10364&pub_id=117026" },
-  { id: 6, name: "Tata CLiQ", logo: "https://d2xamzlzrdbdbn.cloudfront.net/brands/tata_cliq_120x120.jpg", url: "https://track.vcommission.com/click?campaign_id=10240&pub_id=117026" },
+  { id: 6, name: "Tata CLiQ", logo: "https://cdn.gyftr.com/amex/images/brands/logos/13482_Logo-200.png", url: "https://track.vcommission.com/click?campaign_id=10240&pub_id=117026" },
   { id: 7, name: "Reliance Digital", logo: "https://www.reliancedigital.in/build/client/images/loaders/rd_logo.svg", url: "https://www.reliancedigital.in/" },
   { id: 8, name: "FirstCry", logo: "https://cdn.fcglcdn.com/brainbees/images/n/fc_logo.png", url: "https://track.vcommission.com/click?campaign_id=10081&pub_id=117026" },
   { id: 9, name: "Pantaloons", logo: "https://cdn-clabkjb.nitrocdn.com/plOmBgbYRKFaljxjoMMvTFNKXzWnOrzB/assets/images/optimized/rev-fa911e3/www.infinitimall.com/wp-content/uploads/2022/03/Pantaloons-Logo-Infiniti-Mall-.jpg", url: "https://track.vcommission.com/click?campaign_id=11287&pub_id=117026" },

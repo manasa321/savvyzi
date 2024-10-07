@@ -10,9 +10,11 @@ import CategoryPage from "./pages/CategoryPage";
 import SearchResults from "./pages/SearchResults";
 import ProductDetail from "./pages/ProductDetail";
 import ProductComparison from "./pages/ProductComparison";
-import CreditCardDetail from "./components/CreditCardDetail";
+import CreditCardSection from "./components/CreditCardSection"; // Import the Credit Card Section
+import CreditCardDetail from "./components/CreditCardDetail"; // Import the Credit Card Detail component
 import Footer from "./components/Footer";
 
+// Create QueryClient for react-query
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -32,7 +34,10 @@ const App = () => (
                     <Route path="/search" element={<SearchResults />} />
                     <Route path="/product/:productId" element={<ProductDetail />} />
                     <Route path="/compare/:productId" element={<ProductComparison />} />
-                    <Route path="/credit-card/:id" element={<CreditCardDetail />} />
+                    
+                    {/* Credit card related routes */}
+                    <Route path="/credit-cards" element={<CreditCardSection />} /> {/* Route for the Credit Card section */}
+                    <Route path="/credit-card/:id" element={<CreditCardDetail />} /> {/* Route for individual credit card details */}
                   </Routes>
                 </div>
                 <Footer />

@@ -10,6 +10,7 @@ import CategoryPage from "./pages/CategoryPage";
 import SearchResults from "./pages/SearchResults";
 import ProductDetail from "./pages/ProductDetail";
 import ProductComparison from "./pages/ProductComparison";
+import CreditCardDetail from "./components/CreditCardDetail";
 import Footer from "./components/Footer";
 
 const queryClient = new QueryClient();
@@ -31,6 +32,7 @@ const App = () => (
                     <Route path="/search" element={<SearchResults />} />
                     <Route path="/product/:productId" element={<ProductDetail />} />
                     <Route path="/compare/:productId" element={<ProductComparison />} />
+                    <Route path="/credit-card/:id" element={<CreditCardDetail />} />
                   </Routes>
                 </div>
                 <Footer />

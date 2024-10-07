@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { Card, CardContent } from "@/components/ui/card";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
+import useEmblaCarousel from 'embla-carousel-react';
 
 const deals = [
   {
@@ -39,17 +40,17 @@ const deals = [
 ];
 
 const DealOfTheDay = () => {
-  const carouselRef = useRef(null);
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      if (carouselRef.current) {
-        carouselRef.current.scrollNext();
-      }
-    }, 5000);
+    if (emblaApi) {
+      const interval = setInterval(() => {
+        emblaApi.scrollNext();
+      }, 5000);
 
-    return () => clearInterval(interval);
-  }, []);
+      return () => clearInterval(interval);
+    }
+  }, [emblaApi]);
 
   const handleDealClick = (url) => {
     window.open(url, '_blank');
@@ -58,42 +59,44 @@ const DealOfTheDay = () => {
   return (
     <div className="mb-8">
       <h2 className="text-2xl font-semibold mb-4">Deals</h2>
-      <Carousel ref={carouselRef} className="w-full">
-        <CarouselContent>
-          {deals.map((deal) => (
-            <CarouselItem key={deal.id} className="md:basis-1/2 lg:basis-1/3">
-              <Card className="overflow-hidden cursor-pointer" onClick={() => handleDealClick(deal.url)}>
-                <CardContent className="p-0">
-                  <div className={`relative w-full h-48 ${deal.bgColor}`}>
-                    <img
-                      src={deal.image}
-                      alt={deal.title}
-                      className="w-full h-full object-cover mix-blend-overlay"
-                    />
-                    <div className="absolute inset-0 flex flex-col justify-between p-4">
-                      <div className="flex justify-between items-start">
-                        <img src={deal.logo} alt={`${deal.title} logo`} className="h-6 object-contain" />
-                        <span className="bg-red-600 text-white px-2 py-1 text-xs font-bold rounded">
-                          {deal.saleStatus}
-                        </span>
-                      </div>
-                      <div className="text-white">
-                        <h3 className="text-2xl font-bold mb-1">{deal.title}</h3>
-                        <p className="text-sm mb-1">{deal.subtitle}</p>
-                        <span className="bg-blue-600 text-white px-2 py-1 text-xs font-semibold rounded">
-                          {deal.reward}
-                        </span>
+      <div className="relative">
+        <Carousel ref={emblaRef}>
+          <CarouselContent>
+            {deals.map((deal) => (
+              <CarouselItem key={deal.id} className="md:basis-1/2 lg:basis-1/3">
+                <Card className="overflow-hidden cursor-pointer" onClick={() => handleDealClick(deal.url)}>
+                  <CardContent className="p-0">
+                    <div className={`relative w-full h-48 ${deal.bgColor}`}>
+                      <img
+                        src={deal.image}
+                        alt={deal.title}
+                        className="w-full h-full object-cover mix-blend-overlay"
+                      />
+                      <div className="absolute inset-0 flex flex-col justify-between p-4">
+                        <div className="flex justify-between items-start">
+                          <img src={deal.logo} alt={`${deal.title} logo`} className="h-6 object-contain" />
+                          <span className="bg-red-600 text-white px-2 py-1 text-xs font-bold rounded">
+                            {deal.saleStatus}
+                          </span>
+                        </div>
+                        <div className="text-white">
+                          <h3 className="text-2xl font-bold mb-1">{deal.title}</h3>
+                          <p className="text-sm mb-1">{deal.subtitle}</p>
+                          <span className="bg-blue-600 text-white px-2 py-1 text-xs font-semibold rounded">
+                            {deal.reward}
+                          </span>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </CardContent>
-              </Card>
-            </CarouselItem>
-          ))}
-        </CarouselContent>
-        <CarouselPrevious />
-        <CarouselNext />
-      </Carousel>
+                  </CardContent>
+                </Card>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+        </Carousel>
+        <CarouselPrevious className="absolute left-0 top-1/2 -translate-y-1/2" />
+        <CarouselNext className="absolute right-0 top-1/2 -translate-y-1/2" />
+      </div>
     </div>
   );
 };

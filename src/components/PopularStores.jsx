@@ -5,7 +5,7 @@ const popularStores = [
   { id: 1, name: "Amazon", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/2560px-Amazon_logo.svg.png", url: "https://www.amazon.in/" },
   { id: 2, name: "Flipkart", logo: "https://cdn.iconscout.com/icon/free/png-256/free-flipkart-226594.png?f=webp", url: "https://www.flipkart.com/" },
   { id: 3, name: "Myntra", logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ72deXSuQEm4biPFKNe9_sGv1eBgujn2tmoA&s", url: "https://www.myntra.com/" },
-  { id: 4, name: "Nykaa", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Nykaa_Logo.png/800px-Nykaa_Logo.png", url: "https://www.nykaa.com/" },
+  { id: 4, name: "Nykaa", logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdsRx67JH7YLuELiekQL1RMptStEUKqWAd5g&s", url: "https://www.nykaa.com/" },
   { id: 5, name: "Ajio", logo: "https://assets.ajio.com/static/img/Ajio-Logo.svg", url: "https://track.vcommission.com/click?campaign_id=10364&pub_id=117026" },
   { id: 6, name: "Tata CLiQ", logo: "https://d2xamzlzrdbdbn.cloudfront.net/brands/tata_cliq_120x120.jpg", url: "https://track.vcommission.com/click?campaign_id=10240&pub_id=117026" },
   { id: 7, name: "Reliance Digital", logo: "https://www.reliancedigital.in/build/client/images/loaders/rd_logo.svg", url: "https://www.reliancedigital.in/" },

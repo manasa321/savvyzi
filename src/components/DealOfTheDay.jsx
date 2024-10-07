@@ -11,7 +11,6 @@ const deals = [
     title: "Up to 80% Off",
     subtitle: "10% Instant Discount with SBI Card",
     saleStatus: "SALE LIVE NOW",
-    reward: "",
     bgColor: "bg-gradient-to-r from-pink-500 to-orange-500",
     url: "https://www.amazon.in/"
   },
@@ -22,7 +21,6 @@ const deals = [
     title: "50-90% Off",
     subtitle: "Across Categories",
     saleStatus: "SALE ENDS TONIGHT",
-    reward: "",
     bgColor: "bg-gradient-to-r from-purple-500 to-indigo-500",
     url: "https://www.flipkart.com/"
   },
@@ -33,10 +31,10 @@ const deals = [
     title: "50 - 90% Off",
     subtitle: "Across Categories",
     saleStatus: "1.5% EXTRA BONUS CASHBACK",
-    reward: "",
     bgColor: "bg-gradient-to-r from-red-500 to-yellow-500",
     url: "https://www.myntra.com/"
   },
+  // Add more sample deals here
 ];
 
 const DealOfTheDay = () => {
@@ -48,7 +46,7 @@ const DealOfTheDay = () => {
 
   useEffect(() => {
     if (emblaApi) {
-      const interval = setInterval(scrollNext, 5000);
+      const interval = setInterval(scrollNext, 3000); // Changed to 3 seconds
       return () => clearInterval(interval);
     }
   }, [emblaApi, scrollNext]);
@@ -63,7 +61,7 @@ const DealOfTheDay = () => {
       <Carousel ref={emblaRef} opts={{ loop: true }}>
         <CarouselContent>
           {deals.map((deal) => (
-            <CarouselItem key={deal.id} className="md:basis-1/2 lg:basis-1/3">
+            <CarouselItem key={deal.id} className="sm:basis-1/2 md:basis-1/3 lg:basis-1/4">
               <Card className="overflow-hidden cursor-pointer" onClick={() => handleDealClick(deal.url)}>
                 <CardContent className="p-0">
                   <div className={`relative w-full h-48 ${deal.bgColor}`}>
@@ -82,11 +80,6 @@ const DealOfTheDay = () => {
                       <div className="text-white">
                         <h3 className="text-2xl font-bold mb-1">{deal.title}</h3>
                         <p className="text-sm mb-1">{deal.subtitle}</p>
-                        {deal.reward && (
-                          <span className="bg-blue-600 text-white px-2 py-1 text-xs font-semibold rounded">
-                            {deal.reward}
-                          </span>
-                        )}
                       </div>
                     </div>
                   </div>

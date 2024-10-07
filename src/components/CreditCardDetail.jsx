@@ -44,11 +44,12 @@ const CreditCardDetail = () => {
           <div className="absolute top-4 left-4 bg-white rounded-full p-2">
             <img src={`https://example.com/${card.name.split(' ')[0].toLowerCase()}-logo.png`} alt={`${card.name.split(' ')[0]} logo`} className="w-12 h-12" />
           </div>
-          <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-70 text-white p-4 rounded-b-lg">
+          {/* Removed background, and updated text color */}
+          <div className="absolute bottom-0 left-0 right-0 text-white p-4">
             <h3 className="text-2xl font-semibold mb-1">{card.name}</h3>
-            <p className="text-xl font-bold truncate">{card.benefits}</p>
-            <p className="text-md font-light truncate">{card.subBenefits}</p>
-            <p className="text-lg font-medium text-yellow-400 mt-2 truncate">{card.rewards}</p>
+            <p className="text-xl font-bold text-red-600 truncate">{card.benefits}</p>
+            <p className="text-md font-light text-red-500 truncate">{card.subBenefits}</p>
+            <p className="text-lg font-medium text-red-400 mt-2 truncate">{card.rewards}</p>
           </div>
         </CardContent>
       </Card>

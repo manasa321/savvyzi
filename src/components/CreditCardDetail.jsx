@@ -7,7 +7,7 @@ const creditCards = [
   {
     id: 1,
     name: "Indusind Tiger Card",
-    image: "https://example.com/indusind-tiger-card.jpg",
+    image: "https://www.equitybulls.com/equitybullsadmin/uploads/IndusInd%20Bank%20and%20Tiger%20Fintech%20to%20launch%20a%20co-branded%20credit%20card.jpg",
     benefits: "Upto ₹38,000 benefits",
     subBenefits: "on Lounge, Movies & Golf",
     rewards: "+ Flat ₹500 Rewards",

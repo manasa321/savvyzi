@@ -3,7 +3,7 @@ import { Card, CardContent } from "@/components/ui/card";
 
 const popularStores = [
   { id: 1, name: "Amazon", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/2560px-Amazon_logo.svg.png", url: "https://www.amazon.in/" },
-  { id: 2, name: "Flipkart", logo: "https://static-assets-web.flixcart.com/fk-p-linchpin-web/fk-cp-zion/img/flipkart-plus_8d85f4.png", url: "https://www.flipkart.com/" },
+  { id: 2, name: "Flipkart", logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQoi0BAI2uvstO7mUwPcERULLhStZc_i_x9vQ&s", url: "https://www.flipkart.com/" },
   { id: 3, name: "Myntra", logo: "https://upload.wikimedia.org/wikipedia/commons/d/d5/Myntra_logo.png", url: "https://www.myntra.com/" },
   { id: 4, name: "Nykaa", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Nykaa_Logo.png/800px-Nykaa_Logo.png", url: "https://www.nykaa.com/" },
   { id: 5, name: "Ajio", logo: "https://assets.ajio.com/static/img/Ajio-Logo.svg", url: "https://track.vcommission.com/click?campaign_id=10364&pub_id=117026" },

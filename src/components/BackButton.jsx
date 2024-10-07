@@ -3,15 +3,11 @@ import { useNavigate } from 'react-router-dom';
 import { ChevronLeft } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 
-const BackButton = ({ onClick, className = '' }) => {
+const BackButton = ({ className = '' }) => {
   const navigate = useNavigate();
 
   const handleClick = () => {
-    if (onClick) {
-      onClick();
-    } else {
-      navigate(-1);
-    }
+    navigate('/');
   };
 
   return (

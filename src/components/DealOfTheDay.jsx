@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Card, CardContent } from "@/components/ui/card";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 
 const deals = [
   {
@@ -38,40 +39,61 @@ const deals = [
 ];
 
 const DealOfTheDay = () => {
+  const carouselRef = useRef(null);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (carouselRef.current) {
+        carouselRef.current.scrollNext();
+      }
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   const handleDealClick = (url) => {
     window.open(url, '_blank');
   };
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-      {deals.map((deal) => (
-        <Card key={deal.id} className="overflow-hidden cursor-pointer" onClick={() => handleDealClick(deal.url)}>
-          <CardContent className="p-0">
-            <div className={`relative w-full h-48 ${deal.bgColor}`}>
-              <img
-                src={deal.image}
-                alt={deal.title}
-                className="w-full h-full object-cover mix-blend-overlay"
-              />
-              <div className="absolute inset-0 flex flex-col justify-between p-4">
-                <div className="flex justify-between items-start">
-                  <img src={deal.logo} alt={`${deal.title} logo`} className="h-6 object-contain" />
-                  <span className="bg-red-600 text-white px-2 py-1 text-xs font-bold rounded">
-                    {deal.saleStatus}
-                  </span>
-                </div>
-                <div className="text-white">
-                  <h3 className="text-2xl font-bold mb-1">{deal.title}</h3>
-                  <p className="text-sm mb-1">{deal.subtitle}</p>
-                  <span className="bg-blue-600 text-white px-2 py-1 text-xs font-semibold rounded">
-                    {deal.reward}
-                  </span>
-                </div>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
-      ))}
+    <div className="mb-8">
+      <h2 className="text-2xl font-semibold mb-4">Deals</h2>
+      <Carousel ref={carouselRef} className="w-full">
+        <CarouselContent>
+          {deals.map((deal) => (
+            <CarouselItem key={deal.id} className="md:basis-1/2 lg:basis-1/3">
+              <Card className="overflow-hidden cursor-pointer" onClick={() => handleDealClick(deal.url)}>
+                <CardContent className="p-0">
+                  <div className={`relative w-full h-48 ${deal.bgColor}`}>
+                    <img
+                      src={deal.image}
+                      alt={deal.title}
+                      className="w-full h-full object-cover mix-blend-overlay"
+                    />
+                    <div className="absolute inset-0 flex flex-col justify-between p-4">
+                      <div className="flex justify-between items-start">
+                        <img src={deal.logo} alt={`${deal.title} logo`} className="h-6 object-contain" />
+                        <span className="bg-red-600 text-white px-2 py-1 text-xs font-bold rounded">
+                          {deal.saleStatus}
+                        </span>
+                      </div>
+                      <div className="text-white">
+                        <h3 className="text-2xl font-bold mb-1">{deal.title}</h3>
+                        <p className="text-sm mb-1">{deal.subtitle}</p>
+                        <span className="bg-blue-600 text-white px-2 py-1 text-xs font-semibold rounded">
+                          {deal.reward}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </CarouselItem>
+          ))}
+        </CarouselContent>
+        <CarouselPrevious />
+        <CarouselNext />
+      </Carousel>
     </div>
   );
 };

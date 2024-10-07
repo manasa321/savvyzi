@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { DatePicker } from "@/components/ui/date-picker";
+import BackButton from './BackButton';
 
 const CabSearch = () => {
   const [pickup, setPickup] = useState('');
@@ -15,6 +16,7 @@ const CabSearch = () => {
 
   return (
     <div className="bg-white p-4 shadow-md rounded-lg">
+      <BackButton className="mb-4" />
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         <Input
           placeholder="Pickup Location"

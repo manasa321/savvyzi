@@ -20,12 +20,8 @@ const Index = () => {
       case 'shopping':
         return (
           <>
-            <section className="mb-6">
-              <CategorySection />
-            </section>
-            <section className="mb-8">
-              <DealOfTheDay />
-            </section>
+            <DealOfTheDay />
+            <CategorySection />
             <PopularStores />
             <GiftCards />
           </>
@@ -50,6 +46,12 @@ const Index = () => {
       <Navbar />
       <main className="container mx-auto py-4 px-4">
         <div className="flex justify-center mb-6 space-x-4">
+          <Button
+            variant={activeSection === 'shopping' ? 'default' : 'outline'}
+            onClick={() => setActiveSection('shopping')}
+          >
+            Shopping
+          </Button>
           <Button
             variant={activeSection === 'flights' ? 'default' : 'outline'}
             onClick={() => setActiveSection('flights')}

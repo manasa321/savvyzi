@@ -1,5 +1,5 @@
 import React from 'react';
-import { useRouter } from 'next/router';
+import { useParams, useNavigate } from 'react-router-dom';
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 
@@ -27,15 +27,15 @@ const creditCards = [
 ];
 
 const CreditCardDetail = () => {
-  const router = useRouter();
-  const { id } = router.query;
+  const { id } = useParams();
+  const navigate = useNavigate();
   const card = creditCards.find((card) => card.id === parseInt(id));
 
   if (!card) return <p>Card not found</p>;
 
   return (
     <div className="container mx-auto py-6">
-      <Button onClick={() => router.back()} className="mb-4">Go Back</Button>
+      <Button onClick={() => navigate(-1)} className="mb-4">Go Back</Button>
       <Card className="w-full">
         <CardContent className="p-4">
           <img src={card.image} alt={card.name} className="w-full h-48 object-cover mb-4" />

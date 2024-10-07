@@ -1,7 +1,6 @@
 import React from 'react';
-import { useRouter } from 'next/router'; // For navigation
+import { useNavigate } from 'react-router-dom';
 import { Card, CardContent } from "@/components/ui/card";
-import { CarouselContent, CarouselItem } from "@/components/ui/carousel";
 import { Button } from "@/components/ui/button";
 
 const creditCards = [
@@ -28,11 +27,11 @@ const creditCards = [
 ];
 
 const CreditCardSection = () => {
-  const router = useRouter();
+  const navigate = useNavigate();
 
   const handleCardClick = (card) => {
     // Redirect to a new page with card details
-    router.push(`/credit-card/${card.id}`);
+    navigate(`/credit-card/${card.id}`);
   };
 
   return (

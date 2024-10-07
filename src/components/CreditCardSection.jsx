@@ -69,8 +69,6 @@ const CreditCardSection = () => {
                     )}
                     <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-70 text-white p-4">
                       <h3 className="text-lg font-semibold">{card.name}</h3>
-                      <p className="text-xl font-bold">{card.benefits}</p>
-                      <p className="text-sm">{card.subBenefits}</p>
                       <p className="text-sm font-medium text-blue-400">{card.rewards}</p>
                     </div>
                   </Link>

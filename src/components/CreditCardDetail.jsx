@@ -60,17 +60,17 @@ const CreditCardDetail = () => {
       </Button>
       <div className="mb-8">
         <h4 className="text-xl font-semibold mb-4">Important Information</h4>
-        <ul className="list-disc pl-5 space-y-2">
+        <ul className="list-disc pl-6">
           {card.importantInfo.map((info, index) => (
-            <li key={index}>{info}</li>
+            <li key={index} className="text-lg mb-2">{info}</li>
           ))}
         </ul>
       </div>
       <div>
-        <h4 className="text-xl font-semibold mb-4">Why is this card so AWESOME?</h4>
-        <ul className="list-disc pl-5 space-y-2">
+        <h4 className="text-xl font-semibold mb-4">Why this card is awesome</h4>
+        <ul className="list-disc pl-6">
           {card.whyAwesome.map((reason, index) => (
-            <li key={index}>{reason}</li>
+            <li key={index} className="text-lg mb-2">{reason}</li>
           ))}
         </ul>
       </div>

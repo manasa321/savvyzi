@@ -24,7 +24,7 @@ const Index = () => {
             <DealOfTheDay />
             <CategorySection />
             <PopularStores />
-            <CreditCardSection />
+            <CreditCardSection /> {/* Include CreditCardSection here */}
             <GiftCards />
           </>
         );

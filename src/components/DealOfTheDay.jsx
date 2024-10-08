@@ -1,6 +1,6 @@
 import React, { useEffect, useCallback } from 'react';
 import { Card, CardContent } from "@/components/ui/card";
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
+import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
 import useEmblaCarousel from 'embla-carousel-react';
 
 const deals = [
@@ -38,7 +38,7 @@ const deals = [
 ];
 
 const DealOfTheDay = () => {
-  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, align: 'center' });
 
   // Function to manually scroll to the next deal
   const scrollNext = useCallback(() => {
@@ -65,8 +65,8 @@ const DealOfTheDay = () => {
   return (
     <div className="mb-8 relative">
       <h2 className="text-2xl font-semibold mb-4">Deals</h2>
-      <Carousel ref={emblaRef} opts={{ loop: true }}>
-        <CarouselContent>
+      <div className="overflow-hidden" ref={emblaRef}>
+        <CarouselContent className="flex">
           {deals.map((deal) => (
             <CarouselItem key={deal.id} className="sm:basis-1/2 md:basis-1/3 lg:basis-1/4">
               <Card className="overflow-hidden cursor-pointer" onClick={() => handleDealClick(deal.url)}>
@@ -95,23 +95,23 @@ const DealOfTheDay = () => {
             </CarouselItem>
           ))}
         </CarouselContent>
-        
-        {/* Left Arrow (Previous Button) */}
-        <div
-          className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-200 p-2 rounded-full cursor-pointer z-10"
-          onClick={scrollPrev}
-        >
-          &lt;
-        </div>
+      </div>
+      
+      {/* Left Arrow (Previous Button) */}
+      <button
+        className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-200 p-2 rounded-full cursor-pointer z-10"
+        onClick={scrollPrev}
+      >
+        &lt;
+      </button>
 
-        {/* Right Arrow (Next Button) */}
-        <div
-          className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-200 p-2 rounded-full cursor-pointer z-10"
-          onClick={scrollNext}
-        >
-          &gt;
-        </div>
-      </Carousel>
+      {/* Right Arrow (Next Button) */}
+      <button
+        className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-200 p-2 rounded-full cursor-pointer z-10"
+        onClick={scrollNext}
+      >
+        &gt;
+      </button>
     </div>
   );
 };

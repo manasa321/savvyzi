@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -45,6 +45,38 @@ const creditCards = [
 ];
 
 const CreditCardSection = () => {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const intervalRef = useRef(null);
+
+  // Function to scroll to the next item
+  const nextSlide = () => {
+    setActiveIndex((prevIndex) => (prevIndex + 1) % creditCards.length);
+  };
+
+  // Function to scroll to the previous item
+  const prevSlide = () => {
+    setActiveIndex((prevIndex) => (prevIndex - 1 + creditCards.length) % creditCards.length);
+  };
+
+  // Function to stop auto-scroll when user interacts
+  const stopAutoScroll = () => {
+    if (intervalRef.current) clearInterval(intervalRef.current);
+  };
+
+  // Function to resume auto-scroll after interaction
+  const startAutoScroll = () => {
+    stopAutoScroll(); // Stop any existing interval
+    intervalRef.current = setInterval(() => {
+      nextSlide();
+    }, 3000); // Scroll every 3 seconds
+  };
+
+  // Auto-scroll setup on component mount
+  useEffect(() => {
+    startAutoScroll();
+    return () => stopAutoScroll(); // Cleanup on component unmount
+  }, []);
+
   return (
     <section className="mb-8">
       <div className="flex justify-between items-center mb-4">
@@ -52,8 +84,8 @@ const CreditCardSection = () => {
         <Link to="/credit-cards" className="text-blue-600 hover:underline">VIEW ALL &gt;</Link>
       </div>
       <Carousel className="w-full">
-        <CarouselContent>
-          {creditCards.map((card) => (
+        <CarouselContent style={{ transform: `translateX(-${activeIndex * 100}%)`, transition: 'transform 0.5s ease-in-out' }}>
+          {creditCards.map((card, index) => (
             <CarouselItem key={card.id} className="md:basis-1/2 lg:basis-1/3">
               <Card className="overflow-hidden">
                 <CardContent className="p-0 relative">
@@ -83,8 +115,8 @@ const CreditCardSection = () => {
             </CarouselItem>
           ))}
         </CarouselContent>
-        <CarouselPrevious />
-        <CarouselNext />
+        <CarouselPrevious onClick={() => { prevSlide(); stopAutoScroll(); startAutoScroll(); }} />
+        <CarouselNext onClick={() => { nextSlide(); stopAutoScroll(); startAutoScroll(); }} />
       </Carousel>
     </section>
   );

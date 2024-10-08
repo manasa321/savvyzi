@@ -34,7 +34,7 @@ const installAndEarnItems = [
     brand: "Magni View",
     earning: "₹5",
     link: "https://clnk.in/vrOO",
-    condition: "Install & Use magnification feature twice",
+    condition: "Install & Use magnification twice",
     image: "https://cdn0.cuelinks.com/merchant/6808/medium/unnamed_%281%29.jpg?1719313099",
   },
   {

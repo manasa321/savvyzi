@@ -26,7 +26,7 @@ const installAndEarnItems = [
     brand: "Compass Guide",
     earning: "₹5",
     link: "https://clnk.in/vrEh",
-    condition: "Install & Use Compass to find at least 2 directions",
+    condition: "Install & Use Compass twice",
     image: "https://cdn0.cuelinks.com/merchant/7171/medium/Screenshot_2024-08-01_180523.png?1722515747",
   },
   {

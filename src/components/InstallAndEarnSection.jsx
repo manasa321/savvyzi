@@ -43,14 +43,15 @@ const InstallAndEarnSection = () => {
   const [emblaRef] = useEmblaCarousel({ loop: true, align: 'start' });
 
   return (
-    <section className="mb-8 relative bg-gradient-to-r from-purple-500 to-blue-500 p-6 rounded-xl shadow-xl">
-      <h2 className="text-3xl font-bold text-white mb-6">INSTALL AND EARN</h2>
+    <section className="mb-8 relative p-6">
+      <h2 className="text-3xl font-bold mb-6">INSTALL AND EARN</h2>
 
       <Carousel className="w-full" ref={emblaRef}>
         <CarouselContent className="space-x-4">
           {installAndEarnItems.map((item) => (
             <CarouselItem key={item.id} className="md:basis-1/2 lg:basis-1/3">
-              <Card className="overflow-hidden flex bg-white rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300 ease-in-out">
+              {/* Gradient Card */}
+              <Card className="overflow-hidden flex bg-gradient-to-r from-purple-500 to-blue-500 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300 ease-in-out">
                 {/* Left side: Image */}
                 <div className="flex-shrink-0 w-1/3 rounded-l-lg overflow-hidden">
                   <img 
@@ -61,7 +62,7 @@ const InstallAndEarnSection = () => {
                 </div>
 
                 {/* Right side: Condition and reward */}
-                <CardContent className="flex flex-col justify-center p-4 w-2/3 bg-gradient-to-r from-blue-50 to-blue-100">
+                <CardContent className="flex flex-col justify-center p-4 w-2/3 bg-white rounded-r-lg">
                   <h5 className="text-lg font-semibold text-blue-700">{item.condition}</h5>
                   <p className="text-sm font-medium text-green-600">Earn {item.earning}</p>
                   <Button 

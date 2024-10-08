@@ -40,13 +40,20 @@ const deals = [
 const DealOfTheDay = () => {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
 
+  // Function to manually scroll to the next deal
   const scrollNext = useCallback(() => {
     if (emblaApi) emblaApi.scrollNext();
   }, [emblaApi]);
 
+  // Function to manually scroll to the previous deal
+  const scrollPrev = useCallback(() => {
+    if (emblaApi) emblaApi.scrollPrev();
+  }, [emblaApi]);
+
+  // Setup for auto-scroll every 3 seconds
   useEffect(() => {
     if (emblaApi) {
-      const interval = setInterval(scrollNext, 3000); // Changed to 3 seconds
+      const interval = setInterval(scrollNext, 3000); // Auto-scroll every 3 seconds
       return () => clearInterval(interval);
     }
   }, [emblaApi, scrollNext]);
@@ -56,7 +63,7 @@ const DealOfTheDay = () => {
   };
 
   return (
-    <div className="mb-8">
+    <div className="mb-8 relative">
       <h2 className="text-2xl font-semibold mb-4">Deals</h2>
       <Carousel ref={emblaRef} opts={{ loop: true }}>
         <CarouselContent>
@@ -88,8 +95,22 @@ const DealOfTheDay = () => {
             </CarouselItem>
           ))}
         </CarouselContent>
-        <CarouselPrevious className="absolute left-0 top-1/2 -translate-y-1/2" />
-        <CarouselNext className="absolute right-0 top-1/2 -translate-y-1/2" />
+        
+        {/* Left Arrow (Previous Button) */}
+        <div
+          className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-200 p-2 rounded-full cursor-pointer z-10"
+          onClick={scrollPrev}
+        >
+          &lt;
+        </div>
+
+        {/* Right Arrow (Next Button) */}
+        <div
+          className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-200 p-2 rounded-full cursor-pointer z-10"
+          onClick={scrollNext}
+        >
+          &gt;
+        </div>
       </Carousel>
     </div>
   );

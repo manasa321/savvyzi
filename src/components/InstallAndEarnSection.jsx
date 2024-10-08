@@ -7,11 +7,11 @@ import useEmblaCarousel from 'embla-carousel-react';
 const installAndEarnItems = [
   {
     id: 1,
-    brand: "Amazon",
-    earning: "₹100",
-    link: "https://www.amazon.in/",
+    brand: "Count Tracker",
+    earning: "₹5",
+    link: "https://clnk.in/vrOI",
     condition: "Install and make first purchase",
-    image: "https://example.com/amazon-app.jpg",
+    image: "https://cdn0.cuelinks.com/merchant/6809/medium/unnamed_%283%29.jpg?1719313823",
   },
   {
     id: 2,

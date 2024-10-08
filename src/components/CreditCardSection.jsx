@@ -2,7 +2,8 @@ import React, { useEffect, useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel"; // Removed Previous/Next import
+import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from "@/components/ui/carousel";
+import useEmblaCarousel from 'embla-carousel-react';
 
 const creditCards = [
   {
@@ -45,37 +46,17 @@ const creditCards = [
 ];
 
 const CreditCardSection = () => {
-  const [activeIndex, setActiveIndex] = useState(0);
-  const intervalRef = useRef(null);
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, align: 'start' });
 
-  // Function to scroll to the next item
-  const nextSlide = () => {
-    setActiveIndex((prevIndex) => (prevIndex + 1) % creditCards.length);
-  };
-
-  // Function to scroll to the previous item
-  const prevSlide = () => {
-    setActiveIndex((prevIndex) => (prevIndex - 1 + creditCards.length) % creditCards.length);
-  };
-
-  // Function to stop auto-scroll when user interacts
-  const stopAutoScroll = () => {
-    if (intervalRef.current) clearInterval(intervalRef.current);
-  };
-
-  // Function to resume auto-scroll after interaction
-  const startAutoScroll = () => {
-    stopAutoScroll(); // Stop any existing interval
-    intervalRef.current = setInterval(() => {
-      nextSlide();
-    }, 3000); // Scroll every 3 seconds
-  };
-
-  // Auto-scroll setup on component mount
   useEffect(() => {
-    startAutoScroll();
-    return () => stopAutoScroll(); // Cleanup on component unmount
-  }, []);
+    if (emblaApi) {
+      const interval = setInterval(() => {
+        emblaApi.scrollNext();
+      }, 3000);
+
+      return () => clearInterval(interval);
+    }
+  }, [emblaApi]);
 
   return (
     <section className="mb-8 relative">
@@ -84,11 +65,10 @@ const CreditCardSection = () => {
         <Link to="/credit-cards" className="text-blue-600 hover:underline">VIEW ALL &gt;</Link>
       </div>
       
-      {/* Carousel Container */}
-      <Carousel className="w-full">
-        <CarouselContent style={{ transform: `translateX(-${activeIndex * 100}%)`, transition: 'transform 0.5s ease-in-out' }}>
+      <Carousel className="w-full" ref={emblaRef}>
+        <CarouselContent>
           {creditCards.map((card) => (
-            <CarouselItem key={card.id} className="md:basis-1/2 lg:basis-1/3">
+            <CarouselItem key={card.id} className="md:basis-1/2 lg:basis-1/3 pl-4">
               <Card className="overflow-hidden">
                 <CardContent className="p-0 relative">
                   <Link to={`/credit-card/${card.id}`}>
@@ -117,23 +97,9 @@ const CreditCardSection = () => {
             </CarouselItem>
           ))}
         </CarouselContent>
+        <CarouselPrevious />
+        <CarouselNext />
       </Carousel>
-
-      {/* Left Arrow */}
-      <div
-        className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-200 p-2 rounded-full cursor-pointer"
-        onClick={() => { prevSlide(); stopAutoScroll(); startAutoScroll(); }}
-      >
-        &lt;
-      </div>
-
-      {/* Right Arrow */}
-      <div
-        className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-200 p-2 rounded-full cursor-pointer"
-        onClick={() => { nextSlide(); stopAutoScroll(); startAutoScroll(); }}
-      >
-        &gt;
-      </div>
     </section>
   );
 };

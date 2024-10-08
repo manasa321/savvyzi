@@ -53,7 +53,7 @@ const InstallAndEarnSection = () => {
               <Card className="overflow-hidden">
                 <CardContent className="p-0 relative">
                   <img src={item.image} alt={item.brand} className="w-full h-48 object-cover" />
-                  <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-70 text-white p-4">
+                  <div className="absolute bottom-0 left-0 right-0 text-white p-4">
                     <h5 className="text-lg font-semibold">{item.condition}</h5>
                     <p className="text-sm font-medium text-green-400">Earn {item.earning}</p>
                   </div>

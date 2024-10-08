@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
+import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel"; // Removed Previous/Next import
 
 const creditCards = [
   {
@@ -78,14 +78,16 @@ const CreditCardSection = () => {
   }, []);
 
   return (
-    <section className="mb-8">
+    <section className="mb-8 relative">
       <div className="flex justify-between items-center mb-4">
         <h2 className="text-2xl font-semibold">BEST LIFETIME FREE CREDIT CARDS</h2>
         <Link to="/credit-cards" className="text-blue-600 hover:underline">VIEW ALL &gt;</Link>
       </div>
+      
+      {/* Carousel Container */}
       <Carousel className="w-full">
         <CarouselContent style={{ transform: `translateX(-${activeIndex * 100}%)`, transition: 'transform 0.5s ease-in-out' }}>
-          {creditCards.map((card, index) => (
+          {creditCards.map((card) => (
             <CarouselItem key={card.id} className="md:basis-1/2 lg:basis-1/3">
               <Card className="overflow-hidden">
                 <CardContent className="p-0 relative">
@@ -115,9 +117,23 @@ const CreditCardSection = () => {
             </CarouselItem>
           ))}
         </CarouselContent>
-        <CarouselPrevious onClick={() => { prevSlide(); stopAutoScroll(); startAutoScroll(); }} />
-        <CarouselNext onClick={() => { nextSlide(); stopAutoScroll(); startAutoScroll(); }} />
       </Carousel>
+
+      {/* Left Arrow */}
+      <div
+        className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-200 p-2 rounded-full cursor-pointer"
+        onClick={() => { prevSlide(); stopAutoScroll(); startAutoScroll(); }}
+      >
+        &lt;
+      </div>
+
+      {/* Right Arrow */}
+      <div
+        className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-200 p-2 rounded-full cursor-pointer"
+        onClick={() => { nextSlide(); stopAutoScroll(); startAutoScroll(); }}
+      >
+        &gt;
+      </div>
     </section>
   );
 };

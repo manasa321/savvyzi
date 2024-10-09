@@ -88,7 +88,7 @@ const LootDealsSection = () => {
                     className="mt-4 bg-blue-600 hover:bg-blue-700 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 ease-in-out"
                     onClick={() => window.open(item.link, '_blank')}
                   >
-                    INSTALL NOW
+                    Shop Now
                   </Button>
                 </CardContent>
               </Card>

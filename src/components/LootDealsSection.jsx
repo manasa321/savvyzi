@@ -4,10 +4,9 @@ import { Button } from "@/components/ui/button";
 
 const LootDealItems = [
   {
-    {
     id: 1,
     brand: "Cadbury",
-    discount: "Flat 40% off",
+    earning: "Flat 40% off",
     link: "https://clnk.in/vr8O",
     condition: "",
     image: "https://cdn0.cuelinks.com/merchant/3516/medium/Cadbury.png?1571644680",
@@ -44,8 +43,6 @@ const LootDealItems = [
     condition: "Install & Play 2 Consecutive Games",
     image: "https://cdn0.cuelinks.com/merchant/6810/medium/unnamed_%284%29.jpg?1719314198",
   },
-  },
-  // Add other items if needed
 ];
 
 const LootDealsSection = () => {
@@ -58,24 +55,30 @@ const LootDealsSection = () => {
           <Card key={item.id} className="overflow-hidden rounded-lg shadow-lg transition-shadow duration-300 ease-in-out">
             {/* Top Image */}
             <div 
-              className="h-32 bg-cover bg-center"
-              style={{ backgroundImage: `url(${item.image})` }} 
-            />
-
-            {/* Offer Details */}
-            <div className="p-4 bg-white">
-              <div className="flex items-center justify-between">
-                <h5 className="text-xl font-bold text-red-600">{item.discount}</h5>
-                <span className="text-sm font-semibold text-green-600">{item.offerDetail}</span>
+              className="h-40 bg-cover bg-center relative" 
+              style={{ backgroundImage: `url(${item.image})` }}
+            >
+              {/* Blue overlay with earning */}
+              <div className="absolute bottom-0 left-0 w-full bg-blue-600 bg-opacity-75 text-white p-2">
+                <p className="text-sm font-semibold">{item.earning}</p>
               </div>
-              <p className="mt-2 text-sm font-medium text-blue-700">{item.reward}</p>
+            </div>
 
-              {/* CTA Button */}
+            {/* Brand and Condition */}
+            <div className="p-4 bg-white text-center">
+              <h5 className="text-lg font-bold text-blue-700">{item.brand}</h5>
+              {item.condition && (
+                <p className="text-sm text-gray-600 mt-2">{item.condition}</p>
+              )}
+            </div>
+
+            {/* CTA Button */}
+            <div className="p-4 text-center">
               <Button 
-                className="mt-4 w-full bg-orange-600 hover:bg-orange-700 text-white rounded-full"
+                className="w-full bg-blue-600 hover:bg-blue-700 text-white rounded-full"
                 onClick={() => window.open(item.link, '_blank')}
               >
-                Grab Deal
+                Shop Now
               </Button>
             </div>
           </Card>

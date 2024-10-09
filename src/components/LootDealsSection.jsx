@@ -1,4 +1,5 @@
 import React, { useEffect, useCallback } from 'react';
+import { Link } from 'react-router-dom';
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from "@/components/ui/carousel";
@@ -62,45 +63,41 @@ const LootDealsSection = () => {
   }, [emblaApi, scrollNext]);
 
   return (
-    <section className="mb-8 p-6">
-      <h2 className="text-3xl font-bold mb-6 text-center">LOOT DEALS</h2>
-
+    <section className="mb-8 relative">
+      <div className="flex justify-between items-center mb-4">
+        <h2 className="text-2xl font-semibold">LOOT DEALS</h2>
+        <Link to="/loot-deals" className="text-blue-600 hover:underline">VIEW ALL &gt;</Link>
+      </div>
+      
       <Carousel className="w-full" ref={emblaRef}>
         <CarouselContent>
           {LootDealItems.map((item) => (
             <CarouselItem key={item.id} className="md:basis-1/2 lg:basis-1/3 pl-4">
-              <Card className="overflow-hidden rounded-lg shadow-lg transition-transform duration-300 ease-in-out hover:scale-105">
-                <CardContent className="p-0">
-                  {/* Top Image */}
-                  <div 
-                    className="h-40 bg-cover bg-center relative hover:transform hover:scale-110 transition-transform duration-300 ease-in-out" 
-                    style={{ backgroundImage: `url(${item.image})` }}
-                  >
-                    {/* Blue overlay with earning */}
-                    <div className="absolute bottom-0 left-0 w-full bg-gradient-to-t from-blue-600 via-transparent to-transparent text-white p-2">
-                      <p className="text-sm font-semibold">{item.earning}</p>
+              <Card className="overflow-hidden">
+                <CardContent className="p-0 relative">
+                  <Link to={`/loot-deal/${item.id}`}>
+                    <img src={item.image} alt={item.brand} className="w-full h-48 object-cover" />
+                    <div className="absolute top-2 left-2 bg-white rounded-full p-1">
+                      <img src={item.image} alt={`${item.brand} logo`} className="w-8 h-8 object-contain" />
                     </div>
-                  </div>
-
-                  {/* Brand and Condition */}
-                  <div className="p-4 bg-white text-center">
-                    <h5 className="text-lg font-bold text-gray-800">{item.brand}</h5>
                     {item.condition && (
-                      <p className="text-sm text-gray-500 mt-2">{item.condition}</p>
+                      <span className="absolute top-2 right-2 bg-red-600 text-white px-2 py-1 text-xs font-bold rounded">
+                        {item.condition}
+                      </span>
                     )}
-                  </div>
-
-                  {/* CTA Button */}
-                  <div className="p-4 text-center">
-                    <Button 
-                      className="w-full bg-gradient-to-r from-blue-500 to-indigo-500 hover:from-indigo-600 hover:to-blue-600 text-white rounded-full shadow-md transition-shadow duration-200"
-                      onClick={() => window.open(item.link, '_blank')}
-                    >
-                      Shop Now
-                    </Button>
-                  </div>
+                    <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-70 text-white p-4">
+                      <h3 className="text-lg font-semibold">{item.brand}</h3>
+                      <p className="text-sm font-medium text-blue-400">{item.earning}</p>
+                    </div>
+                  </Link>
                 </CardContent>
               </Card>
+              <Button 
+                className="mt-2 w-full bg-orange-500 hover:bg-orange-600" 
+                onClick={() => window.open(item.link, '_blank')}
+              >
+                SHOP NOW
+              </Button>
             </CarouselItem>
           ))}
         </CarouselContent>

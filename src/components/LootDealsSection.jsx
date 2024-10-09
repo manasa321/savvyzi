@@ -63,11 +63,11 @@ const LootDealsSection = () => {
 
   return (
     <section className="mb-8 relative p-6">
-      <h2 className="text-3xl font-bold mb-6">INSTALL AND EARN</h2>
+      <h2 className="text-3xl font-bold mb-6">LOOT DEALS</h2>
 
       <Carousel className="w-full" ref={emblaRef}>
         <CarouselContent className="space-x-4">
-          {installAndEarnItems.map((item) => (
+          {LootDealItems.map((item) => (
             <CarouselItem key={item.id} className="md:basis-1/2 lg:basis-1/3">
               {/* Gradient Card */}
               <Card className="overflow-hidden flex bg-gradient-to-r from-purple-500 to-blue-500 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300 ease-in-out">

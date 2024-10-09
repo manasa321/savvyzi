@@ -1,5 +1,5 @@
 import React, { useEffect, useCallback } from 'react';
-import { Card, CardContent } from "@/components/ui/card";
+import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from "@/components/ui/carousel";
 import useEmblaCarousel from 'embla-carousel-react';
@@ -69,28 +69,27 @@ const LootDealsSection = () => {
         <CarouselContent className="-ml-4">
           {LootDealItems.map((item) => (
             <CarouselItem key={item.id} className="pl-4 md:basis-1/2 lg:basis-1/3">
-              <Card className="overflow-hidden flex h-48 bg-gradient-to-r from-purple-500 to-blue-500 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300 ease-in-out">
-                {/* Left side: Image (now 50% of the card) */}
-                <div className="flex-shrink-0 w-1/2 overflow-hidden bg-white">
-                  <img 
-                    src={item.image} 
-                    alt={item.brand} 
-                    className="w-full h-full object-contain p-2 transition-transform duration-300 hover:scale-105"
-                  />
-                </div>
+              {/* Card with Image Background */}
+              <Card className="relative overflow-hidden h-64 rounded-lg shadow-lg transition-shadow duration-300 ease-in-out">
+                {/* Image as Background */}
+                <div 
+                  className="absolute inset-0 bg-cover bg-center"
+                  style={{ backgroundImage: `url(${item.image})` }}
+                ></div>
 
-                {/* Right side: Condition and reward */}
-                <CardContent className="flex flex-col justify-center p-4 w-1/2 bg-white">
-                  <h5 className="text-sm font-semibold text-blue-700 line-clamp-2 mb-1">{item.condition}</h5>
-                  <p className="text-xs font-medium text-green-600 mb-2">Earn {item.earning}</p>
-                  <Button 
-                    className="mt-auto w-full bg-blue-600 hover:bg-blue-700 text-white text-xs rounded-full shadow-lg hover:shadow-xl transition-all duration-300 ease-in-out"
-                    onClick={() => window.open(item.link, '_blank')}
-                  >
-                    Shop Now
-                  </Button>
-                </CardContent>
+                {/* Overlay for Earning */}
+                <div className="absolute bottom-0 w-full bg-blue-600 bg-opacity-80 p-2 text-white text-center">
+                  <p className="font-semibold">{item.earning}</p>
+                </div>
               </Card>
+
+              {/* Shop Now Button Below the Card */}
+              <Button
+                className="mt-4 w-full bg-blue-600 hover:bg-blue-700 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 ease-in-out"
+                onClick={() => window.open(item.link, '_blank')}
+              >
+                Shop Now
+              </Button>
             </CarouselItem>
           ))}
         </CarouselContent>

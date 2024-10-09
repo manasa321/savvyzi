@@ -15,11 +15,11 @@ const LootDealItems = [
   },
   {
     id: 2,
-    brand: "Drum Jam",
-    earning: "₹5",
-    link: "https://clnk.in/vrOK",
-    condition: "Install & Create 2 unique rhythms & beats",
-    image: "https://cdn0.cuelinks.com/merchant/6804/medium/unnamed.jpg?1719312675",
+    brand: "Aroma Magic",
+    earning: "Flat 25% off",
+    link: "https://clnk.in/vrUv",
+    condition: "",
+    image: "https://cdn0.cuelinks.com/merchant/7175/medium/New_Project_-_2024-08-02T171811.156.png?1722599320",
   },
   {
     id: 3,

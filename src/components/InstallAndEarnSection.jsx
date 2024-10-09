@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useCallback } from 'react';
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from "@/components/ui/carousel";
@@ -48,7 +48,18 @@ const installAndEarnItems = [
 ];
 
 const InstallAndEarnSection = () => {
-  const [emblaRef] = useEmblaCarousel({ loop: true, align: 'start' });
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, align: 'start' });
+
+  const scrollNext = useCallback(() => {
+    if (emblaApi) emblaApi.scrollNext();
+  }, [emblaApi]);
+
+  useEffect(() => {
+    if (emblaApi) {
+      const interval = setInterval(scrollNext, 5000); // Auto-scroll every 5 seconds
+      return () => clearInterval(interval);
+    }
+  }, [emblaApi, scrollNext]);
 
   return (
     <section className="mb-8 relative p-6">

@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -48,15 +48,16 @@ const creditCards = [
 const CreditCardSection = () => {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, align: 'start' });
 
+  const scrollNext = useCallback(() => {
+    if (emblaApi) emblaApi.scrollNext();
+  }, [emblaApi]);
+
   useEffect(() => {
     if (emblaApi) {
-      const interval = setInterval(() => {
-        emblaApi.scrollNext();
-      }, 3000);
-
+      const interval = setInterval(scrollNext, 5000); // Auto-scroll every 5 seconds
       return () => clearInterval(interval);
     }
-  }, [emblaApi]);
+  }, [emblaApi, scrollNext]);
 
   return (
     <section className="mb-8 relative">

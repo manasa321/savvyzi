@@ -85,7 +85,7 @@ const LootDealsSection = () => {
                         {item.condition}
                       </span>
                     )}
-                    <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-70 text-white p-4">
+                    <div className="absolute bottom-0 left-0 right-0 bg-blue-500 bg-opacity-70 text-white p-4">
                       <h3 className="text-lg font-semibold">{item.brand}</h3>
                       <p className="text-sm font-medium text-blue-400">{item.earning}</p>
                     </div>

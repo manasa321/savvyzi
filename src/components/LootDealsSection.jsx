@@ -65,12 +65,12 @@ const LootDealsSection = () => {
             </div>
 
             {/* Brand and Condition */}
-            <div className="p-4 bg-white text-center">
+{/*             <div className="p-4 bg-white text-center">
               <h5 className="text-lg font-bold text-blue-700">{item.brand}</h5>
               {item.condition && (
                 <p className="text-sm text-gray-600 mt-2">{item.condition}</p>
               )}
-            </div>
+            </div> */}
 
             {/* CTA Button */}
             <div className="p-4 text-center">

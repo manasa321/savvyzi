@@ -75,7 +75,7 @@ const LootDealsSection = () => {
                     className="h-40 bg-cover bg-center relative" 
                     style={{ backgroundImage: `url(${item.image})` }}
                   >
-                    <div className="absolute bottom-0 left-0 w-full bg-black-600 bg-opacity-75 text-white p-2">
+                    <div className="absolute bottom-0 left-0 w-full bg-blue-600 bg-opacity-75 text-white p-2">
                       <p className="text-sm font-semibold">{item.earning}</p>
                     </div>
                   </div>

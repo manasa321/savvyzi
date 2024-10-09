@@ -1,82 +1,106 @@
-import React from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import React, { useEffect, useCallback } from 'react';
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from "@/components/ui/carousel";
+import useEmblaCarousel from 'embla-carousel-react';
 
-const creditCards = [
+const LootDealItems = [
   {
     id: 1,
-    name: "Indusind Tiger Card",
-    image: "https://www.equitybulls.com/equitybullsadmin/uploads/IndusInd%20Bank%20and%20Tiger%20Fintech%20to%20launch%20a%20co-branded%20credit%20card.jpg",
-    benefits: "Upto ₹38,000 benefits",
-    subBenefits: "on Lounge, Movies & Golf",
-    rewards: "+ Flat ₹500 Rewards",
-    applyLink: "https://example.com/apply-indusind-tiger-card",
-    importantInfo: [
-      "Please use your Aadhaar linked Mobile number to complete your application",
-      "If your Card is Activated as per RBI guidelines, you will be eligible for CashKaro Rewards",
-      "Joining Fees: Nil (Lifetime Free)",
-      "Annual Fees: Nil (Lifetime Free)"
-    ],
-    whyAwesome: [
-      "Earn up to 10X reward points on dining, groceries, and entertainment",
-      "Complimentary airport lounge access",
-      "Golf privileges at top courses",
-      "Movie ticket discounts and buy-one-get-one offers"
-    ]
+    brand: "Cadbury",
+    earning: "Flat 40% off",
+    link: "https://clnk.in/vr8O",
+    condition: "",
+    image: "https://cdn0.cuelinks.com/merchant/3516/medium/Cadbury.png?1571644680",
   },
-  // Add other credit card details here
+  {
+    id: 2,
+    brand: "Aroma Magic",
+    earning: "Flat 25% off",
+    link: "https://clnk.in/vrUv",
+    condition: "",
+    image: "https://cdn0.cuelinks.com/merchant/7175/medium/New_Project_-_2024-08-02T171811.156.png?1722599320",
+  },
+  {
+    id: 3,
+    brand: "Compass Guide",
+    earning: "₹5",
+    link: "https://clnk.in/vrEh",
+    condition: "Install & Use Compass twice",
+    image: "https://cdn0.cuelinks.com/merchant/7171/medium/Screenshot_2024-08-01_180523.png?1722515747",
+  },
+  {
+    id: 4,
+    brand: "Magni View",
+    earning: "₹5",
+    link: "https://clnk.in/vrOO",
+    condition: "Install & Use magnification twice",
+    image: "https://cdn0.cuelinks.com/merchant/6808/medium/unnamed_%281%29.jpg?1719313099",
+  },
+  {
+    id: 5,
+    brand: "Puzzle Stack",
+    earning: "₹5",
+    link: "https://clnk.in/vrOR",
+    condition: "Install & Play 2 Consecutive Games",
+    image: "https://cdn0.cuelinks.com/merchant/6810/medium/unnamed_%284%29.jpg?1719314198",
+  },
 ];
 
-const CreditCardDetail = () => {
-  const { id } = useParams();
-  const navigate = useNavigate();
-  const card = creditCards.find((card) => card.id === parseInt(id));
+const LootDealsSection = () => {
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, align: 'start' });
 
-  if (!card) return <p>Card not found</p>;
+  const scrollNext = useCallback(() => {
+    if (emblaApi) emblaApi.scrollNext();
+  }, [emblaApi]);
+
+  useEffect(() => {
+    if (emblaApi) {
+      const interval = setInterval(scrollNext, 5000); // Auto-scroll every 5 seconds
+      return () => clearInterval(interval);
+    }
+  }, [emblaApi, scrollNext]);
 
   return (
-    <div className="container mx-auto py-6 px-4">
-      <Button onClick={() => navigate(-1)} className="mb-4">Go Back</Button>
-      <Card className="w-full mb-6">
-        <CardContent className="p-0 relative">
-          <img src={card.image} alt={card.name} className="w-full h-64 object-cover rounded-t-lg" />
-          <div className="absolute top-4 left-4 bg-white rounded-full p-2">
-            <img src={`https://example.com/${card.name.split(' ')[0].toLowerCase()}-logo.png`} alt={`${card.name.split(' ')[0]} logo`} className="w-12 h-12" />
-          </div>
-          {/* Removed background, and updated text color */}
-          <div className="absolute bottom-0 left-0 right-0 text-white p-4">
-            <h3 className="text-2xl font-semibold mb-1">{card.name}</h3>
-            <p className="text-xl font-bold text-red-600 truncate">{card.benefits}</p>
-            <p className="text-md font-light text-red-500 truncate">{card.subBenefits}</p>
-            <p className="text-lg font-medium text-red-400 mt-2 truncate">{card.rewards}</p>
-          </div>
-        </CardContent>
-      </Card>
-      <Button 
-        className="w-full py-3 text-xl bg-orange-500 hover:bg-orange-600 mb-8" 
-        onClick={() => window.open(card.applyLink, '_blank')}
-      >
-        APPLY NOW
-      </Button>
-      <div className="mb-8">
-        <h4 className="text-xl font-semibold mb-4">Important Information</h4>
-        <ul className="list-disc pl-6">
-          {card.importantInfo.map((info, index) => (
-            <li key={index} className="text-lg mb-2">{info}</li>
+    <section className="container mx-auto mb-8 p-6">
+      <h2 className="text-3xl font-bold mb-6 text-center">LOOT DEALS</h2>
+
+      <Carousel className="w-full" ref={emblaRef}>
+        <CarouselContent>
+          {LootDealItems.map((item) => (
+            <CarouselItem key={item.id} className="md:basis-1/2 lg:basis-1/3 p-4">
+              <Card className="relative w-full h-full mb-6 shadow-lg hover:shadow-xl transition-shadow duration-300 ease-in-out rounded-lg overflow-hidden">
+                <CardContent className="p-0 relative">
+                  <img 
+                    src={item.image} 
+                    alt={item.brand} 
+                    className="w-full h-64 object-cover" 
+                  />
+                  <div className="absolute bottom-0 left-0 right-0 text-white p-4 bg-gradient-to-t from-black via-transparent to-transparent">
+                    <h3 className="text-2xl font-semibold mb-1">{item.brand}</h3>
+                    <p className="text-lg font-bold text-red-600">{item.earning}</p>
+                    {item.condition && (
+                      <p className="text-md font-light text-red-500 truncate">{item.condition}</p>
+                    )}
+                  </div>
+                </CardContent>
+                <div className="p-4">
+                  <Button 
+                    className="w-full py-3 text-xl bg-orange-500 hover:bg-orange-600" 
+                    onClick={() => window.open(item.link, '_blank')}
+                  >
+                    Shop Now
+                  </Button>
+                </div>
+              </Card>
+            </CarouselItem>
           ))}
-        </ul>
-      </div>
-      <div>
-        <h4 className="text-xl font-semibold mb-4">Why this card is awesome</h4>
-        <ul className="list-disc pl-6">
-          {card.whyAwesome.map((reason, index) => (
-            <li key={index} className="text-lg mb-2">{reason}</li>
-          ))}
-        </ul>
-      </div>
-    </div>
+        </CarouselContent>
+        <CarouselPrevious className="text-gray-600" />
+        <CarouselNext className="text-gray-600" />
+      </Carousel>
+    </section>
   );
 };
 
-export default CreditCardDetail;
+export default LootDealsSection;

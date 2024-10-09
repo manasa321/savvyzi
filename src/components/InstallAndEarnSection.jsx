@@ -1,34 +1,65 @@
-import React, { useEffect, useCallback, useState } from 'react';
+import React, { useEffect, useCallback } from 'react';
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from "@/components/ui/carousel";
 import useEmblaCarousel from 'embla-carousel-react';
 
 const installAndEarnItems = [
-  // Items array here (same as above)
+  {
+    id: 1,
+    brand: "Count Tracker",
+    earning: "₹5",
+    link: "https://clnk.in/vrOI",
+    condition: "Install & Use the tracker feature twice",
+    image: "https://cdn0.cuelinks.com/merchant/6809/medium/unnamed_%283%29.jpg?1719313823",
+  },
+  {
+    id: 2,
+    brand: "Drum Jam",
+    earning: "₹5",
+    link: "https://clnk.in/vrOK",
+    condition: "Install & Create 2 unique rhythms & beats",
+    image: "https://cdn0.cuelinks.com/merchant/6804/medium/unnamed.jpg?1719312675",
+  },
+  {
+    id: 3,
+    brand: "Compass Guide",
+    earning: "₹5",
+    link: "https://clnk.in/vrEh",
+    condition: "Install & Use Compass twice",
+    image: "https://cdn0.cuelinks.com/merchant/7171/medium/Screenshot_2024-08-01_180523.png?1722515747",
+  },
+  {
+    id: 4,
+    brand: "Magni View",
+    earning: "₹5",
+    link: "https://clnk.in/vrOO",
+    condition: "Install & Use magnification twice",
+    image: "https://cdn0.cuelinks.com/merchant/6808/medium/unnamed_%281%29.jpg?1719313099",
+  },
+  {
+    id: 5,
+    brand: "Puzzle Stack",
+    earning: "₹5",
+    link: "https://clnk.in/vrOR",
+    condition: "Install & Play 2 Consecutive Games",
+    image: "https://cdn0.cuelinks.com/merchant/6810/medium/unnamed_%284%29.jpg?1719314198",
+  },
 ];
 
 const InstallAndEarnSection = () => {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, align: 'start' });
-  const [isInitialized, setIsInitialized] = useState(false);
-
-  // Wait until emblaApi is fully ready before setting auto-scroll
-  useEffect(() => {
-    if (emblaApi) {
-      setIsInitialized(true); // API is initialized
-    }
-  }, [emblaApi]);
 
   const scrollNext = useCallback(() => {
     if (emblaApi) emblaApi.scrollNext();
   }, [emblaApi]);
 
   useEffect(() => {
-    if (isInitialized) {
+    if (emblaApi) {
       const interval = setInterval(scrollNext, 5000); // Auto-scroll every 5 seconds
-      return () => clearInterval(interval); // Clear interval on unmount
+      return () => clearInterval(interval);
     }
-  }, [isInitialized, scrollNext]);
+  }, [emblaApi, scrollNext]);
 
   return (
     <section className="mb-8 relative p-6">

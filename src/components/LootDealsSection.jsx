@@ -1,6 +1,8 @@
-import React from 'react';
-import { Card } from "@/components/ui/card";
+import React, { useEffect, useCallback } from 'react';
+import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from "@/components/ui/carousel";
+import useEmblaCarousel from 'embla-carousel-react';
 
 const LootDealItems = [
   {
@@ -46,44 +48,53 @@ const LootDealItems = [
 ];
 
 const LootDealsSection = () => {
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, align: 'start' });
+
+  const scrollNext = useCallback(() => {
+    if (emblaApi) emblaApi.scrollNext();
+  }, [emblaApi]);
+
+  useEffect(() => {
+    if (emblaApi) {
+      const interval = setInterval(scrollNext, 5000); // Auto-scroll every 5 seconds
+      return () => clearInterval(interval);
+    }
+  }, [emblaApi, scrollNext]);
+
   return (
     <section className="mb-8 p-6">
       <h2 className="text-3xl font-bold mb-6">LOOT DEALS</h2>
 
-      <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-        {LootDealItems.map((item) => (
-          <Card key={item.id} className="overflow-hidden rounded-lg shadow-lg transition-shadow duration-300 ease-in-out">
-            {/* Top Image */}
-            <div 
-              className="h-40 bg-cover bg-center relative" 
-              style={{ backgroundImage: `url(${item.image})` }}
-            >
-              {/* Blue overlay with earning */}
-              <div className="absolute bottom-0 left-0 w-full bg-blue-600 bg-opacity-75 text-white p-2">
-                <p className="text-sm font-semibold">{item.earning}</p>
-              </div>
-            </div>
-
-            {/* Brand and Condition */}
-{/*             <div className="p-4 bg-white text-center">
-              <h5 className="text-lg font-bold text-blue-700">{item.brand}</h5>
-              {item.condition && (
-                <p className="text-sm text-gray-600 mt-2">{item.condition}</p>
-              )}
-            </div> */}
-
-            {/* CTA Button */}
-            <div className="p-4 text-center">
-              <Button 
-                className="w-full bg-blue-600 hover:bg-blue-700 text-white rounded-full"
-                onClick={() => window.open(item.link, '_blank')}
-              >
-                Shop Now
-              </Button>
-            </div>
-          </Card>
-        ))}
-      </div>
+      <Carousel className="w-full" ref={emblaRef}>
+        <CarouselContent>
+          {LootDealItems.map((item) => (
+            <CarouselItem key={item.id} className="md:basis-1/2 lg:basis-1/3 pl-4">
+              <Card className="overflow-hidden rounded-lg shadow-lg transition-shadow duration-300 ease-in-out">
+                <CardContent className="p-0">
+                  <div 
+                    className="h-40 bg-cover bg-center relative" 
+                    style={{ backgroundImage: `url(${item.image})` }}
+                  >
+                    <div className="absolute bottom-0 left-0 w-full bg-blue-600 bg-opacity-75 text-white p-2">
+                      <p className="text-sm font-semibold">{item.earning}</p>
+                    </div>
+                  </div>
+                  <div className="p-4 text-center">
+                    <Button 
+                      className="w-full bg-blue-600 hover:bg-blue-700 text-white rounded-full"
+                      onClick={() => window.open(item.link, '_blank')}
+                    >
+                      Shop Now
+                    </Button>
+                  </div>
+                </CardContent>
+              </Card>
+            </CarouselItem>
+          ))}
+        </CarouselContent>
+        <CarouselPrevious />
+        <CarouselNext />
+      </Carousel>
     </section>
   );
 };

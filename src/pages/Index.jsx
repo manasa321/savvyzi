@@ -5,6 +5,7 @@ import DealOfTheDay from '../components/DealOfTheDay';
 import PopularStores from '../components/PopularStores';
 import CreditCardSection from '../components/CreditCardSection';
 import InstallAndEarnSection from '../components/InstallAndEarnSection';
+import LootDealsSection from '../components/LootDealsSection';
 import GiftCards from '../components/GiftCards';
 import FlightSearch from '../components/FlightSearch';
 import HotelSearch from '../components/HotelSearch';
@@ -25,6 +26,7 @@ const Index = () => {
             <DealOfTheDay />
             <CategorySection />
             <PopularStores />
+            <LootDealsSection />
             <CreditCardSection />
             <InstallAndEarnSection />
             <GiftCards />

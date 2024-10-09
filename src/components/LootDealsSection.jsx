@@ -93,7 +93,7 @@ const LootDealsSection = () => {
                 </CardContent>
               </Card>
               <Button 
-                className="mt-2 w-full bg-orange-500 hover:bg-orange-600" 
+                className="mt-2 w-full bg-blue-500 hover:bg-blue-600" 
                 onClick={() => window.open(item.link, '_blank')}
               >
                 SHOP NOW

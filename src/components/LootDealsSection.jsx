@@ -63,25 +63,37 @@ const LootDealsSection = () => {
 
   return (
     <section className="mb-8 p-6">
-      <h2 className="text-3xl font-bold mb-6">LOOT DEALS</h2>
+      <h2 className="text-3xl font-bold mb-6 text-center">LOOT DEALS</h2>
 
       <Carousel className="w-full" ref={emblaRef}>
         <CarouselContent>
           {LootDealItems.map((item) => (
             <CarouselItem key={item.id} className="md:basis-1/2 lg:basis-1/3 pl-4">
-              <Card className="overflow-hidden rounded-lg shadow-lg transition-shadow duration-300 ease-in-out">
+              <Card className="overflow-hidden rounded-lg shadow-lg transition-transform duration-300 ease-in-out hover:scale-105">
                 <CardContent className="p-0">
+                  {/* Top Image */}
                   <div 
-                    className="h-40 bg-cover bg-center relative" 
+                    className="h-40 bg-cover bg-center relative hover:transform hover:scale-110 transition-transform duration-300 ease-in-out" 
                     style={{ backgroundImage: `url(${item.image})` }}
                   >
-                    <div className="absolute bottom-0 left-0 w-full bg-blue-600 bg-opacity-75 text-white p-2">
+                    {/* Blue overlay with earning */}
+                    <div className="absolute bottom-0 left-0 w-full bg-gradient-to-t from-blue-600 via-transparent to-transparent text-white p-2">
                       <p className="text-sm font-semibold">{item.earning}</p>
                     </div>
                   </div>
+
+                  {/* Brand and Condition */}
+                  <div className="p-4 bg-white text-center">
+                    <h5 className="text-lg font-bold text-gray-800">{item.brand}</h5>
+                    {item.condition && (
+                      <p className="text-sm text-gray-500 mt-2">{item.condition}</p>
+                    )}
+                  </div>
+
+                  {/* CTA Button */}
                   <div className="p-4 text-center">
                     <Button 
-                      className="w-full bg-blue-600 hover:bg-blue-700 text-white rounded-full"
+                      className="w-full bg-gradient-to-r from-blue-500 to-indigo-500 hover:from-indigo-600 hover:to-blue-600 text-white rounded-full shadow-md transition-shadow duration-200"
                       onClick={() => window.open(item.link, '_blank')}
                     >
                       Shop Now

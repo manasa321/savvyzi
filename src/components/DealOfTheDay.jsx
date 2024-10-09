@@ -34,6 +34,36 @@ const deals = [
     bgColor: "bg-gradient-to-r from-red-500 to-yellow-500",
     url: "https://www.myntra.com/"
   },
+  {
+    id: 4,
+    image: "https://rukminim2.flixcart.com/fk-p-flap/1600/270/image/241b9b715c91303a.jpg?q=20",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/2560px-Amazon_logo.svg.png",
+    title: "Up to 80% Off",
+    subtitle: "10% Instant Discount with SBI Card",
+    saleStatus: "SALE LIVE NOW",
+    bgColor: "bg-gradient-to-r from-pink-500 to-orange-500",
+    url: "https://www.amazon.in/"
+  },
+  {
+    id: 5,
+    image: "https://rukminim1.flixcart.com/fk-p-flap/1600/270/image/b21b5be304d115cd.jpg?q=20",
+    logo: "https://static-assets-web.flixcart.com/fk-p-linchpin-web/fk-cp-zion/img/flipkart-plus_8d85f4.png",
+    title: "50-90% Off",
+    subtitle: "Across Categories",
+    saleStatus: "SALE ENDS TONIGHT",
+    bgColor: "bg-gradient-to-r from-purple-500 to-indigo-500",
+    url: "https://www.flipkart.com/"
+  },
+  {
+    id: 6,
+    image: "https://assets.myntassets.com/f_webp,w_980,c_limit,fl_progressive,dpr_2.0/assets/images/2022/7/28/84b6a214-9eb3-49eb-9f9d-72cec56ec5d71659019908592-Indian-Wear_DK--1-.jpg",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/d/d5/Myntra_logo.png",
+    title: "50 - 90% Off",
+    subtitle: "Across Categories",
+    saleStatus: "1.5% EXTRA BONUS CASHBACK",
+    bgColor: "bg-gradient-to-r from-red-500 to-yellow-500",
+    url: "https://www.myntra.com/"
+  },
   // Add more sample deals here
 ];
 

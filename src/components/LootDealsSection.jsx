@@ -87,7 +87,7 @@ const LootDealsSection = () => {
                     )}
                     <div className="absolute bottom-0 left-0 right-0 bg-blue-600 bg-opacity-80 text-white p-4">
                       <h3 className="text-lg font-semibold">{item.brand}</h3>
-                      <p className="text-sm font-medium text-green-600">{item.earning}</p>
+                      <p className="text-sm font-medium text-green-800">{item.earning}</p>
                     </div>
                   </Link>
                 </CardContent>

@@ -7,11 +7,11 @@ import useEmblaCarousel from 'embla-carousel-react';
 const LootDealItems = [
   {
     id: 1,
-    brand: "Count Tracker",
-    earning: "₹5",
-    link: "https://clnk.in/vrOI",
-    condition: "Install & Use the tracker feature twice",
-    image: "https://cdn0.cuelinks.com/merchant/6809/medium/unnamed_%283%29.jpg?1719313823",
+    brand: "Cadbury",
+    earning: "Flat 40% off",
+    link: "https://clnk.in/vr8O",
+    condition: "",
+    image: "https://cdn0.cuelinks.com/merchant/3516/medium/Cadbury.png?1571644680",
   },
   {
     id: 2,

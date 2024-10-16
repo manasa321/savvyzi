@@ -3,6 +3,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from "@/components/ui/carousel";
 import useEmblaCarousel from 'embla-carousel-react';
 
+
 const deals = [
   {
     id: 1,
@@ -70,13 +71,15 @@ const DealOfTheDay = () => {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, align: 'start' });
 
   const scrollNext = useCallback(() => {
-    if (emblaApi) emblaApi.scrollNext();
+    if (emblaApi && emblaApi.canScrollNext()) {  // Ensure it can scroll next
+      emblaApi.scrollNext();
+    }
   }, [emblaApi]);
 
   useEffect(() => {
     if (emblaApi) {
       const interval = setInterval(scrollNext, 3000); // Auto-scroll every 3 seconds
-      return () => clearInterval(interval);
+      return () => clearInterval(interval); // Clear interval when component unmounts
     }
   }, [emblaApi, scrollNext]);
 

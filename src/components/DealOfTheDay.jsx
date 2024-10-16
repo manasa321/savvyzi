@@ -90,7 +90,7 @@ const DealOfTheDay = () => {
   const [emblaRef, emblaApi] = useEmblaCarousel({ 
     loop: true, 
     align: 'start',
-    slidesToScroll: 1,
+    slidesToScroll: 4,
   });
 
   const scrollNext = useCallback(() => {

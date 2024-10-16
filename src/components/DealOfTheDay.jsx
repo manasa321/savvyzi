@@ -64,7 +64,6 @@ const deals = [
     bgColor: "bg-gradient-to-r from-red-500 to-yellow-500",
     url: "https://www.myntra.com/"
   },
-  // Add more sample deals here
 ];
 
 const DealOfTheDay = () => {
@@ -76,7 +75,7 @@ const DealOfTheDay = () => {
 
   useEffect(() => {
     if (emblaApi) {
-      const interval = setInterval(scrollNext, 5000); // Auto-scroll every 5 seconds
+      const interval = setInterval(scrollNext, 3000); // Auto-scroll every 3 seconds
       return () => clearInterval(interval);
     }
   }, [emblaApi, scrollNext]);

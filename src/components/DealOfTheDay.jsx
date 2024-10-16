@@ -3,7 +3,6 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from "@/components/ui/carousel";
 import useEmblaCarousel from 'embla-carousel-react';
 
-
 const deals = [
   {
     id: 1,
@@ -65,21 +64,43 @@ const deals = [
     bgColor: "bg-gradient-to-r from-red-500 to-yellow-500",
     url: "https://www.myntra.com/"
   },
+  {
+    id: 7,
+    image: "https://rukminim2.flixcart.com/fk-p-flap/1600/270/image/241b9b715c91303a.jpg?q=20",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/2560px-Amazon_logo.svg.png",
+    title: "Up to 80% Off",
+    subtitle: "10% Instant Discount with SBI Card",
+    saleStatus: "SALE LIVE NOW",
+    bgColor: "bg-gradient-to-r from-pink-500 to-orange-500",
+    url: "https://www.amazon.in/"
+  },
+  {
+    id: 8,
+    image: "https://rukminim1.flixcart.com/fk-p-flap/1600/270/image/b21b5be304d115cd.jpg?q=20",
+    logo: "https://static-assets-web.flixcart.com/fk-p-linchpin-web/fk-cp-zion/img/flipkart-plus_8d85f4.png",
+    title: "50-90% Off",
+    subtitle: "Across Categories",
+    saleStatus: "SALE ENDS TONIGHT",
+    bgColor: "bg-gradient-to-r from-purple-500 to-indigo-500",
+    url: "https://www.flipkart.com/"
+  },
 ];
 
 const DealOfTheDay = () => {
-  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, align: 'start' });
+  const [emblaRef, emblaApi] = useEmblaCarousel({ 
+    loop: true, 
+    align: 'start',
+    slidesToScroll: 1,
+  });
 
   const scrollNext = useCallback(() => {
-    if (emblaApi && emblaApi.canScrollNext()) {  // Ensure it can scroll next
-      emblaApi.scrollNext();
-    }
+    if (emblaApi) emblaApi.scrollNext();
   }, [emblaApi]);
 
   useEffect(() => {
     if (emblaApi) {
       const interval = setInterval(scrollNext, 3000); // Auto-scroll every 3 seconds
-      return () => clearInterval(interval); // Clear interval when component unmounts
+      return () => clearInterval(interval);
     }
   }, [emblaApi, scrollNext]);
 
@@ -94,7 +115,7 @@ const DealOfTheDay = () => {
       <Carousel className="w-full" ref={emblaRef}>
         <CarouselContent>
           {deals.map((deal) => (
-            <CarouselItem key={deal.id} className="sm:basis-1/2 md:basis-1/3 lg:basis-1/4 pl-4">
+            <CarouselItem key={deal.id} className="sm:basis-full md:basis-1/2 lg:basis-1/4 pl-4">
               <Card className="overflow-hidden cursor-pointer" onClick={() => handleDealClick(deal.url)}>
                 <CardContent className="p-0">
                   <div className={`relative w-full h-48 ${deal.bgColor}`}>

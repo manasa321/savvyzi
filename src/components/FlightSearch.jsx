@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { DatePicker } from "@/components/ui/date-picker";
 import { useNavigate } from 'react-router-dom';
-import { ChevronLeft } from 'lucide-react';
+import BackButton from './BackButton';
 
 const FlightSearch = () => {
   const [from, setFrom] = useState('');
@@ -17,16 +17,9 @@ const FlightSearch = () => {
     // Implement flight search logic here
   };
 
-  const handleBack = () => {
-    navigate('/');
-  };
-
   return (
     <div className="bg-white p-4 shadow-md rounded-lg">
-      <Button variant="ghost" onClick={handleBack} className="mb-4">
-        <ChevronLeft className="h-6 w-6" />
-        Back to Shopping
-      </Button>
+      <BackButton className="mb-4" />
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
         <Input
           placeholder="From"

@@ -2,14 +2,14 @@ import React, { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { DatePicker } from "@/components/ui/date-picker";
-import { useNavigate } from 'react-router-dom';  // Make sure to import useNavigate
-import BackButton from './BackButton';  // Already imported
+import { useNavigate } from 'react-router-dom';
+import BackButton from './BackButton';
 
 const CabSearch = () => {
   const [pickup, setPickup] = useState('');
   const [dropoff, setDropoff] = useState('');
   const [date, setDate] = useState(null);
-  const navigate = useNavigate(); // To handle navigation
+  const navigate = useNavigate();
 
   const handleSearch = () => {
     console.log('Searching for cabs:', { pickup, dropoff, date });
@@ -18,14 +18,7 @@ const CabSearch = () => {
 
   return (
     <div className="bg-white p-4 shadow-md rounded-lg">
-      {/* Add a BackButton with a title, styled in a flex container */}
-      <div className="flex items-center mb-8">
-        <BackButton onClick={() => navigate('/')} />
-        <h1 className="text-3xl font-bold text-secondary-foreground capitalize ml-4">
-          Search Cabs
-        </h1>
-      </div>
-
+      <BackButton className="mb-4" />
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         <Input
           placeholder="Pickup Location"

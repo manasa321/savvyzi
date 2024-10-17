@@ -55,7 +55,7 @@ const CategoryPage = () => {
       <Navbar />
       <div className="container mx-auto py-8 px-4">
         <div className="flex items-center mb-8">
-          <BackButton onClick={() => navigate('/')} />
+          <BackButton />
           <h1 className="text-3xl font-bold text-secondary-foreground capitalize ml-4">{selectedCategory.name}</h1>
         </div>
         {selectedCategory.subcategories ? (

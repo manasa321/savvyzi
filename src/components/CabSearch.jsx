@@ -2,14 +2,12 @@ import React, { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { DatePicker } from "@/components/ui/date-picker";
-import { useNavigate } from 'react-router-dom';
 import BackButton from './BackButton';
 
 const CabSearch = () => {
   const [pickup, setPickup] = useState('');
   const [dropoff, setDropoff] = useState('');
   const [date, setDate] = useState(null);
-  const navigate = useNavigate();
 
   const handleSearch = () => {
     console.log('Searching for cabs:', { pickup, dropoff, date });
@@ -35,7 +33,6 @@ const CabSearch = () => {
           onDateChange={setDate}
         />
       </div>
-      
       <Button className="mt-4 w-full" onClick={handleSearch}>
         Search Cabs
       </Button>

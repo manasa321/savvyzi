@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { DatePicker } from "@/components/ui/date-picker";
-import { useNavigate } from 'react-router-dom';
 import BackButton from './BackButton';
 
 const FlightSearch = () => {
@@ -10,7 +9,6 @@ const FlightSearch = () => {
   const [to, setTo] = useState('');
   const [departDate, setDepartDate] = useState(null);
   const [returnDate, setReturnDate] = useState(null);
-  const navigate = useNavigate();
 
   const handleSearch = () => {
     console.log('Searching for flights:', { from, to, departDate, returnDate });

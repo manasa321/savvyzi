@@ -2,15 +2,19 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Card, CardContent } from "@/components/ui/card";
 import { Globe } from 'lucide-react';
+import { GlobalBrands } from '../data/GlobalCPC';
 
-const foreignBrands = [
-  { name: 'International Fashion', icon: 'shopping-bag', url: '/foreign/fashion' },
-  { name: 'Global Electronics', icon: 'smartphone', url: '/foreign/electronics' },
-  { name: 'World Cuisine', icon: 'utensils', url: '/foreign/cuisine' },
-  { name: 'Exotic Beauty', icon: 'sparkles', url: '/foreign/beauty' },
-  { name: 'Foreign Auto', icon: 'car', url: '/foreign/auto' },
-  { name: 'International Sports', icon: 'dumbbell', url: '/foreign/sports' },
-];
+// Group brands by category
+const groupedBrands = GlobalBrands.reduce((acc, brand) => {
+  if (!acc[brand.CATEGORY]) {
+    acc[brand.CATEGORY] = [];
+  }
+  acc[brand.CATEGORY].push(brand);
+  return acc;
+}, {});
+
+// Get unique categories
+const categories = Object.keys(groupedBrands);
 
 const ExploreForeignBrands = () => {
   return (
@@ -19,14 +23,17 @@ const ExploreForeignBrands = () => {
         <Globe className="mr-2" /> Explore Foreign Brands
       </h2>
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
-        {foreignBrands.map((brand) => (
-          <Link key={brand.name} to={brand.url}>
+        {categories.map((category) => (
+          <Link key={category} to={`/foreign/${category.toLowerCase().replace(/\s+/g, '-')}`}>
             <Card className="hover:shadow-lg transition-shadow bg-gradient-to-br from-blue-50 to-indigo-100">
               <CardContent className="p-4 flex flex-col items-center justify-center h-full">
                 <div className="w-12 h-12 rounded-full bg-indigo-500 flex items-center justify-center mb-2">
-                  <lucide-react icon={brand.icon} className="text-white" />
+                  <Globe className="text-white h-6 w-6" />
                 </div>
-                <h3 className="text-sm font-medium text-center text-indigo-800">{brand.name}</h3>
+                <h3 className="text-sm font-medium text-center text-indigo-800">{category}</h3>
+                <p className="text-xs text-center text-indigo-600 mt-1">
+                  {groupedBrands[category].length} brands
+                </p>
               </CardContent>
             </Card>
           </Link>

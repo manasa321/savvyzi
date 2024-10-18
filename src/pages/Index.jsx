@@ -3,6 +3,7 @@ import Navbar from '../components/Navbar';
 import CategorySection from '../components/CategorySection';
 import DealOfTheDay from '../components/DealOfTheDay';
 import PopularStores from '../components/PopularStores';
+import ExploreForeignBrands from '../components/ExploreForeignBrands';
 import CreditCardSection from '../components/CreditCardSection';
 import InstallAndEarnSection from '../components/InstallAndEarnSection';
 import LootDealsSection from '../components/LootDealsSection';
@@ -26,6 +27,7 @@ const Index = () => {
             <DealOfTheDay />
             <CategorySection />
             <PopularStores />
+            <ExploreForeignBrands />
             <LootDealsSection />
             <CreditCardSection />
             <InstallAndEarnSection />

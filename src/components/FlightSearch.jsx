@@ -2,13 +2,15 @@ import React, { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { DatePicker } from "@/components/ui/date-picker";
-import BackButton from './BackButton';
+import { useNavigate } from 'react-router-dom';
+import { ArrowLeft } from 'lucide-react';
 
 const FlightSearch = () => {
   const [from, setFrom] = useState('');
   const [to, setTo] = useState('');
   const [departDate, setDepartDate] = useState(null);
   const [returnDate, setReturnDate] = useState(null);
+  const navigate = useNavigate();
 
   const handleSearch = () => {
     console.log('Searching for flights:', { from, to, departDate, returnDate });
@@ -17,7 +19,10 @@ const FlightSearch = () => {
 
   return (
     <div className="bg-white p-4 shadow-md rounded-lg">
-      <BackButton className="mb-4" />
+      <Button variant="ghost" onClick={() => navigate('/')} className="mb-4">
+        <ArrowLeft className="mr-2" />
+        Back to Home
+      </Button>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
         <Input
           placeholder="From"

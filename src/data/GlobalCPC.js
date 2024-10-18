@@ -598,5 +598,5 @@ export const GlobalBrands = [
         "COUNTRY":"US",
         "COMPANY":"Travala",
         "WEBSITE LINK":"https:\/\/clnk.in\/vtBm"
-    }
-]
+    },
+];

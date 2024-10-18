@@ -22,7 +22,7 @@ export const GlobalBrands = [
         "COUNTRY":"UK",
         "COMPANY":"Beyond Television",
         "WEBSITE LINK":"https:\/\/clnk.in\/vsFB",
-        image: 'https://www.beyondtelevision.co.uk/media/logo/stores/2/logo.png'
+        "IMAGE": "https://www.beyondtelevision.co.uk/media/logo/stores/2/logo.png"
     },
     {
         "CATEGORY":"Electronics",

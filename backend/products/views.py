@@ -1,60 +1,49 @@
-from rest_framework.views import APIView
-from rest_framework.response import Response
-from rest_framework import status
-from django.contrib.postgres.search import SearchQuery, SearchRank
-from django.db.models import F
-from .models import Product, Category
-from .serializers import ProductSerializer, CategorySerializer
+from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
+from django.views.decorators.http import require_http_methods
+import json
+from twilio.rest import Client
+import os
+import random
 
-class ProductSearchView(APIView):
-    def get(self, request):
-        search_term = request.query_params.get('search', '')
-        category = request.query_params.get('category', '')
+@csrf_exempt
+@require_http_methods(["POST"])
+def send_otp(request):
+    data = json.loads(request.body)
+    mobile = data.get('mobile')
+    
+    if not mobile:
+        return JsonResponse({'error': 'Mobile number is required'}, status=400)
+    
+    # Generate OTP
+    otp = ''.join([str(random.randint(0, 9)) for _ in range(6)])
+    
+    # Send OTP using Twilio
+    account_sid = 'VA069c79950b64e159bb4dddc00c7a34dc'
+    auth_token = os.environ.get('TWILIO_AUTH_TOKEN')
+    client = Client(account_sid, auth_token)
+    
+    try:
+        message = client.messages.create(
+            body=f'Your OTP is: {otp}',
+            from_=os.environ.get('TWILIO_PHONE_NUMBER'),
+            to=mobile
+        )
+        # In a real application, you should store the OTP securely (e.g., in a database) for later verification
+        return JsonResponse({'success': True, 'message': 'OTP sent successfully'})
+    except Exception as e:
+        return JsonResponse({'error': str(e)}, status=500)
 
-        if not search_term:
-            return Response({"error": "Search term is required"}, status=status.HTTP_400_BAD_REQUEST)
-
-        try:
-            query = SearchQuery(search_term)
-            products = Product.objects.annotate(
-                rank=SearchRank(F('search_vector'), query)
-            ).filter(search_vector=query)
-
-            if category:
-                products = products.filter(category__name__iexact=category)
-
-            products = products.order_by('-rank')
-            serializer = ProductSerializer(products, many=True)
-            return Response(serializer.data)
-        except Exception as e:
-            return Response({"error": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
-
-class CategoryListView(APIView):
-    def get(self, request):
-        categories = Category.objects.all()
-        serializer = CategorySerializer(categories, many=True)
-        return Response(serializer.data)
-
-class SampleDataView(APIView):
-    def get(self, request):
-        sample_data = [
-            {
-                "id": 1,
-                "name": "iPhone 13",
-                "description": "Latest Apple smartphone with A15 Bionic chip",
-                "price": 79900,
-                "image_url": "https://example.com/iphone13.jpg",
-                "category": "Mobile",
-                "processor": "A15 Bionic",
-                "capacity": "128GB",
-                "display_size": "6.1 inches",
-                "operating_system": "iOS 15",
-                "sellers": [
-                    {"name": "Amazon", "logo": "https://example.com/amazon-logo.png", "price": 79900, "in_stock": True},
-                    {"name": "Flipkart", "logo": "https://example.com/flipkart-logo.png", "price": 79999, "in_stock": True},
-                    {"name": "Croma", "logo": "https://example.com/croma-logo.png", "price": 80000, "in_stock": False}
-                ]
-            },
-            # Add more sample products as needed
-        ]
-        return Response(sample_data)
+@csrf_exempt
+@require_http_methods(["POST"])
+def verify_otp(request):
+    data = json.loads(request.body)
+    mobile = data.get('mobile')
+    otp = data.get('otp')
+    
+    if not mobile or not otp:
+        return JsonResponse({'error': 'Mobile number and OTP are required'}, status=400)
+    
+    # In a real application, you should verify the OTP against the stored value
+    # For this example, we'll just return success
+    return JsonResponse({'success': True, 'message': 'OTP verified successfully'})

@@ -1,9 +1,7 @@
 from django.urls import path
-from .views import ProductSearchView, ProductDetailView, CategoryListView, SampleDataView
+from . import views
 
 urlpatterns = [
-    path('search/', ProductSearchView.as_view(), name='product-search'),
-    path('categories/', CategoryListView.as_view(), name='category-list'),
-    path('products/<int:product_id>/', ProductDetailView.as_view(), name='product-detail'),
-    path('sample-data/', SampleDataView.as_view(), name='sample-data'),
+    path('send-otp/', views.send_otp, name='send_otp'),
+    path('verify-otp/', views.verify_otp, name='verify_otp'),
 ]

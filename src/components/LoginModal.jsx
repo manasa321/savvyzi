@@ -3,7 +3,6 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/u
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useAuth } from '../hooks/useAuth';
-import { sendOTP } from '../services/twilioService';
 
 const LoginModal = ({ isOpen, onClose }) => {
   const [isLogin, setIsLogin] = useState(true);
@@ -14,46 +13,84 @@ const LoginModal = ({ isOpen, onClose }) => {
   const [step, setStep] = useState(1);
   const { login, signup } = useAuth();
 
-  const generateOTP = () => {
-    return Math.floor(100000 + Math.random() * 900000).toString();
-  };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (isLogin) {
       if (step === 1) {
-        const generatedOTP = generateOTP();
-        const sent = await sendOTP(mobile, generatedOTP);
-        if (sent) {
-          setOtp(generatedOTP); // In a real app, store this securely on the server
-          setStep(2);
-        } else {
+        try {
+          const response = await fetch('/api/send-otp', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ mobile }),
+          });
+          if (response.ok) {
+            setStep(2);
+          } else {
+            alert('Failed to send OTP. Please try again.');
+          }
+        } catch (error) {
+          console.error('Error sending OTP:', error);
           alert('Failed to send OTP. Please try again.');
         }
       } else {
-        if (otp === e.target.otp.value) {
-          await login(email, mobile);
-          onClose();
-        } else {
-          alert('Invalid OTP. Please try again.');
+        try {
+          const response = await fetch('/api/verify-otp', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ mobile, otp }),
+          });
+          if (response.ok) {
+            await login(email, mobile);
+            onClose();
+          } else {
+            alert('Invalid OTP. Please try again.');
+          }
+        } catch (error) {
+          console.error('Error verifying OTP:', error);
+          alert('Failed to verify OTP. Please try again.');
         }
       }
     } else {
       if (step === 1) {
-        const generatedOTP = generateOTP();
-        const sent = await sendOTP(mobile, generatedOTP);
-        if (sent) {
-          setOtp(generatedOTP); // In a real app, store this securely on the server
-          setStep(2);
-        } else {
+        try {
+          const response = await fetch('/api/send-otp', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ mobile }),
+          });
+          if (response.ok) {
+            setStep(2);
+          } else {
+            alert('Failed to send OTP. Please try again.');
+          }
+        } catch (error) {
+          console.error('Error sending OTP:', error);
           alert('Failed to send OTP. Please try again.');
         }
       } else {
-        if (otp === e.target.otp.value) {
-          await signup(name, email, mobile);
-          onClose();
-        } else {
-          alert('Invalid OTP. Please try again.');
+        try {
+          const response = await fetch('/api/verify-otp', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ mobile, otp }),
+          });
+          if (response.ok) {
+            await signup(name, email, mobile);
+            onClose();
+          } else {
+            alert('Invalid OTP. Please try again.');
+          }
+        } catch (error) {
+          console.error('Error verifying OTP:', error);
+          alert('Failed to verify OTP. Please try again.');
         }
       }
     }
@@ -94,6 +131,8 @@ const LoginModal = ({ isOpen, onClose }) => {
           type="text"
           name="otp"
           placeholder="Enter OTP"
+          value={otp}
+          onChange={(e) => setOtp(e.target.value)}
           required
         />
       );

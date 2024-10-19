@@ -5,13 +5,13 @@ const AuthContext = createContext();
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
 
-  const login = async (email, otp) => {
-    // TODO: Implement actual login logic
-    setUser({ name: 'John Doe', email, mobile: '1234567890' });
+  const login = async (email, mobile) => {
+    // TODO: Implement actual login logic with backend
+    setUser({ name: 'John Doe', email, mobile });
   };
 
-  const signup = async (name, email, mobile, otp) => {
-    // TODO: Implement actual signup logic
+  const signup = async (name, email, mobile) => {
+    // TODO: Implement actual signup logic with backend
     setUser({ name, email, mobile });
   };
 

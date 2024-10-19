@@ -3,6 +3,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/u
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useAuth } from '../hooks/useAuth';
+import { sendOTP } from '../services/twilioService';
 
 const LoginModal = ({ isOpen, onClose }) => {
   const [isLogin, setIsLogin] = useState(true);
@@ -13,23 +14,47 @@ const LoginModal = ({ isOpen, onClose }) => {
   const [step, setStep] = useState(1);
   const { login, signup } = useAuth();
 
+  const generateOTP = () => {
+    return Math.floor(100000 + Math.random() * 900000).toString();
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (isLogin) {
       if (step === 1) {
-        // TODO: Implement send OTP functionality
-        setStep(2);
+        const generatedOTP = generateOTP();
+        const sent = await sendOTP(mobile, generatedOTP);
+        if (sent) {
+          setOtp(generatedOTP); // In a real app, store this securely on the server
+          setStep(2);
+        } else {
+          alert('Failed to send OTP. Please try again.');
+        }
       } else {
-        await login(email, otp);
-        onClose();
+        if (otp === e.target.otp.value) {
+          await login(email, mobile);
+          onClose();
+        } else {
+          alert('Invalid OTP. Please try again.');
+        }
       }
     } else {
       if (step === 1) {
-        // TODO: Implement send OTP functionality
-        setStep(2);
+        const generatedOTP = generateOTP();
+        const sent = await sendOTP(mobile, generatedOTP);
+        if (sent) {
+          setOtp(generatedOTP); // In a real app, store this securely on the server
+          setStep(2);
+        } else {
+          alert('Failed to send OTP. Please try again.');
+        }
       } else {
-        await signup(name, email, mobile, otp);
-        onClose();
+        if (otp === e.target.otp.value) {
+          await signup(name, email, mobile);
+          onClose();
+        } else {
+          alert('Invalid OTP. Please try again.');
+        }
       }
     }
   };
@@ -67,9 +92,8 @@ const LoginModal = ({ isOpen, onClose }) => {
       return (
         <Input
           type="text"
+          name="otp"
           placeholder="Enter OTP"
-          value={otp}
-          onChange={(e) => setOtp(e.target.value)}
           required
         />
       );

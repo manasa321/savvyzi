@@ -56,6 +56,7 @@ const CategoryPage = () => {
       <div className="container mx-auto py-8 px-4">
         <div className="flex items-center mb-8">
           <BackButton />
+          <br></br>
           <h1 className="text-3xl font-bold text-secondary-foreground capitalize ml-4">{selectedCategory.name}</h1>
         </div>
         {selectedCategory.subcategories ? (

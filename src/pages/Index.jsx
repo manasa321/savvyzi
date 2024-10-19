@@ -13,6 +13,7 @@ import HotelSearch from '../components/HotelSearch';
 import TrainSearch from '../components/TrainSearch';
 import BusSearch from '../components/BusSearch';
 import CabSearch from '../components/CabSearch';
+import Footer from '../components/Footer';
 import { Button } from "@/components/ui/button";
 import { Plane, Hotel, Train, Bus, Car } from 'lucide-react';
 
@@ -32,6 +33,7 @@ const Index = () => {
             <CreditCardSection />
             <InstallAndEarnSection />
             <GiftCards />
+            <Footer/>
           </>
         );
       case 'flights':

@@ -1,4 +1,4 @@
-[
+explore const ForeignBrands = [
     {
         "CATEGORY": "Credit Card",
         "COMPANY": "AU Bank CC",
@@ -430,6 +430,6 @@
         "LINK": "https://clnk.in/vrHJ",
         "CONDITIONS": "Payout applicable on Card Dispatch + Transaction",
         "LOGO": ""
-    }
-]
+    },
+];
 

@@ -35,15 +35,15 @@ const Index = () => {
           </>
         );
       case 'flights':
-        return <FlightSearch />;
+        return <FlightSearch setActiveSection={setActiveSection} />;
       case 'hotels':
-        return <HotelSearch />;
+        return <HotelSearch setActiveSection={setActiveSection} />;
       case 'trains':
-        return <TrainSearch />;
+        return <TrainSearch setActiveSection={setActiveSection} />;
       case 'buses':
-        return <BusSearch />;
+        return <BusSearch setActiveSection={setActiveSection} />;
       case 'cabs':
-        return <CabSearch />;
+        return <CabSearch setActiveSection={setActiveSection} />;
       default:
         return null;
     }
@@ -54,6 +54,12 @@ const Index = () => {
       <Navbar />
       <main className="container mx-auto py-4 px-4">
         <div className="flex justify-center mb-6 space-x-4">
+          <Button
+            variant={activeSection === 'shopping' ? 'default' : 'outline'}
+            onClick={() => setActiveSection('shopping')}
+          >
+            Shopping
+          </Button>
           <Button
             variant={activeSection === 'flights' ? 'default' : 'outline'}
             onClick={() => setActiveSection('flights')}

@@ -1,4 +1,4 @@
-explore const CPL = [
+export const CPL = [
     {
         "CATEGORY": "Credit Card",
         "COMPANY": "AU Bank CC",

@@ -27,8 +27,8 @@ export const CPL = [
         "LOGO": "https://cdn0.cuelinks.com/merchant/4341/medium/image_%2828%29.png?1646395656"
     },
     {
-        "CATEGORY": "Insurance",
-        "COMPANY": "Acko Insurance",
+        "CATEGORY": "Credit Card",
+        "COMPANY": "Insurance",
         "PRODUCT": "Bike Insurance",
         "COMMISSION": "22.5% / Sale",
         "LINK": "https://clnk.in/vrFr",
@@ -36,8 +36,8 @@ export const CPL = [
         "LOGO": "https://cdn0.cuelinks.com/merchant/3261/medium/acko_logo.JPG?1532416648"
     },
     {
-        "CATEGORY": "Insurance",
-        "COMPANY": "Acko Insurance",
+        "CATEGORY": "Credit Card",
+        "COMPANY": "Insurance",
         "PRODUCT": "Car Policy Purchase : Car Comprehensive",
         "COMMISSION": "26.25% / Sale",
         "LINK": "https://clnk.in/vrFI",
@@ -45,8 +45,8 @@ export const CPL = [
         "LOGO": "https://cdn0.cuelinks.com/merchant/3261/medium/acko_logo.JPG?1532416648"
     },
     {
-        "CATEGORY": "Insurance",
-        "COMPANY": "Acko Insurance",
+        "CATEGORY": "Credit Card",
+        "COMPANY": "Insurance",
         "PRODUCT": "Car Policy Purchase : Third Party Sale",
         "COMMISSION": "12% Sale",
         "LINK": "https://clnk.in/vrFI",
@@ -54,7 +54,7 @@ export const CPL = [
         "LOGO": "https://cdn0.cuelinks.com/merchant/3261/medium/acko_logo.JPG?1532416648"
     },
     {
-        "CATEGORY": "Loan",
+        "CATEGORY": "Credit Card",
         "COMPANY": "Aditya Birla Capital Home Loan",
         "PRODUCT": "Home Loan",
         "COMMISSION": "Rs 210",
@@ -63,7 +63,7 @@ export const CPL = [
         "LOGO": "https://cdn0.cuelinks.com/merchant/4295/medium/New_Project_-_2022-01-06T153514.639.png?1641463744"
     },
     {
-        "CATEGORY": "Telecom",
+        "CATEGORY": "Credit Card",
         "COMPANY": "Airtel",
         "PRODUCT": "DTH",
         "COMMISSION": "Rs 472",
@@ -72,7 +72,7 @@ export const CPL = [
         "LOGO": ""
     },
     {
-        "CATEGORY": "Telecom",
+        "CATEGORY": "Credit Card",
         "COMPANY": "Airtel",
         "PRODUCT": "Prepaid to Postpaid",
         "COMMISSION": "Rs 630",
@@ -279,7 +279,7 @@ export const CPL = [
         "LOGO": ""
     },
     {
-        "CATEGORY": "Finance",
+        "CATEGORY": "Credit Card",
         "COMPANY": "Bajaj Finance",
         "PRODUCT": "Bajaj Insta EMI Card",
         "COMMISSION": "Rs 180",
@@ -324,7 +324,7 @@ export const CPL = [
         "LOGO": "https://cdn0.cuelinks.com/merchant/605/medium/ICICI-Credit-Card.png?1545998861"
     },
     {
-        "CATEGORY": "Finance",
+        "CATEGORY": "Credit Card",
         "COMPANY": "IDFC Bank",
         "PRODUCT": "IDFC Bank Salary Account",
         "COMMISSION": "Rs 595.5",
@@ -333,7 +333,7 @@ export const CPL = [
         "LOGO": ""
     },
     {
-        "CATEGORY": "Finance",
+        "CATEGORY": "Credit Card",
         "COMPANY": "IDFC Bank",
         "PRODUCT": "IDFC Bank Saving Account",
         "COMMISSION": "Rs 397.5",
@@ -378,7 +378,7 @@ export const CPL = [
         "LOGO": "https://cdn0.cuelinks.com/merchant/2752/medium/Indusland.png?1596460384"
     },
     {
-        "CATEGORY": "Finance",
+        "CATEGORY": "Credit Card",
         "COMPANY": "IndusInd Bank",
         "PRODUCT": "IndusInd Bank Saving Account",
         "COMMISSION": "Rs 450",
@@ -414,7 +414,7 @@ export const CPL = [
         "LOGO": ""
     },
     {
-        "CATEGORY": "Others",
+        "CATEGORY": "Credit Card",
         "COMPANY": "Surveoo",
         "PRODUCT": "",
         "COMMISSION": "Rs 39.74",
@@ -433,3 +433,66 @@ export const CPL = [
     },
 ];
 
+// Export other categories separately to reduce file size
+export const insuranceOffers = [
+    {
+        "CATEGORY": "Insurance",
+        "COMPANY": "Acko Insurance",
+        "PRODUCT": "Bike Insurance",
+        "COMMISSION": "22.5% / Sale",
+        "LINK": "https://clnk.in/vrFr",
+        "CONDITIONS": "Payout on bike",
+        "LOGO": "https://cdn0.cuelinks.com/merchant/3261/medium/acko_logo.JPG?1532416648"
+    },
+    {
+        "CATEGORY": "Insurance",
+        "COMPANY": "Acko Insurance",
+        "PRODUCT": "Car Policy Purchase : Car Comprehensive",
+        "COMMISSION": "26.25% / Sale",
+        "LINK": "https://clnk.in/vrFI",
+        "CONDITIONS": "Payout on Car Policy Purchase : Car comprehensive",
+        "LOGO": "https://cdn0.cuelinks.com/merchant/3261/medium/acko_logo.JPG?1532416648"
+    },
+    {
+        "CATEGORY": "Insurance",
+        "COMPANY": "Acko Insurance",
+        "PRODUCT": "Car Policy Purchase : Third Party Sale",
+        "COMMISSION": "12% Sale",
+        "LINK": "https://clnk.in/vrFI",
+        "CONDITIONS": "Payout on Car Policy Purchase : Third Party Sale",
+        "LOGO": "https://cdn0.cuelinks.com/merchant/3261/medium/acko_logo.JPG?1532416648"
+    },
+];
+
+export const loanOffers = [
+    {
+        "CATEGORY": "Loan",
+        "COMPANY": "Aditya Birla Capital Home Loan",
+        "PRODUCT": "Home Loan",
+        "COMMISSION": "Rs 210",
+        "LINK": "https://clnk.in/vrFv",
+        "CONDITIONS": "Payout Disbursal",
+        "LOGO": "https://cdn0.cuelinks.com/merchant/4295/medium/New_Project_-_2022-01-06T153514.639.png?1641463744"
+    },
+];
+
+export const telecomOffers = [
+    {
+        "CATEGORY": "Telecom",
+        "COMPANY": "Airtel",
+        "PRODUCT": "DTH",
+        "COMMISSION": "Rs 472",
+        "LINK": "https://clnk.in/vrFy",
+        "CONDITIONS": "Payout on Sale of DTH connection",
+        "LOGO": ""
+    },
+    {
+        "CATEGORY": "Telecom",
+        "COMPANY": "Airtel",
+        "PRODUCT": "Prepaid to Postpaid",
+        "COMMISSION": "Rs 630",
+        "LINK": "https://clnk.in/vrFR",
+        "CONDITIONS": "Payout on shift from Prepaid to postpaid",
+        "LOGO": "https://cdn0.cuelinks.com/merchant/191/medium/Airtel.png?1487932883"
+    },
+];

@@ -18,10 +18,11 @@ const BusSearch = () => {
 
   return (
     <div className="bg-white p-4 shadow-md rounded-lg">
-      <Button variant="ghost" onClick={() => navigate('/')} className="mb-4">
-        <ArrowLeft className="mr-2" />
-        Back to Home
-      </Button>
+      <div className="flex items-center mb-8">
+          <BackButton />
+          <br></br>
+          <h1 className="text-3xl font-bold text-secondary-foreground capitalize ml-4">{selectedCategory.name}</h1>
+        </div>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         <Input
           placeholder="From"

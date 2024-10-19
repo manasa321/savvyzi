@@ -1,4 +1,4 @@
-explore const ForeignBrands = [
+explore const CPL = [
     {
         "CATEGORY": "Credit Card",
         "COMPANY": "AU Bank CC",

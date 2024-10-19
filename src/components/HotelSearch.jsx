@@ -2,15 +2,13 @@ import React, { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { DatePicker } from "@/components/ui/date-picker";
-import { useNavigate } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
 
-const HotelSearch = () => {
+const HotelSearch = ({ setActiveSection }) => {
   const [location, setLocation] = useState('');
   const [checkIn, setCheckIn] = useState(null);
   const [checkOut, setCheckOut] = useState(null);
   const [guests, setGuests] = useState(1);
-  const navigate = useNavigate();
 
   const handleSearch = () => {
     console.log('Searching for hotels:', { location, checkIn, checkOut, guests });
@@ -19,7 +17,7 @@ const HotelSearch = () => {
 
   return (
     <div className="bg-white p-4 shadow-md rounded-lg">
-      <Button variant="ghost" onClick={() => navigate('/')} className="mb-4">
+      <Button variant="ghost" onClick={() => setActiveSection('shopping')} className="mb-4">
         <ArrowLeft className="mr-2" />
         Back to Home
       </Button>

@@ -7,11 +7,11 @@ import { financeData } from '../data/financeData';
 // Add image URLs for each category
 const categories = [
   { name: "Credit Card", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS51CTFijnx_cKrtSeabPPiIzSbVlWXt2cUdQ&s" }, // Update with your image path
-  { name: "Insurance", image: "/images/insurance.png" },      // Update with your image path
-  { name: "Loan", image: "/images/loan.png" },                // Update with your image path
-  { name: "Telecom", image: "/images/telecom.png" },          // Update with your image path
-  { name: "Finance", image: "/images/finance.png" },          // Update with your image path
-  { name: "Others", image: "/images/others.png" },            // Update with your image path
+  { name: "Insurance", image: "" },      // Update with your image path
+  { name: "Loan", image: "" },                // Update with your image path
+  { name: "Telecom", image: "" },          // Update with your image path
+  { name: "Finance", image: "" },          // Update with your image path
+  { name: "Others", image: "" },            // Update with your image path
 ];
 
 const FinanceSection = () => {

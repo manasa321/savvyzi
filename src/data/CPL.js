@@ -1,4 +1,4 @@
-const CPL_DATA = [
+export const CPL = [
     {
         "CATEGORY": "Credit Card",
         "COMPANY": "AU Bank CC",
@@ -433,13 +433,3 @@ const CPL_DATA = [
     },
 ];
 
-export const getFinanceCategories = () => {
-    const categories = [...new Set(CPL_DATA.map(item => item.CATEGORY))];
-    return categories.filter(category => category !== "Others");
-};
-
-export const getFinanceProductsByCategory = (category) => {
-    return CPL_DATA.filter(item => item.CATEGORY === category);
-};
-
-export default CPL_DATA;

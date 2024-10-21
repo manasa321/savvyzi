@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { ArrowLeft, CreditCard, Banknote, ShieldCheck, Phone, DollarSign, Package } from 'lucide-react';
 import { Button } from "@/components/ui/button";
-import FinanceCategoryGrid from './FinanceCategoryGrid';
-import FinanceSubcategory from './FinanceSubcategory';
+import FinanceCategoryGrid from '@/components/FinanceCategoryGrid';
+import FinanceSubcategory from '@/components/FinanceSubcategory';
 
 const categories = [
   { name: "Credit Card", icon: CreditCard },

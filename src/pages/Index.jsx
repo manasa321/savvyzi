@@ -34,8 +34,8 @@ const Index = () => {
             <ExploreForeignBrands />
             <LootDealsSection />
             <CreditCardSection />
-            <Route path="/finance" element={<FinanceSection />} />
-            <Route path="/finance/:category" element={<FinanceCategoryGrid />} />
+            <FinanceSection />
+            <FinanceCategoryGrid />
             <InstallAndEarnSection />
             <GiftCards />
             <Footer/>

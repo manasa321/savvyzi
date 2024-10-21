@@ -16,6 +16,7 @@ import CabSearch from '../components/CabSearch';
 import Footer from '../components/Footer';
 import { Button } from "@/components/ui/button";
 import { Plane, Hotel, Train, Bus, Car } from 'lucide-react';
+import FinanceSection from '../components/FinanceSection';
 
 const Index = () => {
   const [activeSection, setActiveSection] = useState('shopping');
@@ -31,6 +32,7 @@ const Index = () => {
             <ExploreForeignBrands />
             <LootDealsSection />
             <CreditCardSection />
+            <FinanceSection />
             <InstallAndEarnSection />
             <GiftCards />
             <Footer/>

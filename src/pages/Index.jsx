@@ -4,7 +4,6 @@ import CategorySection from '../components/CategorySection';
 import DealOfTheDay from '../components/DealOfTheDay';
 import PopularStores from '../components/PopularStores';
 import ExploreForeignBrands from '../components/ExploreForeignBrands';
-import CreditCardSection from '../components/CreditCardSection';
 import InstallAndEarnSection from '../components/InstallAndEarnSection';
 import LootDealsSection from '../components/LootDealsSection';
 import GiftCards from '../components/GiftCards';
@@ -17,8 +16,6 @@ import Footer from '../components/Footer';
 import { Button } from "@/components/ui/button";
 import { Plane, Hotel, Train, Bus, Car } from 'lucide-react';
 import FinanceSection from '../components/FinanceSection';
-import FinanceCategoryPage from "../components/FinanceCategoryPage";
-
 
 const Index = () => {
   const [activeSection, setActiveSection] = useState('shopping');
@@ -33,9 +30,7 @@ const Index = () => {
             <PopularStores />
             <ExploreForeignBrands />
             <LootDealsSection />
-            <CreditCardSection />
             <FinanceSection />
-            <FinanceCategoryPage />
             <InstallAndEarnSection />
             <GiftCards />
             <Footer/>

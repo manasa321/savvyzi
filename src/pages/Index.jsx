@@ -17,7 +17,7 @@ import Footer from '../components/Footer';
 import { Button } from "@/components/ui/button";
 import { Plane, Hotel, Train, Bus, Car } from 'lucide-react';
 import FinanceSection from '../components/FinanceSection';
-import FinanceCategoryGrid from "../components/FinanceCategoryGrid";
+import FinanceCategoryGrid from "../components/FinanceCategoryPage";
 
 
 const Index = () => {
@@ -35,6 +35,7 @@ const Index = () => {
             <LootDealsSection />
             <CreditCardSection />
             <FinanceSection />
+            <FinanceCategoryPage />
             <InstallAndEarnSection />
             <GiftCards />
             <Footer/>

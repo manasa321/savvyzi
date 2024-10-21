@@ -2,16 +2,16 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { CreditCard, Shield, Banknote, Phone, DollarSign, Package } from 'lucide-react';
 import { financeData } from '../data/financeData';
 
+// Add image URLs for each category
 const categories = [
-  { name: "Credit Card", icon: CreditCard },
-  { name: "Insurance", icon: Shield },
-  { name: "Loan", icon: Banknote },
-  { name: "Telecom", icon: Phone },
-  { name: "Finance", icon: DollarSign },
-  { name: "Others", icon: Package },
+  { name: "Credit Card", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS51CTFijnx_cKrtSeabPPiIzSbVlWXt2cUdQ&s" }, // Update with your image path
+  { name: "Insurance", image: "/images/insurance.png" },      // Update with your image path
+  { name: "Loan", image: "/images/loan.png" },                // Update with your image path
+  { name: "Telecom", image: "/images/telecom.png" },          // Update with your image path
+  { name: "Finance", image: "/images/finance.png" },          // Update with your image path
+  { name: "Others", image: "/images/others.png" },            // Update with your image path
 ];
 
 const FinanceSection = () => {
@@ -26,7 +26,8 @@ const FinanceSection = () => {
       {categories.map((category) => (
         <Card key={category.name} className="cursor-pointer hover:shadow-lg transition-shadow" onClick={() => handleCategoryClick(category)}>
           <CardContent className="flex flex-col items-center justify-center p-6">
-            <category.icon className="w-12 h-12 mb-2" />
+            {/* Render the category image instead of the icon */}
+            <img src={category.image} alt={category.name} className="w-12 h-12 mb-2" />
             <h3 className="text-lg font-semibold">{category.name}</h3>
           </CardContent>
         </Card>

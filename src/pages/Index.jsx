@@ -35,7 +35,6 @@ const Index = () => {
             <LootDealsSection />
             <CreditCardSection />
             <FinanceSection />
-            <FinanceCategoryGrid />
             <InstallAndEarnSection />
             <GiftCards />
             <Footer/>

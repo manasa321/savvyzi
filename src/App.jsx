@@ -8,6 +8,7 @@ import ProductDetail from './pages/ProductDetail';
 import ProductComparison from './pages/ProductComparison';
 import CategoryPage from './pages/CategoryPage';
 import ForeignBrandsList from './components/ForeignBrandsList';
+import FinanceCategoryPage from './pages/FinanceCategoryPage';
 
 const queryClient = new QueryClient();
 
@@ -24,6 +25,7 @@ function App() {
             <Route path="/category/:category" element={<CategoryPage />} />
             <Route path="/category/:category/:subcategory" element={<CategoryPage />} />
             <Route path="/foreign/:category" element={<ForeignBrandsList />} />
+            <Route path="/finance/:category" element={<FinanceCategoryPage />} />
           </Routes>
         </Router>
       </AuthProvider>

@@ -13,18 +13,27 @@ const categories = [
 
 const FinanceSection = () => {
   return (
-    <section className="mb-8">
-      <h2 className="text-3xl font-bold mb-6">Finance</h2>
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+    <section className="container mx-auto px-4 py-8">
+      <h2 className="text-2xl md:text-3xl font-bold mb-6">Finance</h2>
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 md:gap-4">
         {categories.map((category) => (
-          <Link to={`/finance/${category.name.toLowerCase().replace(' ', '-')}`} key={category.name}>
-            <Card className="overflow-hidden hover:shadow-lg transition-shadow">
-              <CardContent className="p-4">
-                <div className="flex flex-col items-center">
-                  <div className="w-16 h-16 rounded-full overflow-hidden mb-2">
-                    <img src={category.image} alt={category.name} className="w-full h-full object-contain" />
+          <Link 
+            to={`/finance/${category.name.toLowerCase().replace(' ', '-')}`} 
+            key={category.name}
+            className="block"
+          >
+            <Card className="h-full overflow-hidden hover:shadow-lg transition-shadow">
+              <CardContent className="p-3 md:p-4">
+                <div className="flex flex-col items-center justify-center">
+                  <div className="w-12 h-12 md:w-16 md:h-16 rounded-full overflow-hidden mb-2">
+                    <img 
+                      src={category.image} 
+                      alt={category.name} 
+                      className="w-full h-full object-contain"
+                      loading="lazy"
+                    />
                   </div>
-                  <h3 className="text-sm font-semibold text-center">{category.name}</h3>
+                  <h3 className="text-xs md:text-sm font-semibold text-center">{category.name}</h3>
                 </div>
               </CardContent>
             </Card>

@@ -90,7 +90,7 @@ const DealOfTheDay = () => {
   const [emblaRef, emblaApi] = useEmblaCarousel({ 
     loop: true, 
     align: 'start',
-    slidesToScroll: 4,
+    slidesToScroll: 1,
   });
 
   const scrollNext = useCallback(() => {
@@ -99,7 +99,7 @@ const DealOfTheDay = () => {
 
   useEffect(() => {
     if (emblaApi) {
-      const interval = setInterval(scrollNext, 3000); // Auto-scroll every 3 seconds
+      const interval = setInterval(scrollNext, 3000);
       return () => clearInterval(interval);
     }
   }, [emblaApi, scrollNext]);
@@ -109,31 +109,31 @@ const DealOfTheDay = () => {
   };
 
   return (
-    <div className="mb-8 relative">
-      <h2 className="text-2xl font-semibold mb-4">Deals</h2>
+    <div className="mb-8 px-4 sm:px-0">
+      <h2 className="text-xl sm:text-2xl font-semibold mb-4">Deals</h2>
 
       <Carousel className="w-full" ref={emblaRef}>
         <CarouselContent>
           {deals.map((deal) => (
-            <CarouselItem key={deal.id} className="sm:basis-full md:basis-1/2 lg:basis-1/4 pl-4">
+            <CarouselItem key={deal.id} className="basis-full sm:basis-1/2 lg:basis-1/4 pl-4">
               <Card className="overflow-hidden cursor-pointer" onClick={() => handleDealClick(deal.url)}>
                 <CardContent className="p-0">
-                  <div className={`relative w-full h-48 ${deal.bgColor}`}>
+                  <div className={`relative w-full h-36 sm:h-48 ${deal.bgColor}`}>
                     <img
                       src={deal.image}
                       alt={deal.title}
                       className="w-full h-full object-cover mix-blend-overlay"
                     />
-                    <div className="absolute inset-0 flex flex-col justify-between p-4">
+                    <div className="absolute inset-0 flex flex-col justify-between p-2 sm:p-4">
                       <div className="flex justify-between items-start">
-                        <img src={deal.logo} alt={`${deal.title} logo`} className="h-6 object-contain" />
+                        <img src={deal.logo} alt={`${deal.title} logo`} className="h-4 sm:h-6 object-contain" />
                         <span className="bg-red-600 text-white px-2 py-1 text-xs font-bold rounded">
                           {deal.saleStatus}
                         </span>
                       </div>
                       <div className="text-white">
-                        <h3 className="text-2xl font-bold mb-1">{deal.title}</h3>
-                        <p className="text-sm mb-1">{deal.subtitle}</p>
+                        <h3 className="text-lg sm:text-2xl font-bold mb-1">{deal.title}</h3>
+                        <p className="text-xs sm:text-sm mb-1">{deal.subtitle}</p>
                       </div>
                     </div>
                   </div>

@@ -16,18 +16,18 @@ const popularStores = [
 
 const PopularStores = () => {
   return (
-    <section className="mb-8">
-      <h2 className="text-2xl font-semibold mb-4">Popular Stores</h2>
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-4">
+    <section className="mb-8 px-4 sm:px-0">
+      <h2 className="text-xl sm:text-2xl font-semibold mb-4">Popular Stores</h2>
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-3 sm:gap-4">
         {popularStores.map((store) => (
           <a href={store.url} key={store.id} target="_blank" rel="noopener noreferrer">
             <Card className="overflow-hidden hover:shadow-lg transition-shadow">
-              <CardContent className="p-4">
+              <CardContent className="p-3 sm:p-4">
                 <div className="flex flex-col items-center">
-                  <div className="w-16 h-16 rounded-full overflow-hidden mb-2">
+                  <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-full overflow-hidden mb-2">
                     <img src={store.logo} alt={store.name} className="w-full h-full object-contain" />
                   </div>
-                  <h3 className="text-sm font-semibold text-center">{store.name}</h3>
+                  <h3 className="text-xs sm:text-sm font-semibold text-center">{store.name}</h3>
                 </div>
               </CardContent>
             </Card>

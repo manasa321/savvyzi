@@ -54,17 +54,19 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       <Navbar />
-      <main className="container mx-auto py-4 px-4">
-        <div className="flex justify-center mb-6 space-x-4">
+      <main className="max-w-[100vw] overflow-x-hidden px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-start md:justify-center overflow-x-auto md:overflow-x-visible py-4 space-x-2 md:space-x-4">
           <Button
             variant={activeSection === 'shopping' ? 'default' : 'outline'}
             onClick={() => setActiveSection('shopping')}
+            className="whitespace-nowrap"
           >
             Shopping
           </Button>
           <Button
             variant={activeSection === 'flights' ? 'default' : 'outline'}
             onClick={() => setActiveSection('flights')}
+            className="whitespace-nowrap"
           >
             <Plane className="mr-2 h-4 w-4" />
             Flights
@@ -72,6 +74,7 @@ const Index = () => {
           <Button
             variant={activeSection === 'hotels' ? 'default' : 'outline'}
             onClick={() => setActiveSection('hotels')}
+            className="whitespace-nowrap"
           >
             <Hotel className="mr-2 h-4 w-4" />
             Hotels
@@ -79,6 +82,7 @@ const Index = () => {
           <Button
             variant={activeSection === 'trains' ? 'default' : 'outline'}
             onClick={() => setActiveSection('trains')}
+            className="whitespace-nowrap"
           >
             <Train className="mr-2 h-4 w-4" />
             Trains
@@ -86,6 +90,7 @@ const Index = () => {
           <Button
             variant={activeSection === 'buses' ? 'default' : 'outline'}
             onClick={() => setActiveSection('buses')}
+            className="whitespace-nowrap"
           >
             <Bus className="mr-2 h-4 w-4" />
             Buses
@@ -93,6 +98,7 @@ const Index = () => {
           <Button
             variant={activeSection === 'cabs' ? 'default' : 'outline'}
             onClick={() => setActiveSection('cabs')}
+            className="whitespace-nowrap"
           >
             <Car className="mr-2 h-4 w-4" />
             Cabs

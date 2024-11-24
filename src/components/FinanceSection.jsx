@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Card, CardContent } from "@/components/ui/card";
+import { useQuery } from '@tanstack/react-query';
 
 const categories = [
   { name: "Credit Card", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS51CTFijnx_cKrtSeabPPiIzSbVlWXt2cUdQ&s" },
@@ -11,7 +12,32 @@ const categories = [
   { name: "Others", image: "https://example.com/others-icon.png" },
 ];
 
+const fetchFinanceData = async () => {
+  console.log('Fetching finance data from API...');
+  const response = await fetch('http://localhost:8000/api/finance/');
+  if (!response.ok) {
+    throw new Error('Failed to fetch finance data');
+  }
+  const data = await response.json();
+  console.log('Finance data received:', data);
+  return data;
+};
+
 const FinanceSection = () => {
+  const { data: financeData, isLoading, error } = useQuery({
+    queryKey: ['financeData'],
+    queryFn: fetchFinanceData,
+  });
+
+  if (isLoading) {
+    return <div className="container mx-auto px-4 py-8">Loading finance data...</div>;
+  }
+
+  if (error) {
+    console.error('Error fetching finance data:', error);
+    return <div className="container mx-auto px-4 py-8">Error loading finance data</div>;
+  }
+
   return (
     <section className="container mx-auto px-4 py-8">
       <h2 className="text-2xl md:text-3xl font-bold mb-6">Finance</h2>

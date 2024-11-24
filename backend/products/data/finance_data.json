@@ -1,0 +1,17 @@
+{
+  "categories": [
+    {
+      "name": "Credit Card",
+      "products": [
+        {
+          "CATEGORY": "Credit Card",
+          "COMPANY": "Example Bank",
+          "PRODUCT": "Premium Credit Card",
+          "COMMISSION": "₹1000",
+          "CONDITIONS": "Minimum spend of ₹5000",
+          "LINK": "https://example.com/card"
+        }
+      ]
+    }
+  ]
+}

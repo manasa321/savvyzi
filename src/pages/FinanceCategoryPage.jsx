@@ -3,11 +3,33 @@ import { useParams, Link } from 'react-router-dom';
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft } from 'lucide-react';
-import { financeData } from '../data/financeData';
+import { useQuery } from '@tanstack/react-query';
 
 const FinanceCategoryPage = () => {
   const { category } = useParams();
-  const categoryData = financeData.filter(item => item.CATEGORY.toLowerCase() === category.replace('-', ' '));
+
+  const { data: financeData, isLoading, error } = useQuery({
+    queryKey: ['finance'],
+    queryFn: async () => {
+      const response = await fetch('http://localhost:8000/finance/');
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.json();
+    }
+  });
+
+  if (isLoading) {
+    return <div className="container mx-auto px-4 py-8">Loading...</div>;
+  }
+
+  if (error) {
+    return <div className="container mx-auto px-4 py-8">Error loading finance data</div>;
+  }
+
+  const categoryData = financeData?.filter(item => 
+    item.CATEGORY.toLowerCase() === category.replace('-', ' ').toLowerCase()
+  ) || [];
 
   return (
     <div className="container mx-auto px-4 py-8">

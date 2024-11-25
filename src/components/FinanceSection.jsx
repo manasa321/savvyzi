@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { Card, CardContent } from "@/components/ui/card";
 
 const categories = [
@@ -12,15 +12,21 @@ const categories = [
 ];
 
 const FinanceSection = () => {
+  const navigate = useNavigate();
+
+  const handleCategoryClick = (categoryName) => {
+    navigate(`/finance/${categoryName.toLowerCase().replace(' ', '-')}`);
+  };
+
   return (
     <section className="container mx-auto px-4 py-8">
       <h2 className="text-2xl md:text-3xl font-bold mb-6">Finance</h2>
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 md:gap-4">
         {categories.map((category) => (
-          <Link 
-            to={`/finance/${category.name.toLowerCase().replace(' ', '-')}`} 
+          <div
             key={category.name}
-            className="block"
+            onClick={() => handleCategoryClick(category.name)}
+            className="cursor-pointer"
           >
             <Card className="h-full overflow-hidden hover:shadow-lg transition-shadow">
               <CardContent className="p-3 md:p-4">
@@ -37,7 +43,7 @@ const FinanceSection = () => {
                 </div>
               </CardContent>
             </Card>
-          </Link>
+          </div>
         ))}
       </div>
     </section>

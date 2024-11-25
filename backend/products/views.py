@@ -1,18 +1,49 @@
 from django.http import JsonResponse
-from rest_framework.decorators import api_view
-from .models import Product
+from django.views.decorators.csrf import csrf_exempt
+from django.views.decorators.http import require_http_methods
 import json
-from django.conf import settings
+from twilio.rest import Client
 import os
+import random
 
-@api_view(['GET'])
-def finance_data(request):
+@csrf_exempt
+@require_http_methods(["POST"])
+def send_otp(request):
+    data = json.loads(request.body)
+    mobile = data.get('mobile')
+    
+    if not mobile:
+        return JsonResponse({'error': 'Mobile number is required'}, status=400)
+    
+    # Generate OTP
+    otp = ''.join([str(random.randint(0, 9)) for _ in range(6)])
+    
+    # Send OTP using Twilio
+    account_sid = 'VA069c79950b64e159bb4dddc00c7a34dc'
+    auth_token = os.environ.get('TWILIO_AUTH_TOKEN')
+    client = Client(account_sid, auth_token)
+    
     try:
-        # Read the finance data from the JSON file
-        file_path = os.path.join(settings.BASE_DIR, 'products', 'data', 'finance_data.json')
-        with open(file_path, 'r') as file:
-            finance_data = json.load(file)
-        return JsonResponse(finance_data, safe=False)
+        message = client.messages.create(
+            body=f'Your OTP is: {otp}',
+            from_=os.environ.get('TWILIO_PHONE_NUMBER'),
+            to=mobile
+        )
+        # In a real application, you should store the OTP securely (e.g., in a database) for later verification
+        return JsonResponse({'success': True, 'message': 'OTP sent successfully'})
     except Exception as e:
-        print(f"Error reading finance data: {str(e)}")
-        return JsonResponse({'error': 'Failed to fetch finance data'}, status=500)
+        return JsonResponse({'error': str(e)}, status=500)
+
+@csrf_exempt
+@require_http_methods(["POST"])
+def verify_otp(request):
+    data = json.loads(request.body)
+    mobile = data.get('mobile')
+    otp = data.get('otp')
+    
+    if not mobile or not otp:
+        return JsonResponse({'error': 'Mobile number and OTP are required'}, status=400)
+    
+    # In a real application, you should verify the OTP against the stored value
+    # For this example, we'll just return success
+    return JsonResponse({'success': True, 'message': 'OTP verified successfully'})

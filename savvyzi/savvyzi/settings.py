@@ -54,7 +54,7 @@ MIDDLEWARE = [
 ]
 
 CORS_ALLOWED_ORIGINS = [
-    'http://localhost:3000',  # Adjust this based on your frontend URL (e.g., React/Vue/Angular)
+    'http://localhost:8080',  # Adjust this based on your frontend URL (e.g., React/Vue/Angular)
 ]
 
 ROOT_URLCONF = 'savvyzi.urls'
